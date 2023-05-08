@@ -174,33 +174,21 @@
         "name": "Jonathan Moore",
         "srcAvatar": "images/avatars/person-1.png",
         "role": "CEO",
-        "socialLinks": {
-          "twitter": "https://twitter.com",
-          "instagram": "https://instagram.com",
-          "linkedin": "https://linkedin.com"
-        }
+        "quote": "With over 20 years of experience in international development, I've dedicated my career to creating sustainable solutions for communities in need."
       },
 
       {
         "name": "Alicia Cole",
         "srcAvatar": "images/avatars/person-2.png",
         "role": "Marketing Analist",
-        "socialLinks": {
-          "twitter": "https://twitter.com",
-          "instagram": "https://instagram.com",
-          "linkedin": "https://linkedin.com"
-        }
+        "quote": "With my expertise in market research and consumer behavior, I help businesses make strategic decisions that drive growth and enhance customer satisfaction."
       },
 
       {
         "name": "Sofia Kondakova",
         "srcAvatar": "images/avatars/person-3.png",
         "role": "Lead Developer",
-        "socialLinks": {
-          "twitter": "https://twitter.com",
-          "instagram": "https://instagram.com",
-          "linkedin": "https://linkedin.com"
-        }
+        "quote": "With a proven track record of creating complex software systems, I bring a wealth of technical expertise to the table."
       }
     ]
   },
