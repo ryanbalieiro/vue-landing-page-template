@@ -1,7 +1,6 @@
 # [Agency Foxy Template](https://ryanbalieiro.github.io/foxy-template/) by Ryan Balieiro
 
-I crafted this one-page agency portfolio theme using Vue 3.0 and Bootstrap 5. The theme comprises a range of content sections, including but not limited to a portfolio gallery, testimonials, and contact. Being fully customizable, it can be seamlessly incorporated into your business with great ease.
-
+This agency portfolio theme was created using Vue 3.0 and Bootstrap 5, all condensed into a sleek one-page layout. The theme boasts a variety of content sections, such as a portfolio gallery, testimonials, and contact information. It's designed to be fully customizable, allowing you to integrate or adapt it into your business with ease.
 ## Preview
 ![alt tag1](readme/screenshot.png)
 

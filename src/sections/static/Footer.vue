@@ -4,14 +4,14 @@
       <div class="row">
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4"><i class="fa fa-map-pin me-2"></i>{{ footerData.location.title }}</h4>
-          <p class="text-address" v-html="footerData.location.address"></p>
+          <h4 class="text-uppercase mb-4"><i class="fa fa-map-pin me-2"></i>{{ data.location.title }}</h4>
+          <p class="text-address" v-html="data.location.address"></p>
         </div>
 
         <!-- Footer Social Icons -->
         <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">{{ footerData.links.title }}</h4>
-          <template v-for="item in footerData.links.items">
+          <h4 class="text-uppercase mb-4">{{ data.links.title }}</h4>
+          <template v-for="item in data.links.items">
             <a class="btn btn-social mx-2" :href="item.href" :aria-label="item.icon">
               <i :class="item.icon"></i>
             </a>
@@ -20,14 +20,14 @@
 
         <!-- Footer Extra Links -->
         <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">{{ footerData.otherLinks.title }}</h4>
-          <template v-for="item in footerData.otherLinks.items">
+          <h4 class="text-uppercase mb-4">{{ data.otherLinks.title }}</h4>
+          <template v-for="item in data.otherLinks.items">
             <a class="extra-link" :href="item.href">{{item.label}}</a>
           </template>
         </div>
 
         <div class="col-lg-12 mb-3 mt-lg-2">
-          <small class="text-muted">{{ footerData.copyright }}</small>
+          <small class="text-muted">{{ data.copyright }}</small>
         </div>
       </div>
     </div>
@@ -35,13 +35,11 @@
 </template>
 
 <script setup>
-import agencyData from '../data/agency.json'
-
-const footerData = agencyData.footer
+const props = defineProps(['data'])
 </script>
 
 <style scoped lang="scss">
-@import "../scss/_theming.scss";
+@import "../../scss/_theming.scss";
 
 .page-footer {
   background-color: $dark;
@@ -58,7 +56,14 @@ const footerData = agencyData.footer
     border-color: white;
     border-radius: 100%;
     border-width: 2px;
-    font-size: 1.3rem;
+
+    $social-button-font-size:1.4rem;
+    display: inline-flex;
+    width: calc($social-button-font-size*2.4);
+    height: calc($social-button-font-size*2.4);
+    font-size: $social-button-font-size;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       background-color: white;

@@ -9,29 +9,28 @@
     <!-- Container -->
     <div class="container">
       <div class="container-content-wrapper">
-        <img :src="headerData.srcImage" class="img-fluid">
-        <h1 class="heading mt-4">{{ headerData.title }}</h1>
-        <p class="subheading">{{ headerData.subtitle }}</p>
-        <XLButton :icon="headerData.button.icon" :label="headerData.button.label" @click="_onButtonClicked()"></XLButton>
+        <img :src="data.srcImage" alt="logo" class="img-fluid">
+        <h1 class="heading mt-4">{{ data.title }}</h1>
+        <p class="subheading">{{ data.subtitle }}</p>
+        <XLButton :icon="data.button.icon" :label="data.button.label" @click="_onButtonClicked()"></XLButton>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
-import agencyData from '../data/agency.json'
-import XLButton from "../components/XLButton.vue"
-import {useLayout} from '../composables/layout.js'
+import XLButton from "../../components/XLButton.vue"
+import {useLayout} from '../../composables/layout.js'
 
-const headerData = agencyData.header
+const props = defineProps(['data'])
 
 const _onButtonClicked = () => {
-  useLayout().scrollToSection(headerData.button.targetSection);
+  useLayout().scrollToSection(props.data.button.targetSection);
 }
 </script>
 
 <style scoped lang="scss">
-@import "../scss/_theming.scss";
+@import "../../scss/_theming.scss";
 
 .page-header {
   min-height: 800px;
@@ -39,7 +38,7 @@ const _onButtonClicked = () => {
 }
 
 .content-top-bg {
-  background-image: url('../assets/header-bg.jpeg');
+  background-image: url('../../assets/header-bg.jpeg');
   background-position: center;
   background-size: cover;
   height: 100%;
@@ -70,7 +69,7 @@ const _onButtonClicked = () => {
   img {
     max-height: 40vh;
     margin-top: 8rem;
-    max-width: 70vw;
+    max-width: 65vw;
   }
 
   .heading {

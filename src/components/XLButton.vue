@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['label', 'icon', 'href', 'type']);
+const props = defineProps(['label', 'icon', 'href', 'type'])
 const emit = defineEmits(['click'])
 
 const _onButtonClicked = () => {
@@ -23,7 +23,7 @@ const _onButtonClicked = () => {
 @import "../scss/_theming.scss";
 
 .btn-xl {
-  padding: 0.6rem 1.2rem;
+  padding: 1rem 1.2rem;
   font-weight: bold;
   font-family: $headings-font-family;
   text-transform: uppercase;

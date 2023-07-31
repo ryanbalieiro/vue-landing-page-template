@@ -1,7 +1,7 @@
 <template>
   <!-- Portfolio Modal -->
   <div class="modal modal-xl fade" id="portfolio-modal" tabindex="-1" aria-labelledby="portfolio-modal-label" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <!-- Title -->
         <div class="modal-header">
@@ -13,12 +13,12 @@
         <div class="modal-body">
           <div class="row">
             <!-- Image Column -->
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-5 col-xl-6">
               <img class="portfolio-cover-img img-fluid mb-3 mg-lg-0" :src="projectImage" :alt="projectTitle" />
             </div>
 
             <!-- Content Column -->
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-7 col-xl-6">
 
               <!-- Tags -->
               <div class="project-tags">
@@ -63,7 +63,7 @@ const displayProject = (project) => {
 
 onMounted(() => {
   let modalElement = document.getElementById('portfolio-modal')
-  bsModal = new Modal(modalElement, {});
+  bsModal = new Modal(modalElement, {})
 })
 
 defineExpose({

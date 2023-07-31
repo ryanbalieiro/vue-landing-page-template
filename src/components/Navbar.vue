@@ -3,23 +3,23 @@
     <div class="container">
       <!-- Brand -->
       <a class="navbar-brand" href="#app">
-        <img :src="navbarData.srcLogo" alt="agency-logo" class="img img-fluid img-logo">
-        <span class="brand-text" v-html="navbarData.brand"></span>
+        <img :src="data.srcLogo" alt="agency-logo" class="img img-fluid img-logo">
+        <span class="brand-text" v-html="data.brand"></span>
       </a>
 
       <!-- Collapse Button (Small Screens) -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-container" aria-controls="navbar-collapse-container" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-container" aria-controls="navbar-collapse-container" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars ms-1 me-1"></i>
       </button>
 
       <!-- Navbar Items -->
       <div class="collapse navbar-collapse" id="navbar-collapse-container">
         <ul class="navbar-nav text-uppercase ms-auto py-2 py-lg-0">
-          <template v-for="menuOption in navbarData.menuOptions">
+          <template v-for="section in sectionList">
             <!-- Nav Item -->
             <li class="nav-item">
-              <a class="nav-link" :class="{'active': displayingSectionId === menuOption.id}" @click="_onNavLinkClicked(menuOption.id)">
-                <i :class="menuOption.icon" class="nav-link-icon d-lg-none"></i> {{ menuOption.label }}
+              <a class="nav-link" :class="{'active': displayingSectionId === section.id}" @click="_onNavLinkClicked(section.id)">
+                <i :class="section.navbar.icon" class="nav-link-icon d-lg-none"></i> {{ section.navbar.label }}
               </a>
             </li>
           </template>
@@ -30,11 +30,10 @@
 </template>
 
 <script setup>
-import agencyData from '../data/agency.json'
 import {onMounted, onUnmounted, ref} from "vue"
 import {useLayout} from '../composables/layout.js'
 
-const navbarData = agencyData.navbar
+const props = defineProps(['data', 'sectionList'])
 
 const displayingSectionId = ref(null)
 const shouldExpand = ref(true)
@@ -55,8 +54,8 @@ const _spyScroll = () => {
   let lowestYPosition = null
 
   // spying scroll to determine which section to highlight on the menu.
-  for(let i in navbarData.menuOptions) {
-    let section = navbarData.menuOptions[i]
+  for(let i in props.sectionList) {
+    let section = props.sectionList[i]
 
     let divBounds = document.querySelector("#" + section.id).getBoundingClientRect()
     let distanceFromZero = Math.abs(divBounds.y)
@@ -70,7 +69,14 @@ const _spyScroll = () => {
 }
 
 const _onNavLinkClicked = (sectionId) => {
-  useLayout().scrollToSection(sectionId)
+  const layoutHelpers = useLayout();
+  layoutHelpers.scrollToSection(sectionId)
+
+  const clickEvent = new Event("click", { bubbles: true, cancelable: true })
+  const toggleButton = document.getElementById("toggler")
+  if(!layoutHelpers.isBreakPoint("lg")) {
+    toggleButton.dispatchEvent(clickEvent)
+  }
 }
 </script>
 

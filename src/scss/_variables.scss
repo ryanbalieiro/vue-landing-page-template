@@ -8,7 +8,7 @@ $dark: #212529;
 $white:white;
 $white-faded: #b7b7b7;
 $dark-faded: #343a40;
-$primary-faded: #ffe3d6;
+$primary-faded: lighten($primary, 42%);
 
 // Typography
 $font-lato: 'Lato', sans-serif;

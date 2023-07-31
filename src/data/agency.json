@@ -1,4 +1,9 @@
 {
+  "navbar": {
+    "brand": "<span class='text-primary'>Foxy</span> Agency",
+    "srcLogo": "images/agency-logo-small.png"
+  },
+
   "header": {
     "title": "Foxy Agency Template",
     "subtitle": "Made by Ryan Balieiro with Vue3 and Bootstrap 5.0",
@@ -10,231 +15,381 @@
     }
   },
 
-  "navbar": {
-    "brand": "<span class='text-primary'>Foxy</span> Agency",
-    "srcLogo": "images/agency-logo-small.png",
-    "menuOptions": [
-      {
-        "id": "about",
+  "sections": {
+    "about": {
+      "id": "about",
+      "navbar": {
         "label": "About",
         "icon": "fa-solid fa-file"
       },
-      {
-        "id": "services",
+
+      "header": {
+        "title": "<span class='text-primary'>About</span> Template",
+        "subtitle": "Get to know more about the project!"
+      },
+
+      "content": {
+        "image": "images/agency-logo.png",
+        "paragraphs": [
+          "Ryan Balieiro created the Foxy Agency Template, a free Vue3 & Bootstrap 5.0 theme. The downloadable files consist of the entire source code, including HTML, CSS, and Javascript. Please feel free to download and customize the theme as you wish.",
+          "With this template, you have the freedom to create custom sections, fill pre-existing ones with your own content, and personalize the colors, fonts, and much more to your liking.",
+          "In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way."
+        ],
+        "button": {
+          "label": "Download Now!",
+          "icon": "fa-solid fa-download",
+          "href": "https://github.com/ryanbalieiro/foxy-template"
+        }
+      },
+
+      "footer": null
+    },
+
+    "services": {
+      "id": "services",
+      "navbar": {
         "label": "Services",
         "icon": "fa-solid fa-wrench"
       },
-      {
-        "id": "portfolio",
+
+      "header": {
+        "title": "Our <span class='text-primary'>Services</span>",
+        "subtitle": "This section can be used to describe what you offer!"
+      },
+
+      "content": {
+        "items": [
+          {
+            "title": "Vue3",
+            "icon": "fa-brands fa-vuejs",
+            "description": "This template is built using the Vue3 JavaScript framework, providing a modern and efficient development experience."
+          },
+
+          {
+            "title": "Responsive Design",
+            "icon": "fa-solid fa-laptop",
+            "description": "This template is designed to adapt seamlessly to various screen sizes, providing a consistent user experience across devices."
+          },
+
+          {
+            "title": "Minimalist",
+            "icon": "fa-solid fa-wand-magic",
+            "description": "This template features a clean and simple design, with a focus on essential elements, resulting in a modern and elegant look."
+          },
+
+          {
+            "title": "Fully Customizable",
+            "icon": "fa-solid fa-hand-sparkles",
+            "description": "This template can be easily customized to match your brand's visual identity and requirements, giving you full control over the design and functionality."
+          },
+
+          {
+            "title": "Open Source",
+            "icon": "fa-solid fa-code",
+            "description": "This template is open-source, meaning the code is publicly accessible and can be modified or redistributed without restrictions."
+          },
+
+          {
+            "title": "Lightweight",
+            "icon": "fa-solid fa-feather",
+            "description": "This template is optimized for performance and speed, with a minimal codebase and minimal dependencies, resulting in a faster load time and improved user experience."
+          }
+        ]
+      },
+
+      "footer": null
+    },
+
+    "portfolio": {
+      "id": "portfolio",
+      "navbar": {
         "label": "Portfolio",
         "icon": "fa-solid fa-camera"
       },
-      {
-        "id": "team",
+
+      "header": {
+        "title": "Project <span class='text-primary'>Portfolio</span>",
+        "subtitle": "Get to know our amazing projects!"
+      },
+
+      "content": {
+        "items": [
+          {
+            "title": "TechMeUp",
+            "category": "Marketing",
+            "srcImage": "images/portfolio/portfolio-1.png",
+            "tags": ["marketing", "seo", "growth"],
+            "description": "A project aimed at providing innovative software solutions to businesses. The company plans to expand its reach by developing a mobile app that will allow users to access their services from anywhere. With a focus on user experience, the app will feature a simple interface, fast loading times, and easy navigation. TechMeUp also plans to partner with other companies to offer integrated services, increasing revenue streams and boosting brand recognition. To support growth, the company will invest in marketing, including social media campaigns and targeted advertising."
+          },
+
+          {
+            "title": "PowerX",
+            "category": "Sales & Business",
+            "srcImage": "images/portfolio/portfolio-2.png",
+            "tags": ["sales", "business", "income"],
+            "description": "A sales project focused on selling high-end power tools to construction companies. The company plans to target medium to large-sized businesses with a high volume of construction projects and a need for top-quality tools. The sales team will utilize a consultative approach, first identifying the specific needs of each client and then providing tailored solutions. To drive sales, PowerX will offer competitive pricing, flexible payment terms, and bulk discounts."
+          },
+
+          {
+            "title": "TransLink",
+            "category": "Logistics",
+            "srcImage": "images/portfolio/portfolio-3.png",
+            "tags": ["logistics", "management", "transportation"],
+            "description": "A logistics project focused on streamlining the transportation of goods for small and medium-sized businesses. The company plans to offer end-to-end logistics solutions, including transportation, warehousing, and distribution services. TransLink will utilize a tech-driven approach, providing real-time tracking of shipments and delivery updates via a user-friendly online portal. The company will also implement advanced analytics and automation tools to optimize supply chain management and reduce operational costs."
+          },
+
+          {
+            "title": "TimeTrack",
+            "category": "Mobile App",
+            "srcImage": "images/portfolio/portfolio-4.png",
+            "tags": ["app", "mobile", "time management"],
+            "description": "A fictional time management app project designed to help users increase productivity and manage their time effectively. The app will feature a simple and intuitive interface that allows users to set goals, track their progress, and analyze their performance. TimeTrack will utilize advanced analytics to provide personalized insights and recommendations, helping users optimize their schedules and prioritize their tasks. The app will also offer features like task batching, time-blocking, and habit tracking, allowing users to maximize their time and establish healthy habits."
+          },
+
+          {
+            "title": "ProjectPro",
+            "category": "Project Management",
+            "srcImage": "images/portfolio/portfolio-5.png",
+            "tags": ["project", "management", "software"],
+            "description": "A fictional project management solution aimed at helping businesses and teams efficiently manage their projects from start to finish. The software will provide a user-friendly interface that allows users to create and manage project tasks, timelines, and milestones. ProjectPro will also include features like resource allocation, budget tracking, and risk management, enabling teams to stay on track and within budget. The app will offer a real-time communication platform for team members to collaborate and share files, reducing the need for emails and meetings."
+          },
+
+          {
+            "title": "SwiftMeUp",
+            "category": "App Development",
+            "srcImage": "images/portfolio/portfolio-6.png",
+            "tags": ["iOS", "swift", "developer"],
+            "description": "An iOS development project aimed at creating an innovative app that solves a specific problem or meets a specific need. The app will be developed using Swift, Apple's programming language for iOS and macOS, and will feature a clean and intuitive user interface."
+          }
+        ]
+      },
+
+      "footer": {
+        "title": "Work with us and <span class='text-primary'>save money!</span>",
+        "longDescription": "Want a quote for the project budget? Reach out to us, and we'll promptly provide the information you need. Our team is here to assist you in any way we can!",
+        "button": {
+          "label": "Contact Us!",
+          "icon": "fa-solid fa-message me-2",
+          "href": "#contact"
+        }
+      }
+    },
+
+    "team": {
+      "id": "team",
+      "navbar": {
         "label": "Team",
         "icon": "fa-solid fa-user"
       },
-      {
-        "id": "reviews",
+
+      "header": {
+        "title": "Our <span class='text-primary'>Team</span>",
+        "subtitle": "Meet our amazing crew!"
+      },
+
+      "content": {
+        "items": [
+          {
+            "name": "Jonathan Moore",
+            "srcAvatar": "images/avatars/person-1.png",
+            "role": "CEO",
+            "quote": "With over 20 years of experience in international development, I've dedicated my career to creating sustainable solutions for communities in need.",
+            "socialLinks": [
+              {"icon": "fa-brands fa-twitter", "href": "https://twitter.com"},
+              {"icon": "fa-brands fa-instagram", "href": "https://instagram.com"},
+              {"icon": "fa-brands fa-linkedin", "href": "https://linkedin.com"}
+            ]
+          },
+
+          {
+            "name": "Alicia Cole",
+            "srcAvatar": "images/avatars/person-2.png",
+            "role": "Marketing Analist",
+            "quote": "With my expertise in market research and consumer behavior, I help businesses make strategic decisions that drive growth and enhance overall customer satisfaction.",
+            "socialLinks": [
+              {"icon": "fa-brands fa-twitter", "href": "https://twitter.com"},
+              {"icon": "fa-brands fa-linkedin", "href": "https://linkedin.com"}
+            ]
+          },
+
+          {
+            "name": "Sofia Kondakova",
+            "srcAvatar": "images/avatars/person-3.png",
+            "role": "Lead Developer",
+            "quote": "With a proven track record of creating complex software systems, I bring a wealth of technical expertise to the table.",
+            "socialLinks": [
+              {"icon": "fa-brands fa-twitter", "href": "https://twitter.com"},
+              {"icon": "fa-brands fa-github", "href": "https://github.com"},
+              {"icon": "fa-brands fa-linkedin", "href": "https://linkedin.com"}
+            ]
+          },
+
+          {
+            "name": "Jiang Xi",
+            "srcAvatar": "images/avatars/person-4.png",
+            "role": "Product Manager",
+            "quote": "I translate user needs into innovative products. Leading diverse teams with strategic vision, I drive customer-centric solutions, fostering innovation and delivering real value to the market.",
+            "socialLinks": [
+              {"icon": "fa-brands fa-instagram", "href": "https://instagram.com"},
+              {"icon": "fa-brands fa-facebook", "href": "https://facebook.com"},
+              {"icon": "fa-brands fa-linkedin", "href": "https://linkedin.com"}
+            ]
+          },
+
+          {
+            "name": "Travis Jones",
+            "srcAvatar": "images/avatars/person-5.png",
+            "role": "CFO",
+            "quote": "Guiding financial growth, I ensure stability through meticulous planning and risk management. Empowering the team to seize opportunities, we achieve lasting success.",
+            "socialLinks": [
+              {"icon": "fa-brands fa-instagram", "href": "https://instagram.com"},
+              {"icon": "fa-brands fa-linkedin", "href": "https://linkedin.com"}
+            ]
+          },
+
+          {
+            "name": "Aaron Friedrich",
+            "srcAvatar": "images/avatars/person-6.png",
+            "role": "Information Security Officer",
+            "quote": "Safeguarding valuable data is my mission. As a vigilant CISO, I proactively secure the digital landscape, assuring the trust of customers and partners with cutting-edge measures.",
+            "socialLinks": [
+              {"icon": "fa-brands fa-instagram", "href": "https://instagram.com"},
+              {"icon": "fa-brands fa-linkedin", "href": "https://linkedin.com"}
+            ]
+          }
+        ]
+      },
+
+      "footer": null
+    },
+
+    "reviews": {
+      "id": "reviews",
+      "navbar": {
         "label": "Reviews",
         "icon": "fa-solid fa-comment"
       },
-      {
-        "id": "contact",
+
+      "header": {
+        "title": "Client <span class='text-primary'>Reviews</span>",
+        "subtitle": "What people say about us!"
+      },
+
+      "content": {
+        "items": [
+          {
+            "organization": "Spotify",
+            "srcAvatar": "images/clients/client-spotify.svg",
+            "message": "I am absolutely blown away by the Vue3 website template! The minimalist design is simply stunning, and it's incredibly easy to customize to fit my needs. Plus, it loads super fast, which is crucial for my business. I highly recommend this template!",
+            "staffMember": "John Lee – Engineer"
+          },
+          {
+            "organization": "Voloco",
+            "srcAvatar": "images/clients/client-voloco.svg",
+            "message": "I can't say enough good things about this website template. As someone with no coding experience, I was able to create a professional-looking website in no time. The responsiveness is top-notch, and the open-source nature of the code means I can tweak it to my heart's content. This template is a game-changer!",
+            "staffMember": "Any Heather – HR Lead"
+          },
+          {
+            "organization": "Microsoft",
+            "srcAvatar": "images/clients/client-microsoft.svg",
+            "message": "This is hands down the best website template I've ever used. The lightweight codebase makes for a lightning-fast site, and the fully customizable nature allowed me to create a unique and engaging experience for my users. I highly recommend this template to anyone looking for a sleek, modern, and easy-to-use website solution.",
+            "staffMember": "Bill Gates – CEO"
+          },
+          {
+            "organization": "Facebook",
+            "srcAvatar": "images/clients/client-facebook.svg",
+            "message": "The Vue3 theme surpassed expectations with its stunning design, seamless integration, and excellent performance. Highly recommended for a transformative website experience.",
+            "staffMember": "Mark Zuckie – CEO"
+          },
+          {
+            "organization": "Nasa",
+            "srcAvatar": "images/clients/client-nasa.svg",
+            "message": "I am absolutely thrilled to express my admiration for this top-notch template with its simple and intuitive design! Words alone cannot do justice to the delight it has brought into my life. From the very first moment I laid my eyes on it, I knew this was something special.",
+            "staffMember": "John Suarez - Tech Analyst"
+          }
+        ]
+      },
+
+      "footer": null
+    },
+
+    "faq": {
+      "id": "faq",
+      "navbar": {
+        "label": "Q&A",
+        "icon": "fa-solid fa-question-circle"
+      },
+
+      "header": {
+        "title": "Questions and <span class='text-primary'>Answers</span>",
+        "subtitle": "Quick answers to your queries!"
+      },
+
+      "content": {
+        "items": [
+          {
+            "question": "How do I customize the content of the template?",
+            "answer": "To customize the content, you'll need to modify the <i>agency.json</i> file, which is located in the <i>data</i> folder within the <i>src</i> directory. This JSON file contains the necessary data for the template, allowing you to change texts, images, links, and other elements as per your requirements. Make sure to follow the provided structure to avoid any formatting issues. Additionally, if you need to add new sections or make more extensive changes, you may need to work with the Vue components and other files within the template's structure."
+
+          },
+
+          {
+            "question": "How can I enable the functionality of the contact form?",
+            "answer": "Integrating the contact form requires implementing your own server-side logic. Please note that the current template only includes the client-side implementation. You'll need to set up a backend server to handle form submissions, process data, and send emails or perform other actions as needed. Ensure that the server-side code is secure to prevent potential security vulnerabilities. On the frontend, you can link the form submission to your backend endpoints using JavaScript. Keep in mind that specific steps may vary based on your backend technology and preferences."
+
+          },
+
+          {
+            "question": "What steps should I follow to add a new section to the theme?",
+            "answer": "Adding a new section to the theme involves a few steps. First, create a new Vue component for it in the <i>sections/custom</i> folder. Use the existing components as a reference to maintain consistency with the template's design and functionality. Next, within the <i>agency.json</i> file, create an item for the new section, where you can define all the necessary data such as texts, links, and other information. Lastly, create a new instance of your custom section inside the <i>App.vue</i> file. After completing these steps, your new section should be fully integrated into the theme."
+
+          },
+
+          {
+            "question": "Can I expect the template to be responsive and work well on mobile devices?",
+            "answer": "Absolutely! The template is designed with responsiveness in mind, ensuring that it adapts to various screen types and sizes, including mobile devices. The use of responsive design techniques like media queries and flexible layout ensures that the template looks and functions well on smartphones, tablets, and other mobile devices. During customization, make sure to preview the template on different screen sizes and devices to ensure it displays correctly. If you encounter any issues, you can adjust the CSS styles or layout accordingly to improve the mobile experience further."
+          }
+        ]
+      },
+
+      "footer": {
+        "title": "<span class='text-primary'>Save time</span> with Foxy Agency Template!",
+        "longDescription": "Foxy Agency Template beautifully and intuitively extends the Vue and Bootstrap frameworks making it easy to build your next project!",
+        "button": {
+          "label": "Download Now!",
+          "icon": "fa-solid fa-download",
+          "href": "https://github.com/ryanbalieiro/foxy-template"
+        }
+      }
+    },
+
+    "contact": {
+      "id": "contact",
+      "navbar": {
         "label": "Contact",
         "icon": "fa-solid fa-envelope"
-      }
-    ]
-  },
-
-  "about": {
-    "id": "about",
-    "title": "<span class='text-primary'>About</span> Template",
-    "subtitle": "Get to know more about the project!",
-    "content": {
-      "image": "images/agency-logo.png",
-      "paragraphs": [
-        "Ryan Balieiro created the Foxy Agency Template, a free Vue3 & Bootstrap 5.0 theme. The downloadable files consist of the entire source code, including HTML, CSS, and Javascript. Please feel free to download and customize the theme as you wish.",
-        "With this template, you have the freedom to create custom sections, fill pre-existing ones with your own content, and personalize the colors, fonts, and much more to your liking.",
-        "In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way."
-      ]
-    },
-    "button": {
-      "label": "Download Now!",
-      "icon": "fa-solid fa-download",
-      "href": "https://github.com/ryanbalieiro/foxy-template"
-    }
-  },
-
-  "services": {
-    "id": "services",
-    "title": "Our <span class='text-primary'>Services</span>",
-    "subtitle": "This section can be used to describe what you offer!",
-
-    "items": [
-      {
-        "title": "Vue3",
-        "icon": "fa-brands fa-vuejs",
-        "description": "This template is built using the Vue3 JavaScript framework, providing a modern and efficient development experience."
       },
 
-      {
-        "title": "Responsive Design",
-        "icon": "fa-solid fa-laptop",
-        "description": "This template is designed to adapt seamlessly to various screen sizes, providing a consistent user experience across devices."
+      "header": {
+        "title": "Contact Us",
+        "subtitle": "Don't hesitate to reach us out!"
       },
 
-      {
-        "title": "Minimalist",
-        "icon": "fa-solid fa-wand-magic",
-        "description": "This template features a clean and simple design, with a focus on essential elements, resulting in a modern and elegant look."
+      "content": {
+        "placeholders": {
+          "name": "Your Name *",
+          "email": "Your Email *",
+          "subject": "Subject *",
+          "message": "Message *"
+        },
+
+        "button": {
+          "label": "Send Message",
+          "icon": "fa-solid fa-envelope me-2"
+        }
       },
 
-      {
-        "title": "Fully Customizable",
-        "icon": "fa-solid fa-hand-sparkles",
-        "description": "This template can be easily customized to match your brand's visual identity and requirements, giving you full control over the design and functionality."
-      },
-
-      {
-        "title": "Open Source",
-        "icon": "fa-solid fa-code",
-        "description": "This template is open-source, meaning the code is publicly accessible and can be modified or redistributed without restrictions."
-      },
-
-      {
-        "title": "Lightweight",
-        "icon": "fa-solid fa-feather",
-        "description": "This template is optimized for performance and speed, with a minimal codebase and minimal dependencies, resulting in a faster load time and improved user experience."
-      }
-    ]
-  },
-
-  "portfolio": {
-    "id": "portfolio",
-    "title": "Project <span class='text-primary'>Portfolio</span>",
-    "subtitle": "Get to know our amazing projects!",
-    "projects": [
-      {
-        "title": "TechMeUp",
-        "category": "Marketing",
-        "srcImage": "images/portfolio/portfolio-1.png",
-        "tags": ["marketing", "seo", "growth"],
-        "description": "A project aimed at providing innovative software solutions to businesses. The company plans to expand its reach by developing a mobile app that will allow users to access their services from anywhere. With a focus on user experience, the app will feature a simple interface, fast loading times, and easy navigation. TechMeUp also plans to partner with other companies to offer integrated services, increasing revenue streams and boosting brand recognition. To support growth, the company will invest in marketing, including social media campaigns and targeted advertising."
-      },
-
-      {
-        "title": "PowerX",
-        "category": "Sales & Business",
-        "srcImage": "images/portfolio/portfolio-2.png",
-        "tags": ["sales", "business", "income"],
-        "description": "A sales project focused on selling high-end power tools to construction companies. The company plans to target medium to large-sized businesses with a high volume of construction projects and a need for top-quality tools. The sales team will utilize a consultative approach, first identifying the specific needs of each client and then providing tailored solutions. To drive sales, PowerX will offer competitive pricing, flexible payment terms, and bulk discounts."
-      },
-
-      {
-        "title": "TransLink",
-        "category": "Logistics",
-        "srcImage": "images/portfolio/portfolio-3.png",
-        "tags": ["logistics", "management", "transportation"],
-        "description": "A logistics project focused on streamlining the transportation of goods for small and medium-sized businesses. The company plans to offer end-to-end logistics solutions, including transportation, warehousing, and distribution services. TransLink will utilize a tech-driven approach, providing real-time tracking of shipments and delivery updates via a user-friendly online portal. The company will also implement advanced analytics and automation tools to optimize supply chain management and reduce operational costs."
-      },
-
-      {
-        "title": "TimeTrack",
-        "category": "Mobile App",
-        "srcImage": "images/portfolio/portfolio-4.png",
-        "tags": ["app", "mobile", "time management"],
-        "description": "A fictional time management app project designed to help users increase productivity and manage their time effectively. The app will feature a simple and intuitive interface that allows users to set goals, track their progress, and analyze their performance. TimeTrack will utilize advanced analytics to provide personalized insights and recommendations, helping users optimize their schedules and prioritize their tasks. The app will also offer features like task batching, time-blocking, and habit tracking, allowing users to maximize their time and establish healthy habits."
-      },
-
-      {
-        "title": "ProjectPro",
-        "category": "Project Management",
-        "srcImage": "images/portfolio/portfolio-5.png",
-        "tags": ["project", "management", "software"],
-        "description": "A fictional project management solution aimed at helping businesses and teams efficiently manage their projects from start to finish. The software will provide a user-friendly interface that allows users to create and manage project tasks, timelines, and milestones. ProjectPro will also include features like resource allocation, budget tracking, and risk management, enabling teams to stay on track and within budget. The app will offer a real-time communication platform for team members to collaborate and share files, reducing the need for emails and meetings."
-      },
-
-      {
-        "title": "SwiftMeUp",
-        "category": "App Development",
-        "srcImage": "images/portfolio/portfolio-6.png",
-        "tags": ["iOS", "swift", "developer"],
-        "description": "An iOS development project aimed at creating an innovative app that solves a specific problem or meets a specific need. The app will be developed using Swift, Apple's programming language for iOS and macOS, and will feature a clean and intuitive user interface."
-      }
-    ]
-  },
-
-  "team": {
-    "id": "team",
-    "title": "Our <span class='text-primary'>Team</span>",
-    "subtitle": "Meet our amazing crew!",
-    "members": [
-      {
-        "name": "Jonathan Moore",
-        "srcAvatar": "images/avatars/person-1.png",
-        "role": "CEO",
-        "quote": "With over 20 years of experience in international development, I've dedicated my career to creating sustainable solutions for communities in need."
-      },
-
-      {
-        "name": "Alicia Cole",
-        "srcAvatar": "images/avatars/person-2.png",
-        "role": "Marketing Analist",
-        "quote": "With my expertise in market research and consumer behavior, I help businesses make strategic decisions that drive growth and enhance customer satisfaction."
-      },
-
-      {
-        "name": "Sofia Kondakova",
-        "srcAvatar": "images/avatars/person-3.png",
-        "role": "Lead Developer",
-        "quote": "With a proven track record of creating complex software systems, I bring a wealth of technical expertise to the table."
-      }
-    ]
-  },
-
-  "clients": {
-    "id": "reviews",
-    "title": "Client <span class='text-primary'>Reviews</span>",
-    "subtitle": "What people say about us!",
-
-    "testimonials": [
-      {
-        "organization": "Spotify",
-        "srcAvatar": "images/clients/client-spotify.svg",
-        "message": "I am absolutely blown away by the Vue3 website template! The minimalist design is simply stunning, and it's incredibly easy to customize to fit my needs. Plus, it loads super fast, which is crucial for my business. I highly recommend this template!",
-        "staffMember": "John Lee – Engineer"
-      },
-      {
-        "organization": "Voloco",
-        "srcAvatar": "images/clients/client-voloco.svg",
-        "message": "I can't say enough good things about this website template. As someone with no coding experience, I was able to create a professional-looking website in no time. The responsiveness is top-notch, and the open-source nature of the code means I can tweak it to my heart's content. This template is a game-changer!",
-        "staffMember": "Any Heather – HR Lead"
-      },
-      {
-        "organization": "Microsoft",
-        "srcAvatar": "images/clients/client-microsoft.svg",
-        "message": "This is hands down the best website template I've ever used. The lightweight codebase makes for a lightning-fast site, and the fully customizable nature allowed me to create a unique and engaging experience for my users. I highly recommend this template to anyone looking for a sleek, modern, and easy-to-use website solution.",
-        "staffMember": "Bill Gates – CEO"
-      }
-    ]
-  },
-
-  "contact": {
-    "id": "contact",
-    "title": "Contact Us",
-    "subtitle": "Don't hesitate to reach us out!",
-
-    "placeholders": {
-      "name": "Your Name *",
-      "email": "Your Email *",
-      "subject": "Subject *",
-      "message": "Message *"
-    },
-
-    "button": {
-      "label": "Send Message",
-      "icon": "fa-solid fa-envelope me-2"
+      "footer": null
     }
   },
 

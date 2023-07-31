@@ -1,5 +1,3 @@
-import {ref} from "vue";
-
 let _lastSectionClass = null;
 
 export function useLayout() {
@@ -24,5 +22,18 @@ export function useLayout() {
         return _lastSectionClass
     }
 
-    return {scrollToSection, getNextSectionClass}
+    //bootstrap breakpoints helper function
+    const isBreakPoint = (size) => {
+        const breakpoints = {
+            xs: 0,
+            sm: 576,
+            md: 768,
+            lg: 992,
+            xl: 1200
+        };
+
+        return window.innerWidth >= breakpoints[size];
+    }
+
+    return {scrollToSection, getNextSectionClass, isBreakPoint}
 }

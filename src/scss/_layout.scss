@@ -25,7 +25,6 @@
       font-weight: normal;
       font-size: 1.1rem;
       font-family: $subheadings-font-family;
-      font-style: italic;
       color: $text-muted;
     }
   }
@@ -86,7 +85,32 @@
   color:white;
 }
 
+.page-section-black {
+  background-color: #000000;
+  color:white;
+}
+
 .box-shadow-with-border {
   border: 2px solid $gray-200;
   box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px 2.6px;
+}
+
+hr {
+  opacity: 0.1;
+}
+
+/* Swipers */
+.swiper-pagination-bullet {
+  background-color: $dark-faded;
+  border:2px solid $white-faded;
+  padding: 6px;
+  opacity: 0.6;
+  top: 20px;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: $primary;
+  border:2px solid lighten($primary, 35%);
+  padding: 7px;
+  opacity:1;
 }
