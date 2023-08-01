@@ -17,7 +17,7 @@
       </div>
 
       <!-- Panel Body -->
-      <div class="list-item-panel-body">
+      <div class="list-item-panel-body pb-3">
         <!-- Quote -->
         <p class="text-muted quote">
           <i class="fa-regular fa-comments me-1"></i> “{{member.quote}}”
@@ -39,12 +39,17 @@ const props = defineProps(['member'])
 li {
   position: relative;
   min-height: 50px;
-  margin-bottom: 25px;
-  margin-top: 25px;
+  margin-bottom: 35px;
+  margin-top: 35px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &:first-child {
+    margin-top: 20px;
+  }
 
   &:last-child {
     border-bottom: none;
+    margin-bottom: 0;
   }
 }
 
@@ -64,9 +69,10 @@ li {
 }
 
 @include media-breakpoint-down(sm) {
+  $image-width: min(20vw, 90px);
   .list-item-image-container {
-    width: 90px;
-    height: 90px;
+    width: $image-width;
+    height: $image-width;
   }
 }
 </style>

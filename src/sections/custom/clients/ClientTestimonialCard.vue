@@ -1,6 +1,6 @@
 <template>
   <!-- Testimonial -->
-  <div class="card h-100 box-shadow-light">
+  <div class="card h-100">
     <!-- Header -->
     <div class="card-header">
       <img class="img img-fluid" :src="testimonial.srcAvatar">
@@ -28,9 +28,9 @@ const props = defineProps(['testimonial'])
 
 .card {
   min-height: calc(100% - 25px);
-  border: 2px $gray-200 solid;
+  border: 2px $gray-100 solid;
   border-radius: 0;
-  background-color: rgba(238, 238, 238, 0.05);
+  background-color: white;
 
   .card-header {
     border: none;
@@ -56,6 +56,17 @@ const props = defineProps(['testimonial'])
     .organization-member {
       font-size: 0.85rem;
       font-weight: bold;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .card {
+    text-align: center;
+    border: none;
+
+    .card-body p {
+      font-size: 0.85rem!important;
     }
   }
 }

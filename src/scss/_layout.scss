@@ -90,10 +90,6 @@
   color:white;
 }
 
-.box-shadow-light {
-  box-shadow: rgba(100, 100, 100, 0.05) 4px 4px;
-}
-
 .trace-shadow {
   box-shadow: rgba(0, 0, 0, 0.2) 5px 5px, rgba(10, 10, 10, 0.3) 10px 10px, rgba(20, 20, 20, 0.2) 15px 15px;
 }
@@ -102,7 +98,7 @@ hr {
   opacity: 0.1;
 }
 
-.solid-divider {
+hr.solid-divider {
   width: 60px;
   color: black;
   opacity: 1;
@@ -113,15 +109,15 @@ hr {
 /* Swipers */
 .swiper-pagination-bullet {
   background-color: $dark-faded;
-  border:2px solid darken($dark-faded, 40%);
+  border:2px solid black;
   padding: 6px;
   opacity: 0.6;
   top: 20px;
 }
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: $primary;
-  border:2px solid darken($primary, 10%);
+  background-color: lighten($primary, 10%);
+  border:2px solid $primary;
   padding: 7px;
   opacity:1;
 }

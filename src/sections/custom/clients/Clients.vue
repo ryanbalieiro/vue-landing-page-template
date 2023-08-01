@@ -6,10 +6,10 @@
           :slidesPerView="3"
           :spaceBetween="20"
           :pagination="{clickable: true}"
-          :modules="[Pagination]"
+          :modules="[Autoplay, Pagination]"
           :grab-cursor="true"
           :autoplay="{
-            delay: 10000,
+            delay: 5000,
             disableOnInteraction: false,
           }"
           :prevent-clicks-propagation="true"
@@ -20,9 +20,9 @@
             768: {
               slidesPerView: 2,
             },
-            1300: {
+            1400: {
               slidesPerView: 3,
-            },
+            }
           }"
           class="testimonials-swiper px-1">
 
@@ -44,7 +44,7 @@ import ClientTestimonialCard from "./ClientTestimonialCard.vue"
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 
 const props = defineProps(['data'])
 </script>

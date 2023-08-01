@@ -45,6 +45,6 @@ const props = defineProps(['member'])
 }
 
 .quote {
-  font-size: 0.85rem!important;
+  font-size: 0.9rem!important;
 }
 </style>
