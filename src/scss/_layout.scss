@@ -95,6 +95,10 @@
   box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px 2.6px;
 }
 
+.trace-shadow {
+  box-shadow: rgba(0, 0, 0, 0.2) 5px 5px, rgba(10, 10, 10, 0.3) 10px 10px, rgba(20, 20, 20, 0.2) 15px 15px;
+}
+
 hr {
   opacity: 0.1;
 }

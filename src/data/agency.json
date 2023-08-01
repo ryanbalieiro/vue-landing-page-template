@@ -100,6 +100,76 @@
       "footer": null
     },
 
+    "history": {
+      "id": "history",
+      "navbar": {
+        "label": "History",
+        "icon": "fa-solid fa-clock"
+      },
+
+      "header": {
+        "title": "Our <span class='text-primary'>History</span>",
+        "subtitle": "Unlocking the secrets of our past!"
+      },
+
+      "content": {
+        "items": [
+          {
+            "title": "Our Founding",
+            "year": "2010 - 2012",
+            "description": "Founded in 2010, our software/marketing agency began with a small team, driven by a passion for technology and innovation, aiming to deliver exceptional digital solutions. We laid the foundation for future success.",
+            "srcImage": "images/history/history-1.png"
+          },
+          {
+            "title": "Rapid Growth and Expansion",
+            "year": "2013 - 2016",
+            "description": "By 2013, our agency's reputation for quality services led to rapid growth, prompting us to expand our team and open a new office to better serve clients worldwide. We embraced opportunities for expansion.",
+            "srcImage": "images/history/history-2.png"
+          },
+          {
+            "title": "Diversification and Specialization",
+            "year": "2017 - 2019",
+            "description": "In 2017, we diversified our offerings, adding web design, SEO, social media management, and branding services, positioning ourselves as a comprehensive digital solutions provider. We became a one-stop-shop for clients.",
+            "srcImage": "images/history/history-3.png"
+          },
+          {
+            "title": "Celebrating a Decade of Success",
+            "year": "2020 - 2022",
+            "description": "Proudly celebrating our 10th anniversary, our agency's decade-long journey is defined by innovation, exceptional service, and strong client relationships, empowering businesses through technology and creativity. We achieved remarkable success.",
+            "srcImage": "images/history/history-4.png"
+          },
+          {
+            "title": "Planning for New Stuff",
+            "year": "2023 - NOW",
+            "description": "As we continue to grow and evolve, we invite talented individuals, partners, and clients to join us in shaping the future of digital innovation and making a meaningful impact together. We are excited for what's to come.",
+            "srcImage": "images/history/history-5.png"
+          }
+        ]
+      }
+    },
+
+    "featured": {
+      "id": "featured",
+      "navbar": null,
+      "header": null,
+
+      "content": {
+        "title": "Zork App",
+        "subtitle": "Our hottest project",
+        "description": "<b>Zork</b> is your ultimate battery life management app, empowering you to seize control of your device's energy consumption effortlessly. With its intuitive interface, Zork provides real-time monitoring of battery status, enabling you to identify power-draining apps and processes. Optimizing your device's settings becomes a breeze as Zork offers personalized recommendations to extend battery life without compromising performance.",
+
+        "button": {
+          "label": "Download Now!",
+          "icon": "fa-solid fa-download",
+          "href": "https://github.com/ryanbalieiro/foxy-template"
+        },
+
+        "logo": "images/featured/logo.png"
+      },
+
+      "footer": null
+    },
+
     "portfolio": {
       "id": "portfolio",
       "navbar": {

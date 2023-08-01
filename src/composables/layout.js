@@ -22,6 +22,10 @@ export function useLayout() {
         return _lastSectionClass
     }
 
+    const resetSectionClassTracker = () => {
+        _lastSectionClass = null
+    }
+
     //bootstrap breakpoints helper function
     const isBreakPoint = (size) => {
         const breakpoints = {
@@ -35,5 +39,5 @@ export function useLayout() {
         return window.innerWidth >= breakpoints[size];
     }
 
-    return {scrollToSection, getNextSectionClass, isBreakPoint}
+    return {scrollToSection, getNextSectionClass, resetSectionClassTracker, isBreakPoint}
 }

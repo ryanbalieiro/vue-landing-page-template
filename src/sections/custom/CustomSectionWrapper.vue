@@ -3,7 +3,7 @@
   <section :class="sectionClass" :id="data.id">
     <div class="container">
       <!-- Section Header -->
-      <div class="section-heading pb-4 pb-md-5">
+      <div class="section-heading pb-4 pb-md-5" v-if="data.header">
         <h1 class="section-title" v-html="data.header.title"></h1>
         <h4 class="section-description" v-html="data.header.subtitle"></h4>
       </div>
@@ -44,7 +44,15 @@ import {useLayout} from "../../composables/layout.js"
 import XLButton from "../../components/XLButton.vue"
 
 const props = defineProps(['data', 'sectionClass'])
-const sectionClass = !props.sectionClass ? useLayout().getNextSectionClass() : 'page-section ' + props.sectionClass
+
+let sectionClass
+if(props.sectionClass) {
+  sectionClass = 'page-section ' + props.sectionClass
+  useLayout().resetSectionClassTracker()
+}
+else {
+  sectionClass = useLayout().getNextSectionClass()
+}
 
 </script>
 
