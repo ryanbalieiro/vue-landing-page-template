@@ -5,8 +5,8 @@
     <div class="row text-center">
       <template v-for="item in data.content.items">
         <!-- Item -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-3 mb-md-5">
-          <ServicesCard :item="item"></ServicesCard>
+        <div class="col-12 col-sm-6 col-lg-4 mt-1 mb-1 mt-lg-3 mb-lg-3">
+          <ServiceCard :item="item"></ServiceCard>
         </div>
       </template>
     </div>
@@ -15,16 +15,10 @@
 
 <script setup>
 import SectionWrapper from "../CustomSectionWrapper.vue"
-import ServicesCard from "./ServicesCard.vue"
+import ServiceCard from "./ServiceCard.vue"
 
 const props = defineProps(['data'])
 </script>
 
 <style scoped lang="scss">
-.swiper {
-  .swiper-slide {
-    margin-bottom: 65px;
-    height: auto !important;
-  }
-}
 </style>

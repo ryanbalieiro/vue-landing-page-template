@@ -2,7 +2,7 @@
   <SectionWrapper :data="data" :section-class="'page-section-dark'">
     <div class="row text-center text-md-start pt-5 pb-5">
       <!-- Image -->
-      <div class="col-12 col-md-4 ps-2 pe-4">
+      <div class="col-12 col-md-4 ps-2 pe-2 pe-md-5">
         <img class="img-fluid logo trace-shadow" :src="data.content.logo" alt="logo">
       </div>
 

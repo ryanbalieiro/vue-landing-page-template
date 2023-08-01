@@ -103,6 +103,14 @@ hr {
   opacity: 0.1;
 }
 
+.solid-divider {
+  width: 60px;
+  color: black;
+  opacity: 1;
+  border:2px solid black;
+  margin:0 auto;
+}
+
 /* Swipers */
 .swiper-pagination-bullet {
   background-color: $dark-faded;

@@ -19,11 +19,11 @@
         <div class="row h-100 mt-5">
           <div class="col-12 col-lg-8 text-center mx-auto">
             <!-- Title -->
+            <hr v-if="data.footer.divider" class="solid-divider mb-4">
             <h3 v-html="data.footer.title"></h3>
 
             <!-- Short Description (optional) -->
             <div v-if="data.footer.shortDescription">
-              <hr>
               <p class="mt-4 short-description" v-html="data.footer.shortDescription"></p>
             </div>
 
@@ -58,14 +58,6 @@ else {
 
 <style scoped lang="scss">
 @import "../../scss/_theming.scss";
-
-hr {
-  width: 60px;
-  color: white;
-  opacity: 1;
-  border:2px solid white;
-  margin: 2rem auto;
-}
 
 .short-description {
   font-size: 1rem;

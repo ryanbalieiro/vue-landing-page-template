@@ -235,6 +235,7 @@
       },
 
       "footer": {
+        "divider": true,
         "title": "Work with us and <span class='text-primary'>save money!</span>",
         "longDescription": "Want a quote for the project budget? Reach out to us, and we'll promptly provide the information you need. Our team is here to assist you in any way we can!",
         "button": {
