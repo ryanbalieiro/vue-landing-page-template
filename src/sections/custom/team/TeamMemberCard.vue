@@ -47,7 +47,6 @@ const props = defineProps(['member'])
   height: 100%;
   background-color: rgba(255, 255, 255, 0.75);
   border: 2px $gray-200 solid;
-  border-radius: 20px;
 
   margin-top:-120px;
   padding: 120px 20px 60px;

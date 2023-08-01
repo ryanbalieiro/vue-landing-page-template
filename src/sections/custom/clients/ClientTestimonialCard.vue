@@ -29,7 +29,7 @@ const props = defineProps(['testimonial'])
 .card {
   min-height: calc(100% - 25px);
   border: 2px $gray-200 solid;
-  border-radius: 20px;
+  border-radius: 0;
   background-color: rgba(238, 238, 238, 0.05);
 
   .card-header {
