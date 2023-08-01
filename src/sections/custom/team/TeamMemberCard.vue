@@ -4,7 +4,7 @@
       <img class="img-avatar img-fluid" :src="member.srcAvatar" :alt="member.name" />
     </div>
 
-    <div class="card-body box-shadow-with-border">
+    <div class="card-body box-shadow-light">
       <h4 class="my-3 mb-1">{{ member.name }}</h4>
       <p class="role">{{member.role}}</p>
 
@@ -45,8 +45,8 @@ const props = defineProps(['member'])
 
 .card-body {
   height: 100%;
-  background-color: white;
-  border: 3px $gray-200 solid;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 2px $gray-200 solid;
   border-radius: 20px;
 
   margin-top:-120px;

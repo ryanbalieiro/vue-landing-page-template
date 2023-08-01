@@ -1,6 +1,6 @@
 <template>
   <!-- Portfolio Item -->
-  <div class="portfolio-item box-shadow-with-border h-100">
+  <div class="portfolio-item box-shadow-light h-100">
 
     <!-- Clickable Image -->
     <a class="portfolio-link" @click="_select()">
@@ -31,6 +31,7 @@ const _select = () => {
 @import "../../../scss/_theming.scss";
 
 .portfolio-item {
+  border: 2px $gray-200 solid;
   margin-left: auto;
   margin-right: auto;
   text-align: center;

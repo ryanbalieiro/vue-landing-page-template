@@ -1,6 +1,6 @@
 <template>
   <!-- Testimonial -->
-  <div class="card box-shadow-with-border h-100">
+  <div class="card h-100 box-shadow-light">
     <!-- Header -->
     <div class="card-header">
       <img class="img img-fluid" :src="testimonial.srcAvatar">
@@ -24,8 +24,14 @@ const props = defineProps(['testimonial'])
 </script>
 
 <style lang="scss" scoped>
+@import "../../../scss/_theming.scss";
+
 .card {
   min-height: calc(100% - 25px);
+  border: 2px $gray-200 solid;
+  border-radius: 20px;
+  background-color: rgba(238, 238, 238, 0.05);
+
   .card-header {
     border: none;
     padding: 1rem;

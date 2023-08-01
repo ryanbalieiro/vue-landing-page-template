@@ -94,12 +94,12 @@ const _onButtonClicked = () => {
 
   .container {
     .heading {
-      font-size: 4rem;
+      font-size: 3.5rem;
       line-height: 5.25rem;
     }
 
     .subheading {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
     }
 
     img {

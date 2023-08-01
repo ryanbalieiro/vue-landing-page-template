@@ -4,7 +4,7 @@
       <!-- Swiper -->
       <swiper
           :slidesPerView="3"
-          :spaceBetween="30"
+          :spaceBetween="20"
           :pagination="{clickable: true}"
           :modules="[Pagination]"
           :grab-cursor="true"
@@ -24,7 +24,7 @@
               slidesPerView: 3,
             },
           }"
-          class="testimonials-swiper">
+          class="testimonials-swiper px-1">
 
         <!-- Swiper Slides -->
         <template v-for="testimonial in data.content.items">

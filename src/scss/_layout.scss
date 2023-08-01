@@ -90,9 +90,8 @@
   color:white;
 }
 
-.box-shadow-with-border {
-  border: 2px solid $gray-200;
-  box-shadow: rgba(0, 0, 0, 0.05) 1.95px 1.95px 2.6px;
+.box-shadow-light {
+  box-shadow: rgba(100, 100, 100, 0.05) 4px 4px;
 }
 
 .trace-shadow {
@@ -114,7 +113,7 @@ hr {
 /* Swipers */
 .swiper-pagination-bullet {
   background-color: $dark-faded;
-  border:2px solid $white-faded;
+  border:2px solid darken($dark-faded, 40%);
   padding: 6px;
   opacity: 0.6;
   top: 20px;
@@ -122,7 +121,7 @@ hr {
 
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: $primary;
-  border:2px solid lighten($primary, 35%);
+  border:2px solid darken($primary, 10%);
   padding: 7px;
   opacity:1;
 }
