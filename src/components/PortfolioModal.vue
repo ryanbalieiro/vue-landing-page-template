@@ -3,22 +3,18 @@
   <div class="modal modal-xl fade" id="portfolio-modal" tabindex="-1" aria-labelledby="portfolio-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!-- Title -->
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">{{ projectTitle }}</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
         <!-- Body -->
         <div class="modal-body">
-          <div class="row">
-            <!-- Image Column -->
-            <div class="col-12 col-lg-5 col-xl-6">
-              <img class="portfolio-cover-img img-fluid mb-3 mg-lg-0" :src="projectImage" :alt="projectTitle" />
+          <div class="row text-center text-lg-start p-2 p-md-4">
+            <!-- Image -->
+            <div class="col-12 col-lg-4 ps-2 pe-2 pe-lg-5">
+              <img class="img-fluid logo" :src="projectImage" alt="logo">
             </div>
 
-            <!-- Content Column -->
-            <div class="col-12 col-lg-7 col-xl-6">
+            <!-- Texts -->
+            <div class="col-12 col-lg-8">
+              <!-- Title -->
+              <h1 class="display-5" v-html="projectTitle"></h1>
 
               <!-- Tags -->
               <div class="project-tags">
@@ -29,10 +25,7 @@
               </div>
 
               <!-- Description -->
-              <div class="project-description mt-4">
-                <h5>Project Description</h5>
-                <p>{{projectDescription}}</p>
-              </div>
+              <p class="description mt-4" v-html="projectDescription"></p>
             </div>
           </div>
         </div>
@@ -55,7 +48,7 @@ const displayProject = (project) => {
   projectTitle.value = project.title
   projectDescription.value = project.description
   projectTags.value = project.tags
-  projectImage.value = project.srcImage
+  projectImage.value = project.logo
 
   if(bsModal)
     bsModal.show()
@@ -74,17 +67,16 @@ defineExpose({
 <style scoped lang="scss">
 @import "../scss/_theming.scss";
 
-p {
-  font-size: 0.7rem;
-  @include media-breakpoint-up(md) {
-    font-size: 0.9rem;
-  }
+.logo {
+  border-radius: 30px;
+  margin-bottom: 40px;
+  max-width: min(20vw,100%);
 }
 
-h5 {
-  font-size: 1.1rem;
+p {
+  font-size: 0.8rem;
   @include media-breakpoint-up(md) {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
   }
 }
 

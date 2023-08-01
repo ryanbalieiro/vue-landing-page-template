@@ -154,17 +154,15 @@
       "header": null,
 
       "content": {
-        "title": "Zork App",
-        "subtitle": "Our hottest project",
-        "description": "<b>Zork</b> is your ultimate battery life management app, empowering you to seize control of your device's energy consumption effortlessly. With its intuitive interface, Zork provides real-time monitoring of battery status, enabling you to identify power-draining apps and processes. Optimizing your device's settings becomes a breeze as Zork offers personalized recommendations to extend battery life without compromising performance.",
+        "title": "Newest Release",
 
-        "button": {
-          "label": "Download Now!",
-          "icon": "fa-solid fa-download",
-          "href": "https://github.com/ryanbalieiro/foxy-template"
-        },
-
-        "logo": "images/featured/logo.png"
+        "project": {
+          "title": "Zork App",
+          "category": "Utilities",
+          "description": "<b>Zork</b> is your ultimate battery life management app, empowering you to seize control of your device's energy consumption effortlessly. With its intuitive interface, Zork provides real-time monitoring of battery status, enabling you to identify power-draining apps and processes. Optimizing your device's settings becomes a breeze as Zork offers personalized recommendations to extend battery life without compromising performance.",
+          "logo": "images/portfolio/project-logo-8.png",
+          "tags": ["app", "battery", "save"]
+        }
       },
 
       "footer": null
@@ -178,58 +176,67 @@
       },
 
       "header": {
-        "title": "Project <span class='text-primary'>Portfolio</span>",
+        "title": "A Rich <span class='text-primary'>Portfolio</span>",
         "subtitle": "Get to know our amazing projects!"
       },
 
       "content": {
         "items": [
           {
-            "title": "TechMeUp",
-            "category": "Marketing",
-            "srcImage": "images/portfolio/portfolio-1.png",
-            "tags": ["marketing", "seo", "growth"],
-            "description": "A project aimed at providing innovative software solutions to businesses. The company plans to expand its reach by developing a mobile app that will allow users to access their services from anywhere. With a focus on user experience, the app will feature a simple interface, fast loading times, and easy navigation. TechMeUp also plans to partner with other companies to offer integrated services, increasing revenue streams and boosting brand recognition. To support growth, the company will invest in marketing, including social media campaigns and targeted advertising."
+            "title": "SmartCash",
+            "category": "Finance",
+            "description": "<b>SmartCash</b> is your smart companion for personal finance, empowering you to take control of your money effortlessly. With its user-friendly interface, SmartCash provides real-time tracking of your expenses and income, enabling you to identify spending patterns and make informed financial decisions. Stay on top of your budget as SmartCash offers personalized recommendations to save money and achieve your financial goals without compromising your lifestyle.",
+            "logo": "images/portfolio/project-logo-1.png",
+            "tags": ["app", "finance", "money", "budget", "save"]
           },
-
           {
-            "title": "PowerX",
-            "category": "Sales & Business",
-            "srcImage": "images/portfolio/portfolio-2.png",
-            "tags": ["sales", "business", "income"],
-            "description": "A sales project focused on selling high-end power tools to construction companies. The company plans to target medium to large-sized businesses with a high volume of construction projects and a need for top-quality tools. The sales team will utilize a consultative approach, first identifying the specific needs of each client and then providing tailored solutions. To drive sales, PowerX will offer competitive pricing, flexible payment terms, and bulk discounts."
+            "title": "Snappy",
+            "category": "Photo Editor",
+            "description": "<b>Snappy</b> is your ultimate photography app, empowering you to capture and edit stunning images effortlessly. With its intuitive interface, Snappy provides a wide range of powerful tools and filters to enhance your photos and bring out your creativity. Whether you're a professional photographer or just a hobbyist, Snappy offers features like manual controls, advanced editing options, and AI-powered enhancements to take your photography to the next level.",
+            "logo": "images/portfolio/project-logo-2.png",
+            "tags": ["app", "photography", "camera", "editing"]
           },
-
           {
-            "title": "TransLink",
-            "category": "Logistics",
-            "srcImage": "images/portfolio/portfolio-3.png",
-            "tags": ["logistics", "management", "transportation"],
-            "description": "A logistics project focused on streamlining the transportation of goods for small and medium-sized businesses. The company plans to offer end-to-end logistics solutions, including transportation, warehousing, and distribution services. TransLink will utilize a tech-driven approach, providing real-time tracking of shipments and delivery updates via a user-friendly online portal. The company will also implement advanced analytics and automation tools to optimize supply chain management and reduce operational costs."
+            "title": "BrainPulse",
+            "category": "Education",
+            "description": "<b>BrainPulse</b> is your ultimate brain training app, empowering you to boost cognitive abilities effortlessly. With its engaging interface, BrainPulse offers a variety of stimulating games and exercises designed to enhance memory, attention, problem-solving, and more. Track your progress and challenge yourself to reach new mental heights with personalized training programs tailored to your specific needs and goals.",
+            "logo": "images/portfolio/project-logo-3.png",
+            "tags": ["app", "brain", "training", "cognitive"]
           },
-
           {
-            "title": "TimeTrack",
-            "category": "Mobile App",
-            "srcImage": "images/portfolio/portfolio-4.png",
-            "tags": ["app", "mobile", "time management"],
-            "description": "A fictional time management app project designed to help users increase productivity and manage their time effectively. The app will feature a simple and intuitive interface that allows users to set goals, track their progress, and analyze their performance. TimeTrack will utilize advanced analytics to provide personalized insights and recommendations, helping users optimize their schedules and prioritize their tasks. The app will also offer features like task batching, time-blocking, and habit tracking, allowing users to maximize their time and establish healthy habits."
+            "title": "Stackers",
+            "category": "Productivity",
+            "description": "<b>Stackers</b> is your ultimate productivity app, empowering you to stay organized and focused effortlessly. With its intuitive and streamlined interface, Stackers offers a variety of tools to help you manage tasks, notes, and projects effectively. Create to-do lists, set reminders, and collaborate with teammates to achieve your goals seamlessly. Take control of your time and boost your productivity with Stackers as your reliable productivity companion.",
+            "logo": "images/portfolio/project-logo-6.png",
+            "tags": ["app", "productivity", "organization", "tasks", "notes"]
           },
-
           {
-            "title": "ProjectPro",
-            "category": "Project Management",
-            "srcImage": "images/portfolio/portfolio-5.png",
-            "tags": ["project", "management", "software"],
-            "description": "A fictional project management solution aimed at helping businesses and teams efficiently manage their projects from start to finish. The software will provide a user-friendly interface that allows users to create and manage project tasks, timelines, and milestones. ProjectPro will also include features like resource allocation, budget tracking, and risk management, enabling teams to stay on track and within budget. The app will offer a real-time communication platform for team members to collaborate and share files, reducing the need for emails and meetings."
+            "title": "Find-A-Goalie",
+            "category": "Social/Sports",
+            "description": "<b>Find-A-Goalie</b> is your go-to app for finding goalkeepers to join your casual soccer matches. With its simple and efficient interface, Goalkeeper Finder connects players and goalkeepers in your local area, making it easy to organize matches and build a reliable team. Say goodbye to match cancellations due to lack of goalkeepers and enjoy the beautiful game with newfound teammates.",
+            "logo": "images/portfolio/project-logo-4.png",
+            "tags": ["app", "sports", "soccer", "goalkeeper", "matches"]
           },
-
           {
-            "title": "SwiftMeUp",
-            "category": "App Development",
-            "srcImage": "images/portfolio/portfolio-6.png",
-            "tags": ["iOS", "swift", "developer"],
-            "description": "An iOS development project aimed at creating an innovative app that solves a specific problem or meets a specific need. The app will be developed using Swift, Apple's programming language for iOS and macOS, and will feature a clean and intuitive user interface."
+            "title": "Sweet Scoops",
+            "category": "Food & Drink",
+            "description": "<b>Sweet Scoops</b> is your delightful companion for exploring the world of ice creams. With its mouthwatering interface, SweetScoops offers a wide selection of ice cream flavors, recipes, and unique combinations to tickle your taste buds. Whether you're an ice cream enthusiast or a connoisseur, SweetScoops allows you to discover new flavors, find nearby ice cream parlors, and even create your personalized ice cream masterpieces.",
+            "logo": "images/portfolio/project-logo-5.png",
+            "tags": ["app", "food", "ice cream", "dessert", "recipes"]
+          },
+          {
+            "title": "MailM8",
+            "category": "Productivity",
+            "description": "<b>MailM8</b> is your reliable mailing app, empowering you to manage your emails efficiently. With its sleek and user-friendly interface, MailM8 offers features like intuitive organization, smart filters, and seamless integration with other productivity tools. Stay on top of your inbox, draft emails effortlessly, and boost your productivity with MailM8 as your trusty email companion.",
+            "logo": "images/portfolio/project-logo-7.png",
+            "tags": ["app", "mail", "email", "productivity"]
+          },
+          {
+            "title": "RockVerse",
+            "category": "Entertainment",
+            "description": "<b>RockVerse</b> is your gateway to a mesmerizing world of rock 'n roll, empowering you to immerse yourself in the essence of rock effortlessly. With its dynamic and immersive interface, RockVerse offers an extensive library of iconic rock songs, legendary albums, and captivating rock artists. Unearth rare footage, delve into the history of rock, and experience mind-blowing live performances of your favorite bands. Connect with a vibrant community of rock enthusiasts, share your playlists, and embark on a legendary musical journey with RockVerse as your ultimate rock music haven.",
+            "logo": "images/portfolio/project-logo-9.png",
+            "tags": ["app", "rock", "music", "bands", "concerts"]
           }
         ]
       },

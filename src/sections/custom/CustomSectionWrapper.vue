@@ -16,7 +16,7 @@
 
       <!-- Section Footer -->
       <div class="section-footer" v-if="data.footer">
-        <div class="row h-100 mt-5">
+        <div class="row h-100">
           <div class="col-12 col-lg-8 text-center mx-auto">
             <!-- Title -->
             <hr v-if="data.footer.divider" class="solid-divider mb-4">

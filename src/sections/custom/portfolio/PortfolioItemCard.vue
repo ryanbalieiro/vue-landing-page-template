@@ -1,18 +1,20 @@
 <template>
   <!-- Portfolio Item -->
-  <div class="portfolio-item box-shadow-light h-100">
+  <div class="portfolio-item text-center row">
+    <!-- Project Logo -->
+    <div class="portfolio-item-image-wrapper" @click="_select()">
+      <img class="logo" :src="project.logo" alt="logo">
 
-    <!-- Clickable Image -->
-    <a class="portfolio-link" @click="_select()">
-      <div class="portfolio-hover">
-        <div class="portfolio-hover-content"><i class="fas fa-eye fa-2x"></i></div>
+      <div class="hover-overlay">
+        <div class="hover-overlay-content">
+          <i class="fas fa-eye fa-2x"></i>
+        </div>
       </div>
-      <img class="portfolio-cover-img img-fluid" :src="project.srcImage" :alt="project.title" />
-    </a>
+    </div>
 
-    <!-- Info -->
-    <div class="portfolio-caption">
-      <h5 class="mb-1">{{ project.title }}</h5>
+    <!-- Project Info -->
+    <div class="portfolio-item-description">
+      <button class="btn btn-link portfolio-item-title mt-1 mb-0 pb-0" @click="_select()">{{ project.title }}</button>
       <p class="portfolio-item-category text-muted">{{ project.category }}</p>
     </div>
   </div>
@@ -30,50 +32,85 @@ const _select = () => {
 <style lang="scss" scoped>
 @import "../../../scss/_theming.scss";
 
-.portfolio-item {
-  border: 2px $gray-200 solid;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.portfolio-link {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  border-bottom: 2px solid $gray-100;
+.portfolio-item-image-wrapper {
   cursor: pointer;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
 
-  .portfolio-hover {
-    display: flex;
-    position: absolute;
+  border-radius: 30px;
+  height: min(20vw,100px);
+  width: min(20vw,100px);
+
+  .logo {
     width: 100%;
     height: 100%;
-    background: fade-out($primary, 0.1);
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity ease-in-out 0.25s;
-
-    .portfolio-hover-content {
-      font-size: 1.25rem;
-      color: white;
-    }
-  }
-
-  &:hover {
-    .portfolio-hover {
-      opacity: 1;
-    }
   }
 }
 
-.portfolio-caption {
-  background-color: $white;
-  padding: 0.5rem;
+.hover-overlay {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  background: fade-out($primary, 0.1);
+  align-items: center;
+  justify-content: center;
+  transition: opacity ease-in-out 0.25s;
 
-  @include media-breakpoint-up(md) {
-    padding: 1rem;
+  .hover-overlay-content {
+    font-size: 1.25rem;
+    color: white;
   }
 }
+
+.portfolio-item-title {
+  font-size: 1.1rem;
+  font-family: $headings-font-family;
+  text-decoration: none;
+  color: $dark;
+}
+
+.portfolio-item:hover {
+  .portfolio-item-title {
+    color: $primary;
+  }
+
+  .hover-overlay {
+    opacity: 1;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .portfolio-item-image-wrapper {
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .portfolio-item-title {
+    font-size: 1.4rem;
+  }
+
+  .portfolio-item-image-wrapper {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .portfolio-item-title {
+    font-size: 1.5rem;
+  }
+
+  .portfolio-item-image-wrapper {
+    height: 180px;
+    width: 180px;
+  }
+}
+
 </style>

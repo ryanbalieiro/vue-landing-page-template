@@ -10,8 +10,8 @@
       <!-- Panel Header -->
       <div class="list-item-panel-header mb-3">
         <h4 class="my-3 mb-1">{{ member.name }}</h4>
-        <span class="badge bg-light text-muted mb-3 mt-1">
-          <i class="fa fa-user me-1"></i> {{ member.role }}
+        <span class="badge mb-3 mt-1">
+          <i class="fa fa-suitcase me-1"></i> {{ member.role }}
         </span>
         <TeamMemberSocialLinks :social-links="member.socialLinks"></TeamMemberSocialLinks>
       </div>
@@ -51,6 +51,12 @@ li {
     border-bottom: none;
     margin-bottom: 0;
   }
+}
+
+.badge {
+  background-color: darken($primary-faded, 25%);
+  margin-left: 0.3rem;
+  border-radius:20px;
 }
 
 .list-item-image-container {

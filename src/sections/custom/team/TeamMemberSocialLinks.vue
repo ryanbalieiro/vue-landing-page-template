@@ -37,4 +37,13 @@ $social-button-font-size:0.8rem;
   }
 }
 
+@include media-breakpoint-up(lg) {
+  $social-button-font-size:1rem;
+  .btn-social {
+    width: calc($social-button-font-size*2.4);
+    height: calc($social-button-font-size*2.4);
+    font-size: $social-button-font-size;
+  }
+}
+
 </style>

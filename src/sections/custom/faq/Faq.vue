@@ -18,7 +18,7 @@
         </div>
       </template>
     </div>
-    <hr class="mt-0 mt-lg-2">
+    <hr class="mt-0 mt-lg-2 mb-4 pb-3">
   </SectionWrapper>
 </template>
 
