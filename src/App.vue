@@ -34,13 +34,13 @@ import Footer from "./sections/static/Footer.vue"
 
 import About from "./sections/custom/about/About.vue"
 import Services from "./sections/custom/services/Services.vue"
+import Featured from "./sections/custom/featured/Featured.vue"
 import Portfolio from "./sections/custom/portfolio/Portfolio.vue"
 import Timeline from "./sections/custom/timeline/Timeline.vue"
 import Team from "./sections/custom/team/Team.vue"
 import Clients from "./sections/custom/clients/Clients.vue"
 import Faq from "./sections/custom/faq/Faq.vue"
 import Contact from "./sections/custom/contact/Contact.vue"
-import Featured from "./sections/custom/featured/Featured.vue";
 
 const navbarSections = ref([])
 const portfolioModal = ref(null)

@@ -17,7 +17,7 @@
 
 <script setup>
 import SectionWrapper from "../CustomSectionWrapper.vue"
-import PortfolioItemCard from "./PortfolioItemCard.vue";
+import PortfolioItemCard from "./PortfolioItemCard.vue"
 
 const props = defineProps(['data'])
 const emit = defineEmits(['projectClicked'])
