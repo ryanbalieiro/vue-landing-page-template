@@ -4,20 +4,16 @@
       <img class="img-avatar img-fluid" :src="member.srcAvatar" :alt="member.name" />
     </div>
 
-    <div class="card-body box-shadow-light">
+    <div class="card-body pb-5">
+      <!-- Header -->
       <h4 class="my-3 mb-1">{{ member.name }}</h4>
-      <p class="role">{{member.role}}</p>
+      <p class="text-muted fw-bold mb-3">{{ member.role }}</p>
 
-      <div class="social-links">
-        <template v-for="socialLink in member.socialLinks">
-          <a class="btn btn-social mx-2" :href="socialLink.href" :aria-label="socialLink.icon">
-            <i :class="socialLink.icon"></i>
-          </a>
-        </template>
-      </div>
+      <!-- Social Links -->
+      <TeamMemberSocialLinks :social-links="member.socialLinks" class="mb-3"></TeamMemberSocialLinks>
 
       <!-- Quote -->
-      <p class="text-muted quote mt-4">
+      <p class="text-muted quote mt-2 px-4">
         <i class="fa fa-quote-left me-1"></i> {{member.quote}} <i class="fa fa-quote-right ms-1"></i>
       </p>
     </div>
@@ -25,6 +21,8 @@
 </template>
 
 <script setup>
+import TeamMemberSocialLinks from "./TeamMemberSocialLinks.vue"
+
 const props = defineProps(['member'])
 </script>
 
@@ -32,7 +30,6 @@ const props = defineProps(['member'])
 @import "../../../scss/_theming.scss";
 
 .team-member-card {
-  height: calc(100% - 120px);
   text-align: center;
 }
 
@@ -45,62 +42,9 @@ const props = defineProps(['member'])
 
 .card-body {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 2px $gray-200 solid;
-
-  margin-top:-120px;
-  padding: 120px 20px 60px;
-}
-
-.social-links {
-  $social-button-font-size:1.1rem;
-  .btn-social {
-    color: white;
-    border-color: lighten($dark, 10%);
-    background-color: $dark;
-    border-radius: 100%;
-    border-width: 3px;
-    opacity: 0.9;
-
-    display: inline-flex;
-    width: calc($social-button-font-size*2.4);
-    height: calc($social-button-font-size*2.4);
-    font-size: $social-button-font-size;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      color: white;
-      border-color: darken($primary, 5%);
-      background-color: $primary;
-    }
-  }
 }
 
 .quote {
   font-size: 0.85rem!important;
 }
-
-@include media-breakpoint-down(lg) {
-  .team-member-card {
-    height: calc(100% - 100px);
-    text-align: center;
-  }
-
-  .img-avatar {
-    max-height: 150px;
-    max-width: 150px;
-  }
-
-  .card-body {
-    margin-top:-100px;
-    padding: 100px 20px 60px;
-  }
-
-  .quote {
-    font-size: 0.9rem!important;
-  }
-}
-
-
 </style>

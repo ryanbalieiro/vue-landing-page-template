@@ -8,11 +8,14 @@
           <div class="timeline-image">
             <img class="rounded-circle img-fluid" :src="item.srcImage" :alt="item.title">
           </div>
+
           <!-- Panel -->
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="mb-1" v-html="item.title"></h4>
-              <span class="badge bg-light text-dark mb-3 mt-1"><i class="fa fa-calendar-check me-1"></i> {{ item.year }}</span>
+              <span class="badge bg-light text-dark mb-3 mt-1">
+                <i class="fa fa-calendar-check me-1"></i> {{ item.year }}
+              </span>
             </div>
 
             <div class="timeline-body">
