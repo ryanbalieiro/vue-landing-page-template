@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper :data="data" :section-class="'page-section-dark'">
-    <div class="row text-center text-md-start pt-5 pb-5">
+    <div class="row text-center text-md-start py-2 py-md-4 py-lg-5">
       <!-- Image -->
       <div class="col-12 col-md-4 ps-2 pe-2 pe-md-5">
         <img class="img-fluid logo trace-shadow" :src="data.content.logo" alt="logo">
@@ -33,7 +33,7 @@ const props = defineProps(['data'])
 .logo {
   border-radius: 30px;
   margin-bottom: 40px;
-  max-width: min(35vw,100%);
+  max-width: min(30vw,100%);
 }
 
 h4 {

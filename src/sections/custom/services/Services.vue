@@ -2,10 +2,10 @@
   <SectionWrapper :data="data">
 
     <!-- Grid View (large screens) -->
-    <div class="row text-center">
+    <div class="row text-center gy-2 gy-lg-5 pt-lg-2">
       <template v-for="item in data.content.items">
         <!-- Item -->
-        <div class="col-12 col-sm-6 col-lg-4 mt-1 mb-1 mt-lg-3 mb-lg-3">
+        <div class="col-12 col-sm-6 col-lg-4">
           <ServiceCard :item="item"></ServiceCard>
         </div>
       </template>

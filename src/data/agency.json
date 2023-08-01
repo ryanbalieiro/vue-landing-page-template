@@ -116,19 +116,19 @@
         "items": [
           {
             "title": "Our Founding",
-            "year": "2010 - 2012",
+            "year": "2010",
             "description": "Founded in 2010, our software/marketing agency began with a small team, driven by a passion for technology and innovation, aiming to deliver exceptional digital solutions. We laid the foundation for future success.",
             "srcImage": "images/history/history-1.png"
           },
           {
             "title": "Rapid Growth and Expansion",
-            "year": "2013 - 2016",
+            "year": "2010 - 2013",
             "description": "By 2013, our agency's reputation for quality services led to rapid growth, prompting us to expand our team and open a new office to better serve clients worldwide. We embraced opportunities for expansion.",
             "srcImage": "images/history/history-2.png"
           },
           {
             "title": "Diversification and Specialization",
-            "year": "2017 - 2019",
+            "year": "2013 - 2019",
             "description": "In 2017, we diversified our offerings, adding web design, SEO, social media management, and branding services, positioning ourselves as a comprehensive digital solutions provider. We became a one-stop-shop for clients.",
             "srcImage": "images/history/history-3.png"
           },
@@ -140,7 +140,7 @@
           },
           {
             "title": "Planning for New Stuff",
-            "year": "2023 - NOW",
+            "year": "2023 - Now",
             "description": "As we continue to grow and evolve, we invite talented individuals, partners, and clients to join us in shaping the future of digital innovation and making a meaningful impact together. We are excited for what's to come.",
             "srcImage": "images/history/history-5.png"
           }

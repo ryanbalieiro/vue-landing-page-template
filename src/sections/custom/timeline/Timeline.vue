@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper :data="data">
-    <ul class="timeline">
+    <ul class="timeline mt-3">
       <template v-for="(item, index) in data.content.items">
         <!-- Timeline Item -->
         <li :class="index % 2 !== 0 ? 'timeline-inverted' : 'timeline'">
@@ -11,8 +11,8 @@
           <!-- Panel -->
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h5 class="text-muted" v-html="item.year"></h5>
-              <h2 v-html="item.title"></h2>
+              <h4 class="mb-1" v-html="item.title"></h4>
+              <span class="badge bg-light text-dark mb-3 mt-1"><i class="fa fa-calendar-check me-1"></i> {{ item.year }}</span>
             </div>
 
             <div class="timeline-body">

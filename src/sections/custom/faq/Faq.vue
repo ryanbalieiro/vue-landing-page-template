@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper :data="data">
-    <hr class="mt-0 mb-5">
+    <hr class="mt-0 mb-4 pb-1 pg-lg-0 mb-lg-5">
     <!-- Faq Items -->
     <div class="row h-100">
       <template v-for="faqItem in data.content.items">
@@ -18,7 +18,7 @@
         </div>
       </template>
     </div>
-    <hr class="mt-2 mb-4">
+    <hr class="mt-0 mt-lg-2">
   </SectionWrapper>
 </template>
 
@@ -40,7 +40,7 @@ const props = defineProps(['data'])
 }
 
 .question-answer {
-  font-size: 0.9rem!important;
+  font-size: 0.85rem!important;
   text-align: justify;
 }
 
