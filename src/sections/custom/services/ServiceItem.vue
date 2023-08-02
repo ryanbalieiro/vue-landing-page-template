@@ -14,13 +14,13 @@
   <!-- Small Screens Layout -->
   <div class="service-card-sm d-lg-none d-flex mb-1 mt-3 text-start">
     <!-- Icon -->
-    <div class="flex-shrink-0 pe-1 ps-1 pe-lg-2 ps-lg-2">
+    <div class="flex-shrink-0 pe-1 pe-lg-2 ps-lg-2">
       <CircleIcon :scale="2" :icon="item.icon" class="d-none d-md-block"></CircleIcon>
       <CircleIcon :scale="1" :icon="item.icon" class="d-md-none"></CircleIcon>
     </div>
 
     <!-- Description -->
-    <div class="service-description ms-2">
+    <div class="service-description pe-2 pe-lg-0 ms-2">
       <h5>{{item.title}}</h5>
       <p class="text-muted">{{item.description}}</p>
     </div>

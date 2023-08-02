@@ -13,9 +13,7 @@
       <h4>{{ member.name }}</h4>
 
       <!-- Role Badge -->
-      <span class="badge mb-3 mt-1">
-        <i class="fa fa-suitcase me-1"></i> {{ member.role }}
-      </span>
+      <span class="badge mb-3 mt-1">{{ member.role }}</span>
 
       <!-- Quote -->
       <p class="text-muted quote"><i class="fa fa-comments me-1"></i> “{{member.quote}}”</p>

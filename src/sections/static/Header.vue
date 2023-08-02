@@ -13,7 +13,7 @@
         <img :src="data.srcImage" alt="logo" class="img-fluid logo">
 
         <!-- Texts -->
-        <h1 class="heading mt-4">{{ data.title }}</h1>
+        <h1 class="heading">{{ data.title }}</h1>
         <p class="subheading">{{ data.subtitle }}</p>
 
         <!-- Button -->
@@ -38,8 +38,11 @@ const _onButtonClicked = () => {
 @import "../../scss/_theming.scss";
 
 .page-header {
-  min-height: max(100vh, 900px);
+  min-height: max(90vh, 700px);
   position: relative;
+  @include media-breakpoint-up(md) {
+    min-height: max(100vh, 900px);
+  }
 }
 
 .content-top-bg {
@@ -91,25 +94,25 @@ const _onButtonClicked = () => {
 }
 
 .heading {
-  font-size: 2rem;
-  line-height: 3.5rem;
+  font-size: 1.65rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: $headings-font-family;
 
   @include media-breakpoint-up(sm) {
     font-size: 2.5rem;
-    line-height: 4rem;
   }
 
   @include media-breakpoint-up(md) {
     font-size: 3rem;
-    line-height: 5.25rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
 
   @include media-breakpoint-up(lg) {
     font-size: 3.5rem;
-    line-height: 5.25rem;
   }
 }
 
@@ -128,6 +131,7 @@ const _onButtonClicked = () => {
 
   @include media-breakpoint-up(lg) {
     font-size: 1.4rem;
+    margin-bottom: 1.5rem;
   }
 }
 

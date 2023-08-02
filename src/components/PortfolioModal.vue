@@ -3,11 +3,11 @@
   <div class="modal modal-xl fade" id="portfolio-modal" tabindex="-1" aria-labelledby="portfolio-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
+        <!-- Close Button -->
+        <button class="close-button" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i> </button>
+
         <!-- Body -->
         <div class="modal-body py-5 py-lg-3">
-          <!-- Close Button -->
-          <button class="close-button" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i> </button>
-
           <!-- Content Row -->
           <div class="row text-center text-lg-start p-2 p-md-4">
             <!-- Image Column -->
@@ -88,11 +88,13 @@ defineExpose({
   background-color: transparent;
   border-color: transparent;
   font-size: 1.7rem;
+  z-index: 99;
   padding:0;
   margin:0;
   color:$gray-400;
   position: absolute;
   right: 20px;
+  top:10px;
 
   &:hover {
     color: $primary;
