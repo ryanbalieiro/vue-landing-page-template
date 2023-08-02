@@ -103,16 +103,6 @@ defineExpose({
 
 .project-info-section {
   margin-top: 25px;
-
-  p {
-    font-size: 0.85rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    p {
-      font-size: 0.75rem;
-    }
-  }
 }
 
 .logo {

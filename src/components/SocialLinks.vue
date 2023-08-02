@@ -61,7 +61,6 @@ const getBtnClassList = () => {
   }
 }
 
-
 .btn-social-big {
   $font-size:1.2rem;
   font-size: $font-size;
