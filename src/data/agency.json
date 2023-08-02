@@ -31,19 +31,23 @@
       "content": {
         "image": "images/agency-logo.png",
         "paragraphs": [
-          "Ryan Balieiro created the Foxy Agency Template, a free Vue3 & Bootstrap 5.0 theme. The downloadable files consist of the entire source code, including HTML, CSS, and Javascript. Please feel free to download and customize the theme as you wish.",
+          "<b>Ryan Balieiro</b> created the Foxy Agency Template, a free Vue3 & Bootstrap 5.0 theme. The downloadable files consist of the entire source code, including HTML, CSS, and Javascript. Please feel free to download and customize the theme as you wish.",
           "With this template, you have the freedom to create custom sections, fill pre-existing ones with your own content, and personalize the colors, fonts, and much more to your liking.",
           "In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way.",
-          "The template available on GitHub is a valuable resource for developers, as it provides a free and accessible solution for various projects. Hosted on the platform, the template allows users to easily access and utilize the source code, making it a convenient starting point for web development endeavors."
-        ],
+          "The template available on <a href='github.com'>GitHub</a> is a valuable resource for developers, as it provides a free and accessible solution for various projects. Hosted on the platform, the template allows users to easily access and utilize the source code, making it a convenient starting point for web development endeavors."
+        ]
+      },
+
+      "footer": {
+        "divider": true,
+        "title": "Get it for <span class='text-primary'>free!</span>",
+        "longDescription": "Do you want to use and/or customize this template? Feel free to clone it from the official Github repo!",
         "button": {
           "label": "Download Now!",
           "icon": "fa-solid fa-download",
           "href": "https://github.com/ryanbalieiro/foxy-template"
         }
-      },
-
-      "footer": null
+      }
     },
 
     "services": {

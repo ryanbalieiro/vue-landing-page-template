@@ -1,21 +1,17 @@
 <template>
   <SectionWrapper :data="data">
-    <div class="row">
-      <!-- Image -->
-      <div class="col col-12 col-md-6 text-center">
-        <img :src="data.content.image" alt="logo" class="img img-fluid">
+    <div class="row mb-4">
+      <!-- Left Column -->
+      <div class="image-col col-12 col-lg-5 col-xl-4">
+        <img :src="data.content.image" alt="logo" class="img img-fluid my-auto">
       </div>
 
-      <!-- Texts & Links -->
-      <div class="col col-12 col-md-6">
-        <!-- Text -->
-        <template v-for="paragraph in data.content.paragraphs">
-          <p v-html="paragraph"></p>
-        </template>
-
-        <!-- Button -->
-        <div class="text-center">
-          <XLButton :label="data.content.button.label" :icon="data.content.button.icon" :href="data.content.button.href"></XLButton>
+      <!-- Right Column -->
+      <div class="text-col col-12 col-lg-7 col-xl-8">
+        <div class="text-wrapper my-auto">
+          <template v-for="paragraph in data.content.paragraphs">
+            <p v-html="paragraph"></p>
+          </template>
         </div>
       </div>
     </div>
@@ -23,7 +19,6 @@
 </template>
 
 <script setup>
-import XLButton from "../../../components/XLButton.vue"
 import SectionWrapper from "../CustomSectionWrapper.vue"
 
 const props = defineProps(['data'])
@@ -32,34 +27,36 @@ const props = defineProps(['data'])
 <style scoped lang="scss">
 @import "../../../scss/_theming.scss";
 
-.img {
-  max-height: 160px;
-}
-
-.col {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-
-  p {
-    text-align: justify;
-  }
-}
-
-@include media-breakpoint-up(md) {
+.image-col {
+  text-align: center;
+  padding-bottom: 2rem;
   .img {
-    max-height: 300px;
+    max-height: 200px;
   }
+}
+
+.text-col {
+  text-align: justify;
 }
 
 @include media-breakpoint-up(lg) {
-  .img {
-    max-height: 350px;
+  .image-col {
+    text-align: end;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    display: flex;
+    .img {
+      max-height: 50vh;
+      width: 100%;
+    }
   }
 
-  .col {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .text-col {
+    display: flex;
+    p {
+      font-size: 0.95rem;
+    }
   }
 }
+
 </style>
