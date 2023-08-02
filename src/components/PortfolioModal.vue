@@ -8,17 +8,17 @@
           <!-- Close Button -->
           <button class="close-button" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i> </button>
 
-          <!-- Row -->
+          <!-- Content Row -->
           <div class="row text-center text-lg-start p-2 p-md-4">
             <!-- Image Column -->
             <div class="col-12 col-lg-4 ps-2 pe-2 pe-lg-5">
-              <img class="img-fluid logo" :src="projectImage" alt="logo">
+              <img class="img-fluid logo my-auto my-lg-0 mb-3" :src="projectImage" alt="logo">
             </div>
 
             <!-- Texts Column -->
             <div class="col-12 col-lg-8">
               <!-- Title -->
-              <h1 class="display-5" v-html="projectTitle"></h1>
+              <h1 v-html="projectTitle"></h1>
 
               <!-- Tags -->
               <div class="project-tags">
@@ -30,7 +30,7 @@
 
               <!-- Description -->
               <div class="project-info-section">
-                <h5><i class="fa fa-file me-1"></i> About</h5>
+                <h5 class="d-none d-lg-inline-block"><i class="fa fa-file me-1"></i> About</h5>
                 <p class="description" v-html="projectDescription"></p>
               </div>
 
@@ -125,9 +125,9 @@ defineExpose({
 }
 
 p {
-  font-size: 0.8rem;
-  @include media-breakpoint-up(md) {
-    font-size: 0.9rem;
+  font-size: 0.8rem!important;
+  @include media-breakpoint-up(xl) {
+    font-size: 0.9rem!important;
   }
 }
 

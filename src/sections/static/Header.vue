@@ -9,9 +9,14 @@
     <!-- Container -->
     <div class="container">
       <div class="container-content-wrapper">
+        <!-- Logo -->
         <img :src="data.srcImage" alt="logo" class="img-fluid">
+
+        <!-- Texts -->
         <h1 class="heading mt-4">{{ data.title }}</h1>
         <p class="subheading">{{ data.subtitle }}</p>
+
+        <!-- Button -->
         <XLButton :icon="data.button.icon" :label="data.button.label" @click="_onButtonClicked()"></XLButton>
       </div>
     </div>

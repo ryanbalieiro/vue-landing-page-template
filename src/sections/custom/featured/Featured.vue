@@ -2,11 +2,11 @@
   <SectionWrapper :data="data" :section-class="'page-section-dark'">
     <div class="row text-center text-md-start py-2 py-md-4 py-lg-5">
       <!-- Image -->
-      <div class="col-12 col-md-3 col-lg-4 ps-2 pe-2 pe-md-5">
+      <div class="col-12 col-md-3 col-lg-4 ps-2 pe-2 pe-md-5 ps-md-3">
         <img class="img-fluid logo trace-shadow" :src="data.content.project.logo" alt="logo">
       </div>
 
-      <!-- Texts -->
+      <!-- Content -->
       <div class="col-12 col-md-9 col-lg-8">
         <!-- Texts -->
         <h4 class=""><i class="fa-brands fa-hotjar me-2"></i> {{data.content.title}}</h4>

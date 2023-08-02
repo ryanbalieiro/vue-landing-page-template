@@ -1,5 +1,6 @@
 <template>
   <SectionWrapper :data="data" :section-class="'page-section-dark'">
+    <!-- Contact Form -->
     <form id="contact-form">
       <div class="row align-items-stretch mb-3">
         <div class="col-md-6">
@@ -26,6 +27,7 @@
         </div>
       </div>
 
+      <!-- Submit button -->
       <div class="text-center">
         <XLButton :label="data.content.button.label" :type="'submit'" :icon="data.content.button.icon"></XLButton>
       </div>

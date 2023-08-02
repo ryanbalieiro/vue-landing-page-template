@@ -22,6 +22,7 @@
           </template>
         </div>
 
+        <!-- Copyright -->
         <div class="col-lg-12 mb-3 mt-lg-2">
           <small class="text-muted">{{ data.copyright }}</small>
         </div>

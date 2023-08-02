@@ -22,6 +22,7 @@ export function useLayout() {
         return _lastSectionClass
     }
 
+    //reset section tracker (next will be white).
     const resetSectionClassTracker = () => {
         _lastSectionClass = null
     }

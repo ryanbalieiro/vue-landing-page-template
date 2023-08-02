@@ -1,9 +1,14 @@
+body {
+  background-color: $dark;
+}
+
 .container {
   max-width: 1200px;
 }
 
 .page-section {
   padding: 3rem 1rem;
+  background-color: white;
 
   p {
     font-size: 0.8rem;
@@ -85,11 +90,6 @@
   color:white;
 }
 
-.page-section-black {
-  background-color: #000000;
-  color:white;
-}
-
 .trace-shadow {
   box-shadow: rgba(0, 0, 0, 0.2) 5px 5px, rgba(10, 10, 10, 0.3) 10px 10px, rgba(20, 20, 20, 0.2) 15px 15px;
 }
@@ -106,7 +106,6 @@ hr.solid-divider {
   margin:0 auto;
 }
 
-/* Swipers */
 .swiper-pagination-bullet {
   background-color: $dark-faded;
   border:2px solid black;

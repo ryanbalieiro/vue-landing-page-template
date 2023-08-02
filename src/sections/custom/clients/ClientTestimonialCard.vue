@@ -14,7 +14,10 @@
 
     <!-- Footer -->
     <div class="card-footer">
-      <p class="organization-member"><i class="fa fa-comment me-1"></i> {{ testimonial.staffMember }}</p>
+      <!-- Member -->
+      <p class="organization-member">
+        <i class="fa fa-comment me-1"></i> {{ testimonial.staffMember }}
+      </p>
     </div>
   </div>
 </template>
@@ -63,7 +66,6 @@ const props = defineProps(['testimonial'])
 @include media-breakpoint-down(md) {
   .card {
     text-align: center;
-    border: none;
 
     .card-body p {
       font-size: 0.85rem!important;

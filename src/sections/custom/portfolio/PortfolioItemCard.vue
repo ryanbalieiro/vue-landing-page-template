@@ -40,8 +40,8 @@ const _select = () => {
   overflow: hidden;
 
   border-radius: 30px;
-  height: min(20vw,100px);
-  width: min(20vw,100px);
+  height: min(30vw,100px);
+  width: min(30vw,100px);
 
   .logo {
     width: 100%;

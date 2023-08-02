@@ -32,16 +32,15 @@
         "image": "images/agency-logo.png",
         "paragraphs": [
           "<b>Ryan Balieiro</b> created the Foxy Agency Template, a free Vue3 & Bootstrap 5.0 theme. The downloadable files consist of the entire source code, including HTML, CSS, and Javascript. Please feel free to download and customize the theme as you wish.",
-          "With this template, you have the freedom to create custom sections, fill pre-existing ones with your own content, and personalize the colors, fonts, and much more to your liking.",
-          "In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way.",
-          "The template available on <a href='github.com'>GitHub</a> is a valuable resource for developers, as it provides a free and accessible solution for various projects. Hosted on the platform, the template allows users to easily access and utilize the source code, making it a convenient starting point for web development endeavors."
+          "The template available on <a href='github.com'>GitHub</a> is a valuable resource for developers, as it provides a free and accessible solution for various projects. Hosted on the platform, the template allows users to easily access and utilize the source code, making it a convenient starting point for web development endeavors.",
+          "With this template, you have the freedom to create custom sections, fill pre-existing ones with your own content, and personalize the colors, fonts, and much more to your liking. In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way."
         ]
       },
 
       "footer": {
         "divider": true,
         "title": "Get it for <span class='text-primary'>free!</span>",
-        "longDescription": "Do you want to use and/or customize this template? Feel free to clone it from the official Github repo!",
+        "shortDescription": "Do you want to use and/or customize this template? Feel free to clone it from the official Github repo!",
         "button": {
           "label": "Download Now!",
           "icon": "fa-solid fa-download",
@@ -199,7 +198,7 @@
             "category": "Finance",
             "description": "<b>SmartCash</b> is your smart companion for personal finance, empowering you to take control of your money effortlessly. With its user-friendly interface, SmartCash provides real-time tracking of your expenses and income, enabling you to identify spending patterns and make informed financial decisions. Stay on top of your budget as SmartCash offers personalized recommendations to save money and achieve your financial goals without compromising your lifestyle.",
             "logo": "images/portfolio/project-logo-1.png",
-            "tags": ["app", "finance", "money", "budget", "save"],
+            "tags": ["app", "finance", "money", "budget"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"},
@@ -211,7 +210,7 @@
             "category": "Photo Editor",
             "description": "<b>Snappy</b> is your ultimate photography app, empowering you to capture and edit stunning images effortlessly. With its intuitive interface, Snappy provides a wide range of powerful tools and filters to enhance your photos and bring out your creativity. Whether you're a professional photographer or just a hobbyist, Snappy offers features like manual controls, advanced editing options, and AI-powered enhancements to take your photography to the next level.",
             "logo": "images/portfolio/project-logo-2.png",
-            "tags": ["app", "photography", "camera", "editing"],
+            "tags": ["app", "photography", "camera"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"}
@@ -222,7 +221,7 @@
             "category": "Education",
             "description": "<b>BrainPulse</b> is your ultimate brain training app, empowering you to boost cognitive abilities effortlessly. With its engaging interface, BrainPulse offers a variety of stimulating games and exercises designed to enhance memory, attention, problem-solving, and more. Track your progress and challenge yourself to reach new mental heights with personalized training programs tailored to your specific needs and goals.",
             "logo": "images/portfolio/project-logo-3.png",
-            "tags": ["app", "brain", "training", "cognitive"],
+            "tags": ["app", "brain", "training"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"},
@@ -234,7 +233,7 @@
             "category": "Productivity",
             "description": "<b>Stackers</b> is your ultimate productivity app, empowering you to stay organized and focused effortlessly. With its intuitive and streamlined interface, Stackers offers a variety of tools to help you manage tasks, notes, and projects effectively. Create to-do lists, set reminders, and collaborate with teammates to achieve your goals seamlessly. Take control of your time and boost your productivity with Stackers as your reliable productivity companion.",
             "logo": "images/portfolio/project-logo-6.png",
-            "tags": ["app", "productivity", "organization", "tasks", "notes"],
+            "tags": ["app", "productivity", "organization", "tasks"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"},
@@ -247,7 +246,7 @@
             "category": "Social/Sports",
             "description": "<b>Find-A-Goalie</b> is your go-to app for finding goalkeepers to join your casual soccer matches. With its simple and efficient interface, Goalkeeper Finder connects players and goalkeepers in your local area, making it easy to organize matches and build a reliable team. Say goodbye to match cancellations due to lack of goalkeepers and enjoy the beautiful game with newfound teammates.",
             "logo": "images/portfolio/project-logo-4.png",
-            "tags": ["app", "sports", "soccer", "goalkeeper", "matches"],
+            "tags": ["app", "sports", "soccer", "goalkeeper"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"},
@@ -259,7 +258,7 @@
             "category": "Food & Drink",
             "description": "<b>Sweet Scoops</b> is your delightful companion for exploring the world of ice creams. With its mouthwatering interface, SweetScoops offers a wide selection of ice cream flavors, recipes, and unique combinations to tickle your taste buds. Whether you're an ice cream enthusiast or a connoisseur, SweetScoops allows you to discover new flavors, find nearby ice cream parlors, and even create your personalized ice cream masterpieces.",
             "logo": "images/portfolio/project-logo-5.png",
-            "tags": ["app", "food", "ice cream", "dessert", "recipes"],
+            "tags": ["app", "food", "ice cream", "dessert"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"},
@@ -284,7 +283,7 @@
             "category": "Entertainment",
             "description": "<b>RockVerse</b> is your gateway to a mesmerizing world of rock 'n roll, empowering you to immerse yourself in the essence of rock effortlessly. With its dynamic and immersive interface, RockVerse offers an extensive library of iconic rock songs, legendary albums, and captivating rock artists. Unearth rare footage, delve into the history of rock, and experience mind-blowing live performances of your favorite bands. Connect with a vibrant community of rock enthusiasts, share your playlists, and embark on a legendary musical journey with RockVerse as your ultimate rock music haven.",
             "logo": "images/portfolio/project-logo-9.png",
-            "tags": ["app", "rock", "music", "bands", "concerts"],
+            "tags": ["app", "rock", "music", "bands"],
             "links": [
               {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
               {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"}

@@ -28,7 +28,7 @@ const getBtnClassList = () => {
     default: classList += ' btn-social-default-color'; break
   }
 
-  return classList;
+  return classList
 }
 </script>
 

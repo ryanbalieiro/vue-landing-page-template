@@ -1,5 +1,6 @@
 <template>
   <SectionWrapper :data="data">
+    <!-- Timeline -->
     <ul class="timeline mt-3">
       <template v-for="(item, index) in data.content.items">
         <!-- Timeline Item -->
@@ -11,6 +12,7 @@
 
           <!-- Panel -->
           <div class="timeline-panel">
+            <!-- Heading -->
             <div class="timeline-heading">
               <h4 class="mb-1" v-html="item.title"></h4>
               <span class="badge bg-light text-dark mb-3 mt-1">
@@ -18,13 +20,16 @@
               </span>
             </div>
 
+            <!-- Description -->
             <div class="timeline-body">
               <p class="text-muted" v-html="item.description"></p>
             </div>
           </div>
+
         </li>
       </template>
 
+      <!-- Timeline Tail -->
       <li>
         <div class="timeline-image-final">
         </div>

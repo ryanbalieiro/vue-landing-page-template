@@ -1,17 +1,18 @@
 <template>
   <li class="team-member-list-item d-flex">
-
+    <!-- Image Wrapper -->
     <div class="flex-shrink-0">
-      <!-- Image -->
       <div class="list-item-image-container">
         <img class="img-avatar img-fluid" :src="member.srcAvatar" :alt="member.name" />
       </div>
     </div>
 
     <!-- Panel -->
-    <div class="list-item-panel pt-4 pb-4">
+    <div class="list-item-panel pt-2 pb-4">
       <!-- Header -->
       <h4>{{ member.name }}</h4>
+
+      <!-- Role Badge -->
       <span class="badge mb-3 mt-1">
         <i class="fa fa-suitcase me-1"></i> {{ member.role }}
       </span>

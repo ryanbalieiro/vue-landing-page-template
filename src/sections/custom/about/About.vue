@@ -1,6 +1,7 @@
 <template>
   <SectionWrapper :data="data">
     <div class="row mb-4">
+
       <!-- Left Column -->
       <div class="image-col col-12 col-lg-5 col-xl-4">
         <img :src="data.content.image" alt="logo" class="img img-fluid my-auto">
@@ -14,6 +15,7 @@
           </template>
         </div>
       </div>
+
     </div>
   </SectionWrapper>
 </template>

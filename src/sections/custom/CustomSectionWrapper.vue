@@ -53,7 +53,6 @@ if(props.sectionClass) {
 else {
   sectionClass = useLayout().getNextSectionClass()
 }
-
 </script>
 
 <style scoped lang="scss">

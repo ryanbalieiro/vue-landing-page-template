@@ -1,7 +1,7 @@
 <template>
   <SectionWrapper :data="data">
 
-    <!-- Card Grid View (large screens) -->
+    <!-- Grid View (large screens) -->
     <div class="row text-center d-none d-lg-flex h-100 gy-3">
       <template v-for="member in data.content.items">
         <div class="col-lg-4 mx-auto">
