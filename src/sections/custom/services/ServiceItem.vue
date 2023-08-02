@@ -20,7 +20,7 @@
     </div>
 
     <!-- Description -->
-    <div class="service-description">
+    <div class="service-description ms-2">
       <h5>{{item.title}}</h5>
       <p class="text-muted">{{item.description}}</p>
     </div>

@@ -3,27 +3,27 @@
     <div class="container">
       <div class="row">
         <!-- Footer Location -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="col-lg-4 page-footer-column">
           <h4 class="text-uppercase mb-4"><i class="fa fa-map-pin me-2"></i>{{ data.location.title }}</h4>
-          <p class="text-address" v-html="data.location.address"></p>
+          <p class="address" v-html="data.location.address"></p>
         </div>
 
         <!-- Footer Social Icons -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="col-lg-4 page-footer-column">
           <h4 class="text-uppercase mb-4">{{ data.links.title }}</h4>
           <SocialLinks :items="data.links.items" :colors="'darkAndWhite'" :size="'big'"></SocialLinks>
         </div>
 
         <!-- Footer Extra Links -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
+        <div class="col-lg-4 page-footer-column">
           <h4 class="text-uppercase mb-4">{{ data.otherLinks.title }}</h4>
           <template v-for="item in data.otherLinks.items">
-            <a class="extra-link" :href="item.href">{{item.label}}</a>
+            <a class="footer-link" :href="item.href">{{item.label}}</a>
           </template>
         </div>
 
         <!-- Copyright -->
-        <div class="col-lg-12 mb-3 mt-lg-2">
+        <div class="col-lg-12 copyright-column">
           <small class="text-muted">{{ data.copyright }}</small>
         </div>
       </div>
@@ -45,19 +45,30 @@ const props = defineProps(['data'])
   color: $white;
   padding-top:2rem;
   text-align: center;
+}
 
-  .text-address {
-    color:$gray-500;
+.page-footer-column {
+  margin-bottom: 3rem;
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 0;
   }
+}
 
-  .extra-link {
-    margin-left:1rem;
-    margin-right:1rem;
-    text-decoration: none;
+.copyright-column {
+  margin-bottom: 1rem;
+  @include media-breakpoint-up(lg) {
+    margin-top: 1rem;
+    margin-bottom: 1.4rem;
   }
+}
 
-  .copyright {
-    background-color: $dark;
-  }
+.address {
+  color:$gray-500;
+}
+
+.footer-link {
+  margin-left:1rem;
+  margin-right:1rem;
+  text-decoration: none;
 }
 </style>

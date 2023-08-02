@@ -1,16 +1,16 @@
 <template>
-  <header class="page-header">
+  <header class="page-header d-flex">
     <!-- Background -->
     <div class="content-top-bg">
       <div class="content-top-bg-overlay">
       </div>
     </div>
 
-    <!-- Container -->
-    <div class="container">
-      <div class="container-content-wrapper">
+    <!-- Bootstrap Container -->
+    <div class="container m-auto">
+      <div class="content-wrapper">
         <!-- Logo -->
-        <img :src="data.srcImage" alt="logo" class="img-fluid">
+        <img :src="data.srcImage" alt="logo" class="img-fluid logo">
 
         <!-- Texts -->
         <h1 class="heading mt-4">{{ data.title }}</h1>
@@ -38,7 +38,7 @@ const _onButtonClicked = () => {
 @import "../../scss/_theming.scss";
 
 .page-header {
-  min-height: 800px;
+  min-height: max(100vh, 900px);
   position: relative;
 }
 
@@ -61,55 +61,75 @@ const _onButtonClicked = () => {
 }
 
 .container {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  color: $white;
   padding-left: 1rem;
   padding-right: 1rem;
+}
 
-  img {
+.content-wrapper {
+  text-align: center;
+  color: white;
+  @include media-breakpoint-up(lg) {
+    padding-top: 35px;
+  }
+}
+
+.logo {
+  min-height: 200px;
+  max-height: 30vh;
+
+  @include media-breakpoint-up(sm) {
+    max-height: 32.5vh;
+  }
+
+  @include media-breakpoint-up(md) {
+    max-height: 35vh;
+  }
+
+  @include media-breakpoint-up(lg) {
     max-height: 40vh;
-    margin-top: 8rem;
-    max-width: 65vw;
-  }
-
-  .heading {
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: $headings-font-family;
-  }
-
-  .subheading {
-    font-size: 1rem;
-    color: $white-faded;
-    font-family: $subheadings-font-family;
   }
 }
 
-@include media-breakpoint-up(lg) {
-  .page-header {
-    height: 100vh;
-    position: relative;
+.heading {
+  font-size: 2rem;
+  line-height: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: $headings-font-family;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 2.5rem;
+    line-height: 4rem;
   }
 
-  .container {
-    .heading {
-      font-size: 3.5rem;
-      line-height: 5.25rem;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 3rem;
+    line-height: 5.25rem;
+  }
 
-    .subheading {
-      font-size: 1.4rem;
-    }
-
-    img {
-      margin-top: 2rem;
-    }
+  @include media-breakpoint-up(lg) {
+    font-size: 3.5rem;
+    line-height: 5.25rem;
   }
 }
+
+.subheading {
+  font-size: 1rem;
+  color: $white-faded;
+  font-family: $subheadings-font-family;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 1.1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.3rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.4rem;
+  }
+}
+
+
 </style>

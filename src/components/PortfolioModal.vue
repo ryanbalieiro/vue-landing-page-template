@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <!-- Body -->
-        <div class="modal-body">
+        <div class="modal-body py-5 py-lg-3">
           <!-- Close Button -->
           <button class="close-button" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i> </button>
 
