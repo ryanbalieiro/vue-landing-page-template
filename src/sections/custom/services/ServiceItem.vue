@@ -5,7 +5,7 @@
     <CircleIcon :scale="3" :icon="item.icon"></CircleIcon>
 
     <!-- Description -->
-    <div class="service-description">
+    <div class="service-description mt-3">
       <h5>{{item.title}}</h5>
       <p class="text-muted">{{item.description}}</p>
     </div>
