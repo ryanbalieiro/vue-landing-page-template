@@ -1,19 +1,21 @@
 <template>
   <div class="team-member-card">
+    <!-- Avatar -->
     <div class="card-thumb">
       <img class="img-avatar img-fluid" :src="member.srcAvatar" :alt="member.name" />
     </div>
 
+    <!-- Texts And Links -->
     <div class="card-body pb-5">
       <!-- Header -->
       <h4 class="my-3 mb-1">{{ member.name }}</h4>
-      <p class="text-muted fw-bold mb-3">{{ member.role }}</p>
+      <p class="text-muted fw-bold mb-2 pb-1">{{ member.role }}</p>
 
       <!-- Social Links -->
-      <TeamMemberSocialLinks :social-links="member.socialLinks" class="mb-3"></TeamMemberSocialLinks>
+      <SocialLinks :items="member.socialLinks" :colors="'dark'" :size="'sm'" class="mb-3"></SocialLinks>
 
       <!-- Quote -->
-      <p class="text-muted quote mt-2 px-4">
+      <p class="text-muted quote mt-2 px-3">
         <i class="fa fa-quote-left me-1"></i> {{member.quote}} <i class="fa fa-quote-right ms-1"></i>
       </p>
     </div>
@@ -21,7 +23,7 @@
 </template>
 
 <script setup>
-import TeamMemberSocialLinks from "./TeamMemberSocialLinks.vue"
+import SocialLinks from "../../../components/SocialLinks.vue"
 
 const props = defineProps(['member'])
 </script>

@@ -5,13 +5,14 @@
       <div class="modal-content">
         <!-- Body -->
         <div class="modal-body">
+          <!-- Row -->
           <div class="row text-center text-lg-start p-2 p-md-4">
-            <!-- Image -->
+            <!-- Image Column -->
             <div class="col-12 col-lg-4 ps-2 pe-2 pe-lg-5">
               <img class="img-fluid logo" :src="projectImage" alt="logo">
             </div>
 
-            <!-- Texts -->
+            <!-- Texts Column -->
             <div class="col-12 col-lg-8">
               <!-- Title -->
               <h1 class="display-5" v-html="projectTitle"></h1>
@@ -25,7 +26,17 @@
               </div>
 
               <!-- Description -->
-              <p class="description mt-4" v-html="projectDescription"></p>
+              <div class="project-info-section">
+                <h5><i class="fa fa-file me-1"></i> About</h5>
+                <p class="description" v-html="projectDescription"></p>
+              </div>
+
+              <!-- Project Links -->
+              <div class="project-info-section" v-if="projectLinks">
+                <h5><i class="fa fa-external-link me-1"></i> Where To Find</h5>
+                <p><span class="fw-bold">{{ projectTitle }}</span> is available on the following platforms or services: </p>
+                <SocialLinks :items="projectLinks" :size="'mid'" :colors="'dark'"></SocialLinks>
+              </div>
             </div>
           </div>
         </div>
@@ -37,11 +48,13 @@
 <script setup>
 import {onMounted, ref} from "vue"
 import Modal from '/node_modules/bootstrap/js/src/modal'
+import SocialLinks from "./SocialLinks.vue"
 
 const projectTitle = ref(null)
 const projectDescription = ref(null)
 const projectTags = ref(null)
 const projectImage = ref(null)
+const projectLinks = ref(null)
 let bsModal = null
 
 const displayProject = (project) => {
@@ -49,6 +62,7 @@ const displayProject = (project) => {
   projectDescription.value = project.description
   projectTags.value = project.tags
   projectImage.value = project.logo
+  projectLinks.value = project.links
 
   if(bsModal)
     bsModal.show()
@@ -67,10 +81,29 @@ defineExpose({
 <style scoped lang="scss">
 @import "../scss/_theming.scss";
 
+.project-info-section {
+  margin-top: 25px;
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    p {
+      font-size: 0.75rem;
+    }
+  }
+}
+
 .logo {
   border-radius: 30px;
   margin-bottom: 40px;
   max-width: min(20vw,100%);
+
+  @include media-breakpoint-up(lg) {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 p {

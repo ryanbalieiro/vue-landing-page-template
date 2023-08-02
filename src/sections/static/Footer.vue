@@ -11,11 +11,7 @@
         <!-- Footer Social Icons -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">{{ data.links.title }}</h4>
-          <template v-for="item in data.links.items">
-            <a class="btn btn-social mx-2" :href="item.href" :aria-label="item.icon">
-              <i :class="item.icon"></i>
-            </a>
-          </template>
+          <SocialLinks :items="data.links.items" :colors="'darkAndWhite'" :size="'big'"></SocialLinks>
         </div>
 
         <!-- Footer Extra Links -->
@@ -35,6 +31,8 @@
 </template>
 
 <script setup>
+import SocialLinks from "../../components/SocialLinks.vue"
+
 const props = defineProps(['data'])
 </script>
 
@@ -49,26 +47,6 @@ const props = defineProps(['data'])
 
   .text-address {
     color:$gray-500;
-  }
-
-  .btn-social {
-    color: white;
-    border-color: white;
-    border-radius: 100%;
-    border-width: 2px;
-
-    $social-button-font-size:1.4rem;
-    display: inline-flex;
-    width: calc($social-button-font-size*2.4);
-    height: calc($social-button-font-size*2.4);
-    font-size: $social-button-font-size;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      background-color: white;
-      color: $primary;
-    }
   }
 
   .extra-link {

@@ -5,7 +5,7 @@
     <div class="row text-center d-none d-lg-flex h-100 gy-3">
       <template v-for="member in data.content.items">
         <div class="col-lg-4 mx-auto">
-          <TeamMemberCard :member="member"></TeamMemberCard>
+          <TeamMemberRowItem :member="member"></TeamMemberRowItem>
         </div>
       </template>
     </div>
@@ -22,7 +22,7 @@
 
 <script setup>
 import SectionWrapper from "../CustomSectionWrapper.vue"
-import TeamMemberCard from "./TeamMemberCard.vue"
+import TeamMemberRowItem from "./TeamMemberRowItem.vue"
 import TeamMemberListItem from "./TeamMemberListItem.vue"
 
 const props = defineProps(['data'])

@@ -1,34 +1,29 @@
 <template>
   <li class="team-member-list-item d-flex">
-    <!-- Image -->
-    <div class="list-item-image-container flex-shrink-0">
-      <img class="img-avatar img-fluid" :src="member.srcAvatar" :alt="member.name" />
+
+    <div class="flex-shrink-0">
+      <!-- Image -->
+      <div class="list-item-image-container">
+        <img class="img-avatar img-fluid" :src="member.srcAvatar" :alt="member.name" />
+      </div>
     </div>
 
     <!-- Panel -->
-    <div class="list-item-panel">
-      <!-- Panel Header -->
-      <div class="list-item-panel-header mb-3">
-        <h4 class="my-3 mb-1">{{ member.name }}</h4>
-        <span class="badge mb-3 mt-1">
-          <i class="fa fa-suitcase me-1"></i> {{ member.role }}
-        </span>
-        <TeamMemberSocialLinks :social-links="member.socialLinks"></TeamMemberSocialLinks>
-      </div>
+    <div class="list-item-panel pt-4 pb-4">
+      <!-- Header -->
+      <h4>{{ member.name }}</h4>
+      <span class="badge mb-3 mt-1">
+        <i class="fa fa-suitcase me-1"></i> {{ member.role }}
+      </span>
 
-      <!-- Panel Body -->
-      <div class="list-item-panel-body pb-3">
-        <!-- Quote -->
-        <p class="text-muted quote">
-          <i class="fa-regular fa-comments me-1"></i> “{{member.quote}}”
-        </p>
-      </div>
+      <!-- Quote -->
+      <p class="text-muted quote"><i class="fa fa-comments me-1"></i> “{{member.quote}}”</p>
     </div>
   </li>
 </template>
 
 <script setup>
-import TeamMemberSocialLinks from "./TeamMemberSocialLinks.vue";
+import SocialLinks from "../../../components/SocialLinks.vue"
 
 const props = defineProps(['member'])
 </script>
@@ -72,6 +67,10 @@ li {
 .list-item-panel {
   padding-left: 1rem;
   margin-top: -1rem;
+}
+
+.social-link {
+  font-size: 1.3rem;
 }
 
 @include media-breakpoint-down(sm) {
