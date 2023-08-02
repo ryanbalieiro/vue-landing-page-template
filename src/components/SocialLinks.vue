@@ -15,6 +15,7 @@ const getBtnClassList = () => {
   let classList = 'btn-social'
 
   switch(props.size) {
+    case 'huge': classList += ' btn-social-huge'; break
     case 'big': classList += ' btn-social-big'; break
     case 'mid': classList += ' btn-social-mid'; break
     default: classList += ' btn-social-sm'
@@ -45,6 +46,21 @@ const getBtnClassList = () => {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
 }
+
+.btn-social-huge {
+  $font-size:1.6rem;
+  font-size: $font-size;
+  width: calc($font-size*2.4);
+  height: calc($font-size*2.4);
+
+  @include media-breakpoint-up(lg) {
+    $font-size:1.8rem;
+    font-size: $font-size;
+    width: calc($font-size*2.4);
+    height: calc($font-size*2.4);
+  }
+}
+
 
 .btn-social-big {
   $font-size:1.2rem;

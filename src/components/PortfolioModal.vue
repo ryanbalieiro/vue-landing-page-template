@@ -5,6 +5,9 @@
       <div class="modal-content">
         <!-- Body -->
         <div class="modal-body">
+          <!-- Close Button -->
+          <button class="close-button" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i> </button>
+
           <!-- Row -->
           <div class="row text-center text-lg-start p-2 p-md-4">
             <!-- Image Column -->
@@ -81,6 +84,21 @@ defineExpose({
 <style scoped lang="scss">
 @import "../scss/_theming.scss";
 
+.close-button {
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 1.7rem;
+  padding:0;
+  margin:0;
+  color:$gray-400;
+  position: absolute;
+  right: 20px;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
 .project-info-section {
   margin-top: 25px;
 
@@ -98,7 +116,7 @@ defineExpose({
 .logo {
   border-radius: 30px;
   margin-bottom: 40px;
-  max-width: min(20vw,100%);
+  max-width: max(150px, min(20vw,100%));
 
   @include media-breakpoint-up(lg) {
     width: 100%;

@@ -33,7 +33,8 @@
         "paragraphs": [
           "Ryan Balieiro created the Foxy Agency Template, a free Vue3 & Bootstrap 5.0 theme. The downloadable files consist of the entire source code, including HTML, CSS, and Javascript. Please feel free to download and customize the theme as you wish.",
           "With this template, you have the freedom to create custom sections, fill pre-existing ones with your own content, and personalize the colors, fonts, and much more to your liking.",
-          "In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way."
+          "In case you encounter any challenges while attempting to customize or run this template, please feel free to reach out to me without any hesitation. I would be more than happy to extend my assistance and help you out in every possible way.",
+          "The template available on GitHub is a valuable resource for developers, as it provides a free and accessible solution for various projects. Hosted on the platform, the template allows users to easily access and utilize the source code, making it a convenient starting point for web development endeavors."
         ],
         "button": {
           "label": "Download Now!",
@@ -150,9 +151,12 @@
 
     "featured": {
       "id": "featured",
-      "navbar": null,
-      "header": null,
+      "navbar": {
+        "label": "Zork",
+        "icon": "fa-solid fa-bolt"
+      },
 
+      "header": null,
       "content": {
         "title": "Newest Release",
 
@@ -161,10 +165,14 @@
           "category": "Utilities",
           "description": "<b>Zork</b> is your ultimate battery life management app, empowering you to seize control of your device's energy consumption effortlessly. With its intuitive interface, Zork provides real-time monitoring of battery status, enabling you to identify power-draining apps and processes. Optimizing your device's settings becomes a breeze as Zork offers personalized recommendations to extend battery life without compromising performance.",
           "logo": "images/portfolio/project-logo-8.png",
-          "tags": ["app", "battery", "save"]
+          "tags": ["app", "battery", "save"],
+          "links": [
+            {"icon": "fa-brands fa-apple", "href": "https://apple.com"},
+            {"icon": "fa-brands fa-google-play", "href": "https://googleplay.com"},
+            {"icon": "fa-brands fa-windows", "href": "https://windows.com"}
+          ]
         }
       },
-
       "footer": null
     },
 

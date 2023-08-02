@@ -9,7 +9,7 @@
   <About :data="agencyData.sections.about" @vue:mounted="_onNavigationSectionMounted"></About>
   <Services :data="agencyData.sections.services" @vue:mounted="_onNavigationSectionMounted"></Services>
   <Timeline :data="agencyData.sections.history" @vue:mounted="_onNavigationSectionMounted"></Timeline>
-  <Featured :data="agencyData.sections.featured"></Featured>
+  <Featured :data="agencyData.sections.featured" @vue:mounted="_onNavigationSectionMounted"></Featured>
   <Portfolio :data="agencyData.sections.portfolio" @vue:mounted="_onNavigationSectionMounted" @project-clicked="_onProjectOpened"></Portfolio>
   <Team :data="agencyData.sections.team" @vue:mounted="_onNavigationSectionMounted"></Team>
   <Clients :data="agencyData.sections.reviews" @vue:mounted="_onNavigationSectionMounted"></Clients>

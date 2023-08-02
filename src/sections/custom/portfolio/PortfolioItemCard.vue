@@ -1,6 +1,6 @@
 <template>
   <!-- Portfolio Item -->
-  <div class="portfolio-item text-center row">
+  <div class="d-inline-block portfolio-item">
     <!-- Project Logo -->
     <div class="portfolio-item-image-wrapper" @click="_select()">
       <img class="logo" :src="project.logo" alt="logo">
