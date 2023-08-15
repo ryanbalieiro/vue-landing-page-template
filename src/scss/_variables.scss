@@ -1,21 +1,22 @@
+/** Font Awesome webfonts path **/
 $fa-font-path:"@fortawesome/fontawesome-free/webfonts";
+
+/** Overriding Bootstrap's contrast ratio. **/
 $min-contrast-ratio: 2.5 !default;
 
-// Bootstrap Colors
+/** Bootstrap Colors **/
 $primary: #ff5900;
 $dark: #212529;
 
-// Custom colors
-$white:white;
-$white-faded: #b7b7b7;
-$dark-faded: #343a40;
-$primary-faded: lighten($primary, 42%);
+/** Typography **/
+$font-family-base: 'Lato', sans-serif;
+$headings-font-family: 'Patua One', sans-serif;
+$custom-subheadings-font-family: 'Ysabeau', sans-serif;
 
-// Typography
-$font-lato: 'Lato', sans-serif;
-$font-ysabeau: 'Ysabeau', sans-serif;
-$font-patua-one: 'Patua One', sans-serif;
-$font-family-base: $font-lato;
-$headings-font-family: $font-patua-one;
-$subheadings-font-family: $font-ysabeau;
+/** General **/
+$background-color: #fefefe;
+$balloon-color: lighten($primary, 46%);
 
+/** Navigation **/
+$nav-height:290px;
+$nav-background-color: $dark;

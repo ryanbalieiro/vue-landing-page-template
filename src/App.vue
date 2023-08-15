@@ -1,58 +1,97 @@
 <template>
-  <!-- Navigation -->
-  <Navbar :data="agencyData.navbar" :section-list="navbarSections"></Navbar>
+    <!-- Preloader -->
+    <Preloader v-if="_shouldDisplayPreloader()"
+               ref="preloader"
+               @loaded="_onPreloaderLoadingComplete"
+               @will-hide="_onPreloaderWillHide">
+    </Preloader>
 
-  <!-- Header -->
-  <Header :data="agencyData.header"></Header>
+    <!-- App Content -->
+    <div v-show="_shouldDisplayContent()" class="agency">
+        <!-- Navigation -->
+        <NavBar :navbar-data="props.agencyManager.navbarData"
+                :sections="props.agencyManager.sections">
+        </NavBar>
 
-  <!-- Sections -->
-  <About :data="agencyData.sections.about" @vue:mounted="_onNavigationSectionMounted"></About>
-  <Services :data="agencyData.sections.services" @vue:mounted="_onNavigationSectionMounted"></Services>
-  <Timeline :data="agencyData.sections.history" @vue:mounted="_onNavigationSectionMounted"></Timeline>
-  <Featured :data="agencyData.sections.featured" @vue:mounted="_onNavigationSectionMounted"></Featured>
-  <Portfolio :data="agencyData.sections.portfolio" @vue:mounted="_onNavigationSectionMounted" @project-clicked="_onProjectOpened"></Portfolio>
-  <Team :data="agencyData.sections.team" @vue:mounted="_onNavigationSectionMounted"></Team>
-  <Clients :data="agencyData.sections.reviews" @vue:mounted="_onNavigationSectionMounted"></Clients>
-  <Faq :data="agencyData.sections.faq" @vue:mounted="_onNavigationSectionMounted"></Faq>
-  <Contact :data="agencyData.sections.contact" @vue:mounted="_onNavigationSectionMounted"></Contact>
+        <!-- Header -->
+        <Header :header-data="props.agencyManager.headerData"></Header>
 
-  <!-- Footer -->
-  <Footer :data="agencyData.footer"></Footer>
+        <!-- Website Sections -->
+        <component v-for="section in props.agencyManager.sections"
+                   :is="layout.getSectionComponentByName(section.component)"
+                   :section-data="section">
+        </component>
 
-  <!-- PopUps -->
-  <PortfolioModal ref="portfolioModal"></PortfolioModal>
+        <!-- Footer -->
+        <Footer :footer-data="props.agencyManager.footerData"></Footer>
+    </div>
 </template>
 
 <script setup>
-import agencyData from './data/agency.json'
+import Preloader from "./vue/loaders/Preloader.vue"
+import NavBar from "./vue/navigation/NavBar.vue"
+import Header from "./vue/partials/Header.vue"
+import Footer from "./vue/partials/Footer.vue"
+import {useLayout} from "./composables/layout.js"
 import {onMounted, ref} from "vue"
 
-import Navbar from "./components/Navbar.vue"
-import Header from "./sections/static/Header.vue"
-import PortfolioModal from "./components/PortfolioModal.vue"
-import Footer from "./sections/static/Footer.vue"
+const props = defineProps(['agencyManager'])
+const preloader = ref(null)
+const layout = useLayout()
+const isPreloadingComplete = ref(true)
 
-import About from "./sections/custom/about/About.vue"
-import Services from "./sections/custom/services/Services.vue"
-import Featured from "./sections/custom/featured/Featured.vue"
-import Portfolio from "./sections/custom/portfolio/Portfolio.vue"
-import Timeline from "./sections/custom/timeline/Timeline.vue"
-import Team from "./sections/custom/team/Team.vue"
-import Clients from "./sections/custom/clients/Clients.vue"
-import Faq from "./sections/custom/faq/Faq.vue"
-import Contact from "./sections/custom/contact/Contact.vue"
+/**
+ * Show preloader.
+ */
+onMounted(() => {
+    if(preloader.value) {
+        const root = document.getElementsByTagName( 'html' )[0];
+        document.body.className = ' no-scroll'
+        root.className += ' no-scroll'
 
-const navbarSections = ref([])
-const portfolioModal = ref(null)
+        isPreloadingComplete.value = false
+        preloader.value.animate()
+    }
+})
 
-const _onNavigationSectionMounted = (ref) => {
-  navbarSections.value.push(ref.props.data)
+/**
+ * Check whether the preload animation should be displayed
+ * @private
+ */
+const _shouldDisplayPreloader = () => {
+    return !props.agencyManager.settings.skipPreload
 }
 
-const _onProjectOpened = (project) => {
-  portfolioModal.value.displayProject(project)
+/**
+ * @private
+ */
+const _shouldDisplayContent = () => {
+    if(!layout.isTouchDevice()) {
+        return true
+    }
+    else {
+        return isPreloadingComplete.value
+    }
+}
+
+/**
+ * @private
+ */
+const _onPreloaderLoadingComplete = () => {
+    isPreloadingComplete.value = true
+}
+
+/**
+ * Preloader will start tweening out of the screen - enable scrolling.
+ * @private
+ */
+const _onPreloaderWillHide = () => {
+    const root = document.getElementsByTagName( 'html' )[0];
+    document.body.className = ''
+    root.className = ''
 }
 </script>
 
 <style scoped>
+
 </style>

@@ -1,8 +1,13 @@
 /** Created by Ryan Balieiro on 11/24/2022 **/
 import './scss/style.scss'
-import { createApp } from 'vue'
+import 'bootstrap/dist/js/bootstrap.js'
+import {createApp, reactive} from 'vue'
 import App from './App.vue'
+import {AgencyManager} from "./classes/AgencyManager.js"
 
-createApp(App).mount('#app')
+const agencyManager = reactive(new AgencyManager())
 
-import "bootstrap/dist/js/bootstrap.js"
+agencyManager.init().then(r => {
+    const props = {agencyManager}
+    createApp(App, props).mount("#app")
+})

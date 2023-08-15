@@ -1,122 +1,32 @@
 body {
-  background-color: $dark;
+  background: $dark!important;
+  overflow-y: scroll;
 }
 
 .container {
   max-width: 1200px;
 }
 
-.page-section {
-  padding: 3rem 1rem;
-  background-color: white;
-
-  p {
-    font-size: 0.8rem;
-  }
-
-  h5 {
-    font-size: 1.1rem;
-  }
-
-  .section-heading {
-    text-align: center;
-
-    h1 {
-      text-transform: uppercase;
-      font-size: 2.2rem;
-    }
-
-    h4 {
-      font-weight: normal;
-      font-size: 1.1rem;
-      font-family: $subheadings-font-family;
-      color: $text-muted;
-    }
-  }
+.no-scroll {
+  overflow-y: hidden!important;
 }
 
-.page-section-primary {
-  background-color: $primary-faded;
-}
-
-.page-section-dark {
-  background-color: $dark-faded;
-  color:white;
-}
-
-@include media-breakpoint-up(md) {
-  .page-section {
-
-    p {
-      font-size: 0.9rem;
-    }
-
-    h5 {
-      font-size: 1.4rem;
-    }
-
-    .section-heading {
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      h4 {
-        font-size: 1.3rem;
-      }
-    }
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .page-section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-
-    .section-heading {
-      h1 {
-        font-size: 3.2rem;
-      }
-
-      h4 {
-        font-size: 1.4rem;
-      }
-    }
-
-    .section-body {
-      p {
-        font-size: 1rem;
-      }
-    }
-  }
-}
 
 .trace-shadow {
-  box-shadow: rgba(0, 0, 0, 0.2) 5px 5px, rgba(10, 10, 10, 0.3) 10px 10px, rgba(20, 20, 20, 0.2) 15px 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px, rgba(10, 10, 10, 0.15) 10px 10px;
 }
 
-hr {
-  opacity: 0.1;
+::-moz-selection {
+  color: $dark;
+  background: $primary;
 }
 
-hr.solid-divider {
-  width: 60px;
-  color: black;
-  opacity: 1;
-  border:2px solid black;
-  margin:0 auto;
+::selection {
+  color: $dark;
+  background: lighten($primary, 30%);
 }
 
-.swiper-pagination-bullet {
-  background-color: $dark-faded;
-  border:2px solid black;
-  padding: 6px;
-  opacity: 0.6;
-  top: 20px;
-}
-
-span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: lighten($primary, 10%);
-  border:2px solid $primary;
-  padding: 7px;
-  opacity:1;
-}
+::-webkit-scrollbar {max-width: 6px; max-height: 4px}
+::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)}
+::-webkit-scrollbar-thumb {background: lighten($dark, 20%);-webkit-box-shadow: rgba(155,155,155)}
+::-webkit-scrollbar-thumb:window-inactive {background: $dark}
