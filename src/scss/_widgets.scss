@@ -1,0 +1,22 @@
+hr.solid-divider {
+  width: 60px;
+  color: black;
+  opacity: 1;
+  border:2px solid black;
+  margin:0 auto;
+}
+
+.swiper-pagination-bullet {
+  background-color: darken($dark, 10%);
+  border:2px solid black;
+  padding: 6px;
+  opacity: 0.6;
+  top: 20px;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: lighten($primary, 10%);
+  border:2px solid $primary;
+  padding: 7px;
+  opacity:1;
+}
