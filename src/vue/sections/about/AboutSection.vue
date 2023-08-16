@@ -3,7 +3,10 @@
         <div class="row mb-4">
             <!-- Left Column -->
             <div class="left-col col-12 col-lg-4 col-xl-4">
-                <Image :src="props.sectionData.sectionContent.image" :alt="'logo'" :class="'img img-fluid my-auto'"></Image>
+                <ImageView :src="props.sectionData.sectionContent.image"
+                           :alt="'logo'"
+                           class="img-logo">
+                </ImageView>
             </div>
 
             <!-- Right Column -->
@@ -20,7 +23,7 @@
 
 <script setup>
 import SectionTemplate from "../_templates/SectionTemplate.vue"
-import Image from "../../widgets/Image.vue"
+import ImageView from "../../widgets/ImageView.vue"
 
 const props = defineProps(['sectionData'])
 </script>
@@ -33,7 +36,7 @@ const props = defineProps(['sectionData'])
     text-align: end;
     padding: 0 2rem 1rem 2rem;
 
-    .img {
+    .img-logo {
         max-height: 50vh;
         width: 100%;
         max-width: 50vw;
@@ -47,8 +50,9 @@ const props = defineProps(['sectionData'])
         display: block;
         text-align: center;
         padding: 0 2rem 2rem 2rem;
-        .img {
-            max-height: 200px;
+
+        .img-logo {
+            height: 200px;
             width: auto;
         }
     }

@@ -93,13 +93,13 @@ const _updateProgress = () => {
 
     let loadedImages = 0
     let totalImages = 0
-    document.querySelectorAll('.foxy-image').forEach(function(image) {
+    document.querySelectorAll('.image-view-img').forEach(function(image) {
         if(image.getAttribute('loadStatus') !== '0')
             loadedImages++
         totalImages++
     });
 
-    let imagesPercentage = 100*loadedImages/totalImages
+    let imagesPercentage = totalImages > 0 ? 100*loadedImages/totalImages : 100
     let durationPercentage = 100*elapsedTime/currentStep.minDuration
 
     loadingPercentage.value = Math.round(Math.min(imagesPercentage, durationPercentage))

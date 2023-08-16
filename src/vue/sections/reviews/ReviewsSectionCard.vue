@@ -3,7 +3,10 @@
     <div class="card h-100">
         <!-- Header -->
         <div class="card-header">
-            <Image :class="'img img-fluid'" :src="item.avatar" :alt="item.organization"></Image>
+            <ImageView  :src="item.avatar"
+                        :alt="item.organization"
+                        class="img-thumbnail" />
+
             <h5 class="organization-title">{{ item.organization }}</h5>
         </div>
 
@@ -23,7 +26,7 @@
 </template>
 
 <script setup>
-import Image from "../../widgets/Image.vue"
+import ImageView from "../../widgets/ImageView.vue"
 
 const props = defineProps(['item'])
 </script>
@@ -48,9 +51,11 @@ const props = defineProps(['item'])
     padding: 1rem;
     background-color: transparent;
 
-    .img {
-        display: inline;
-        height: 50px;
+    .img-thumbnail {
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        border:none;
     }
 
     .organization-title {

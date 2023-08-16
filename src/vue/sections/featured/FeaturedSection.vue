@@ -4,7 +4,10 @@
             <div class="featured-row">
                 <!-- Image -->
                 <div class="image-col">
-                    <Image :class="'img-fluid logo trace-shadow'" :src="project.logo" :alt="'logo'"></Image>
+                    <ImageView :src="project.logo"
+                               :alt="'logo'"
+                               class="logo trace-shadow">
+                    </ImageView>
                 </div>
 
                 <!-- Texts -->
@@ -23,7 +26,7 @@
 import SectionTemplate from "../_templates/SectionTemplate.vue"
 import {computed} from "vue"
 import SocialLinks from "../../widgets/SocialLinks.vue"
-import Image from "../../widgets/Image.vue"
+import ImageView from "../../widgets/ImageView.vue"
 
 const props = defineProps(['sectionData'])
 
@@ -81,11 +84,12 @@ const project = computed(() => {
         padding-right: var(--column-spacing);
 
         .logo {
+            height: var(--image-dimensions);
+            width: var(--image-dimensions);
+            overflow: hidden;
             border-radius: calc(var(--image-dimensions)/4.5);
-            max-height: var(--image-dimensions);
-            max-width: min(var(--image-dimensions));
             @include media-breakpoint-down(md) {
-                max-width: min(var(--image-dimensions), 25vh);
+                width: min(var(--image-dimensions), 25vh);
             }
         }
     }

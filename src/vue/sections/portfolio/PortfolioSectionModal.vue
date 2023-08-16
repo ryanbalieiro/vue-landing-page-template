@@ -15,10 +15,11 @@
                     <div class="row text-center text-lg-start p-2 p-md-4">
                         <!-- Image Column -->
                         <div class="col-12 col-lg-4 pe-0 pe-lg-4">
-                            <Image :class="'img-fluid logo my-auto my-lg-0 mb-4'"
-                                   :src="projectLogoPath"
-                                   :alt="projectTitle">
-                            </Image>
+                            <ImageView  :src="projectLogoPath"
+                                        :alt="projectTitle"
+                                        :spinner-enabled="true"
+                                        class="logo my-auto my-lg-0 mb-4">
+                            </ImageView>
                         </div>
 
                         <!-- Texts Column -->
@@ -56,7 +57,7 @@
 import {onMounted, ref} from "vue"
 import Modal from '/node_modules/bootstrap/js/src/modal'
 import SocialLinks from "../../widgets/SocialLinks.vue"
-import Image from "../../widgets/Image.vue"
+import ImageView from "../../widgets/ImageView.vue"
 
 const props = defineProps(['staticTexts'])
 const modalId = 'gallery-modal'
@@ -134,6 +135,7 @@ defineExpose({
     --max-width:100%;
     --border-radius:60px;
     margin: auto;
+    overflow: hidden;
 
     @include media-breakpoint-down(xl) {
         --border-radius:50px;
@@ -145,6 +147,7 @@ defineExpose({
     }
 
     width: 100%;
+    aspect-ratio: 1/1;
     max-width: var(--max-width);
     border-radius: var(--border-radius);
 }

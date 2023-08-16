@@ -9,7 +9,10 @@
         <div class="container">
             <div class="content-wrapper">
                 <!-- Logo -->
-                <Image :src="props.headerData.logo" :alt="'logo'" :class="'img-fluid logo'"></Image>
+                <ImageView :src="props.headerData.logo"
+                           :alt="'logo'"
+                           class="logo">
+                </ImageView>
 
                 <!-- Texts -->
                 <h1 class="heading">{{ props.headerData.title }}</h1>
@@ -23,7 +26,7 @@
 </template>
 
 <script setup>
-import Image from "../widgets/Image.vue"
+import ImageView from "../widgets/ImageView.vue"
 import XLButton from "../widgets/XLButton.vue"
 import {useLayout} from "../../composables/layout.js"
 
@@ -85,13 +88,12 @@ const _onButtonClicked = () => {
 }
 
 .logo {
-    --max-height: 40vh;
-    @include media-breakpoint-down(lg) {--max-height: 35vh;}
-    @include media-breakpoint-down(md) {--max-height: 32.5vh;}
-    @include media-breakpoint-down(sm) {--max-height: 30vh;}
-
-    min-height: 200px;
-    max-height: var(--max-height);
+    --height: 40vh;
+    @include media-breakpoint-down(lg) {--height: 35vh;}
+    @include media-breakpoint-down(md) {--height: 32.5vh;}
+    @include media-breakpoint-down(sm) {--height: 30vh;}
+    
+    height: var(--height);
 }
 
 h1.heading {

@@ -6,7 +6,10 @@
             <div class="gallery-item">
                 <!-- Logo -->
                 <div class="gallery-thumb-wrapper" @click="_open(item)">
-                    <Image :src="item.logo" :alt="item.title" :class="'gallery-thumb'"></Image>
+                    <ImageView :src="item.logo"
+                               :alt="item.title"
+                               class="gallery-thumb">
+                    </ImageView>
 
                     <!-- Logo Highlight (Hover) -->
                     <div class="gallery-thumb-overlay">
@@ -27,7 +30,7 @@
 </template>
 
 <script setup>
-import Image from "../../widgets/Image.vue"
+import ImageView from "../../widgets/ImageView.vue"
 
 const props = defineProps(['items'])
 const emit = defineEmits(['open'])

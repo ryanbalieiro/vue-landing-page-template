@@ -11,7 +11,9 @@
 
         <!-- Avatar -->
         <div class="thumbnail-wrapper">
-            <Image :class="'img-avatar img-fluid'" :src="item.avatar" :alt="item.name" />
+            <ImageView :src="item.avatar"
+                       :alt="item.name"
+                       class="img-avatar"/>
         </div>
 
         <!-- Texts And Links -->
@@ -27,7 +29,7 @@
 
 <script setup>
 import SocialLinks from "../../widgets/SocialLinks.vue"
-import Image from "../../widgets/Image.vue"
+import ImageView from "../../widgets/ImageView.vue"
 const props = defineProps(['item'])
 </script>
 
@@ -37,6 +39,7 @@ const props = defineProps(['item'])
 .img-avatar {
     max-height: 170px;
     max-width: 170px;
+    overflow: hidden;
 
     @include media-breakpoint-down(sm) {
         max-height: 120px;
