@@ -28,34 +28,34 @@ All the application's data is stored in the `public` folder. Within this directo
 
 Inside the `agency.json` file, you have the ability to include or exclude items in the sections array. Keep in mind that the arrangement of sections within the array will determine how they appear in the display order.
 
-```json
+```javascript
 {
   "sections": [
     {
-        "id": "about", /** the section's unique id **/
-        "component": "AboutSection", /** the component that will render the section **/
-        "class": "agency-section", /** the section's class (agency-section: white bg) **/
-        "navbar": { /** navbar info **/
+        "id": "about", // the section's unique id
+        "component": "AboutSection", // the component that will render the section
+        "class": "agency-section", // the section's class (agency-section: white bg)
+        "navbar": { // navbar info
           "label": "About",
           "icon": "fa-solid fa-file"
         },
-        "sectionHeader": (...),
-        "sectionContent": (...),
-        "sectionFooter": (...),
+        "sectionHeader": {/** (...) **/},
+        "sectionContent": {/** (...) **/},
+        "sectionFooter": {/** (...) **/},
     },
     {
-      "id": "services", /** the section's unique id **/
-      "component": "ServicesSection", /** the component that will render the section **/
-      "class": "agency-section-primary", /** the section's class (agency-section-primary:orange bg) **/
-      "navbar": { /** navbar info **/
+      "id": "services", // the section's unique id
+      "component": "ServicesSection", // the component that will render the section 
+      "class": "agency-section-primary", // the section's class (agency-section-primary: orange bg)
+      "navbar": { // navbar info 
         "label": "About",
         "icon": "fa-solid fa-file"
       },
-      "sectionHeader": (...),
-      "sectionContent": (...),
-      "sectionFooter": (...),
+      "sectionHeader": {/** (...) **/},
+      "sectionContent": {/** (...) **/},
+      "sectionFooter": {/** (...) **/},
     },
-    (...)
+    /** (...) **/    
   ]
 }
 ```

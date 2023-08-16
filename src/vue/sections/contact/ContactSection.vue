@@ -136,6 +136,6 @@ textarea {
     }
 
     font-size: var(--font-size);
-    color: $gray-700;
+    color: $gray-600;
 }
 </style>
