@@ -9,9 +9,7 @@
             </a>
 
             <!-- Collapse Button (Small Screens) -->
-            <button id="toggler"
-                    class="navbar-toggler"
-                    type="button">
+            <button id="toggler" class="navbar-toggler" type="button">
                 <i class="fas fa-bars ms-1 me-1"></i>
             </button>
 

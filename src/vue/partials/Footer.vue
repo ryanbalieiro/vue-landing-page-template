@@ -7,14 +7,14 @@
                 <div class="footer-block-row row">
                     <!-- About Column -->
                     <div class="footer-block-col col-12 col-lg-4">
-                        <h5 class="footer-title"><i class="fa fa-pen me-1 d-none d-md-inline"></i> {{ aboutData.title }}</h5>
+                        <h5 class="footer-title"><i class="fa fa-pen me-1 d-none d-md-inline"/> {{ aboutData.title }}</h5>
                         <!-- About: Description -->
                         <div class="footer-item-wrapper">
                             <span class="info-xs" v-html="aboutData.description"></span>
                         </div>
                         <!-- About: Links -->
                         <div class="footer-item-wrapper">
-                            <InlineList :items="aboutData.items"></InlineList>
+                            <InlineList :items="aboutData.items" />
                         </div>
                     </div>
 
@@ -23,13 +23,13 @@
                         <h5 class="footer-title">{{ socialData.title }}</h5>
                         <!-- Social: Social Links -->
                         <div class="footer-item-wrapper mt-lg-3">
-                            <SocialLinks :items="socialData.items" :size="'lg'" :color="'darkAndWhite'"></SocialLinks>
+                            <SocialLinks :items="socialData.items" :size="'lg'" :color="'darkAndWhite'" />
                         </div>
                     </div>
 
                     <!-- Contact Column -->
                     <div class="footer-block-col col-12 col-lg-4">
-                        <h5 class="footer-title"><i class="fa fa-fax me-2"></i>{{ contactInfoData.title }}</h5>
+                        <h5 class="footer-title"><i class="fa fa-fax me-2"/>{{ contactInfoData.title }}</h5>
                         <!-- Contact: Address -->
                         <div class="footer-item-wrapper">
                             <div class="address">
@@ -38,7 +38,7 @@
                         </div>
                         <!-- Contact: Options -->
                         <div class="footer-item-wrapper">
-                            <InlineList :items="contactInfoData.options"></InlineList>
+                            <InlineList :items="contactInfoData.options" />
                         </div>
                     </div>
                 </div>

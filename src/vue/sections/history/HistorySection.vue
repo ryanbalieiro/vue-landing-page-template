@@ -7,23 +7,23 @@
                 <!-- Image -->
                 <div class="timeline-image">
                     <ImageView :src="item.thumbnail"
-                               :alt="item.title">
-                    </ImageView>
+                               :alt="item.title"
+                    />
                 </div>
 
                 <!-- Panel -->
                 <div class="timeline-panel" :class="{'timeline-panel-inverted': index % 2 === 0}">
                     <!-- Heading -->
                     <div class="timeline-heading">
-                        <h4 class="mb-1" v-html="item.title"></h4>
+                        <h4 class="mb-1" v-html="item.title"/>
                         <span class="badge bg-light text-dark mb-3 mt-1">
-                            <i class="fa fa-calendar-check me-1"></i> {{ item.year }}
+                            <i class="fa fa-calendar-check me-1"/> {{ item.year }}
                         </span>
                     </div>
 
                     <!-- Description -->
                     <div class="timeline-body">
-                        <p class="text-muted info" v-html="item.description"></p>
+                        <p class="text-muted info" v-html="item.description"/>
                     </div>
                 </div>
             </li>

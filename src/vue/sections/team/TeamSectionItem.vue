@@ -5,7 +5,7 @@
         <div class="balloon">
             <div class="triangle"></div>
             <p class="text-muted info-sm mt-2 px-3">
-                <i class="fa fa-quote-left me-2 text-primary"></i>{{item.quote}}<i class="fa fa-quote-right ms-2 text-primary"></i>
+                <i class="fa fa-quote-left me-2 text-primary"/>{{item.quote}}<i class="fa fa-quote-right ms-2 text-primary"/>
             </p>
         </div>
 
@@ -13,7 +13,8 @@
         <div class="thumbnail-wrapper">
             <ImageView :src="item.avatar"
                        :alt="item.name"
-                       class="img-avatar"/>
+                       class="img-avatar"
+            />
         </div>
 
         <!-- Texts And Links -->
@@ -22,7 +23,7 @@
             <h4 class="my-3 mb-1">{{ item.name }}</h4>
             <p class="text-muted info fw-bold mb-2 pb-1">{{ item.role }}</p>
             <!-- Social Links -->
-            <SocialLinks :items="item.socialLinks" :color="'lightDark'" :size="'md'" class="mb-3"></SocialLinks>
+            <SocialLinks :items="item.socialLinks" :color="'lightDark'" :size="'md'" class="mb-3"/>
         </div>
     </div>
 </template>

@@ -1,12 +1,12 @@
 <template>
     <!-- If there's an href prop, create it as a link -->
     <a v-if="props.href" class="btn btn-primary btn-xl mt-4" :href="props.href" @click="_onButtonClicked()">
-        <i class="me-1" :class="props.icon"></i>{{ props.label }}
+        <i class="me-1" :class="props.icon"/>{{ props.label }}
     </a>
 
     <!-- If there's a type prop (eg. 'submit'), create it as a button -->
     <button v-else class="btn btn-primary btn-xl mt-4" :type="props.type" @click="_onButtonClicked()">
-        <i class="me-1" :class="props.icon"></i>{{ props.label }}
+        <i class="me-1" :class="props.icon"/>{{ props.label }}
     </button>
 </template>
 

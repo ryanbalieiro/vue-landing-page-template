@@ -7,7 +7,7 @@
                 <div class="service-item">
                     <!-- Icon -->
                     <div class="service-icon-wrapper">
-                        <CircleIcon :fa-icon="item.icon"></CircleIcon>
+                        <CircleIcon :fa-icon="item.icon"/>
                     </div>
 
                     <!-- Content -->

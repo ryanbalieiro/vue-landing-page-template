@@ -19,7 +19,7 @@
         <div class="card-footer">
             <!-- Member -->
             <p class="organization-member">
-                <i class="fa fa-comment me-1"></i> {{ item.staffMember }}
+                <i class="fa fa-comment me-1"/> {{ item.staffMember }}
             </p>
         </div>
     </div>

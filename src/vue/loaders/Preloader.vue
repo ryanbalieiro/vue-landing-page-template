@@ -2,11 +2,20 @@
     <!-- Preloader -->
     <div class="preloader-full-screen" v-if="_isVisible()" :class="{'preloader-full-screen-show': !_isDisappearing()}">
         <div v-show="didLoadLogo" class="preloader-full-screen-content">
-            <img src="/images/logo/agency-logo-small.png" @load="_onImageLoadResponse" @error="_onImageLoadResponse" alt="preloader-logo" class="img-fluid img-logo">
+            <!-- Logo -->
+            <img src="/images/logo/agency-logo-small.png"
+                 @load="_onImageLoadResponse"
+                 @error="_onImageLoadResponse"
+                 alt="preloader-logo"
+                 class="img-fluid img-logo">
 
             <div class="progress-display" :class="{'progress-display-expanded': _didFinishLogoTransition()}">
+                <!-- Percentage -->
                 <p class="mt-2 mb-2 info">{{loadingPercentage}}%</p>
-                <ProgressBar ref="progressBar" :percentage="loadingPercentage"></ProgressBar>
+
+                <!-- Progress Bar -->
+                <ProgressBar ref="progressBar"
+                             :percentage="loadingPercentage"/>
             </div>
         </div>
     </div>
@@ -16,7 +25,6 @@
 import {ref} from "vue"
 import ProgressBar from "../widgets/ProgressBar.vue"
 
-const props = defineProps([''])
 const emit = defineEmits(['ready', 'shown', 'loaded', 'willHide', 'hidden'])
 
 const didLoadLogo = ref(false)
@@ -142,6 +150,7 @@ const _checkCompletion = () => {
  */
 const _stop = () => {
     clearInterval(intervalId)
+    currentStepId.value = null
     intervalId = null
 }
 
@@ -162,11 +171,13 @@ defineExpose({animate})
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99999;
-    background-color: $dark;
+
+    z-index: 10000;
     width: 100vw;
     height: 100vh;
     top: -100vh;
+
+    background-color: $dark;
     transition: 0.4s all ease-out;
 
     &-show {
@@ -177,8 +188,8 @@ defineExpose({animate})
 }
 
 .preloader-full-screen-content {
-    color: white;
     text-align: center;
+    color: white;
     animation: appear 0.2s ease-out forwards;
 
     .img-logo {
@@ -187,14 +198,14 @@ defineExpose({animate})
     }
 
     .progress-display {
-        opacity: 0;
         margin-top: -30px;
         overflow: hidden;
+        opacity: 0;
         transition: 0.3s all ease-out;
 
         &-expanded {
-            opacity: 1;
             margin-top: 0;
+            opacity: 1;
         }
     }
 }

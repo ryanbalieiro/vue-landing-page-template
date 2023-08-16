@@ -6,7 +6,7 @@
             <div class="modal-content">
                 <!-- Close Button -->
                 <button class="close-button" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="fa fa-close"></i>
+                    <i class="fa fa-close"/>
                 </button>
 
                 <!-- Body -->
@@ -18,32 +18,32 @@
                             <ImageView  :src="projectLogoPath"
                                         :alt="projectTitle"
                                         :spinner-enabled="true"
-                                        class="logo my-auto my-lg-0 mb-4">
-                            </ImageView>
+                                        class="logo my-auto my-lg-0 mb-4"
+                            />
                         </div>
 
                         <!-- Texts Column -->
                         <div class="col-12 col-lg-8">
                             <!-- Title -->
-                            <h1 v-html="projectTitle"></h1>
+                            <h1 v-html="projectTitle"/>
 
                             <!-- Tags -->
-                            <span class="me-1"><i class="fa fa-tag me-1"></i>Tags: </span>
+                            <span class="me-1"><i class="fa fa-tag me-1"/>Tags: </span>
                             <div class="d-inline-block">
                                 <span v-for="tag in projectTags" class="badge bg-primary me-1">{{ tag }}</span>
                             </div>
 
                             <!-- About Subsection -->
                             <div class="modal-subsection">
-                                <h5 class="d-none d-lg-inline-block"><i class="fa fa-file me-1"></i> About</h5>
-                                <p class="info-sm" v-html="projectDescription"></p>
+                                <h5 class="d-none d-lg-inline-block"><i class="fa fa-file me-1"/> About</h5>
+                                <p class="info-sm" v-html="projectDescription"/>
                             </div>
 
                             <!-- Links Subsection -->
                             <div class="modal-subsection">
-                                <h5><i class="fa fa-external-link me-1"></i> Where To Find</h5>
+                                <h5><i class="fa fa-external-link me-1"/> Where To Find</h5>
                                 <p class="info-sm"><strong>{{ projectTitle }}</strong> is available on the following platforms or services:</p>
-                                <SocialLinks :items="projectLinks" :size="'lg'" :color="'dark'"></SocialLinks>
+                                <SocialLinks :items="projectLinks" :size="'lg'" :color="'dark'"/>
                             </div>
                         </div>
                     </div>

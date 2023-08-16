@@ -11,15 +11,14 @@
                 <!-- Logo -->
                 <ImageView :src="props.headerData.logo"
                            :alt="'logo'"
-                           class="logo">
-                </ImageView>
+                           class="logo" />
 
                 <!-- Texts -->
                 <h1 class="heading">{{ props.headerData.title }}</h1>
                 <h4 class="subheading">{{ props.headerData.subtitle }}</h4>
 
                 <!-- Button -->
-                <XLButton :icon="props.headerData.button.icon" :label="props.headerData.button.label" @click="_onButtonClicked()"></XLButton>
+                <XLButton :icon="props.headerData.button.icon" :label="props.headerData.button.label" @click="_onButtonClicked()"/>
             </div>
         </div>
     </header>
@@ -92,8 +91,9 @@ const _onButtonClicked = () => {
     @include media-breakpoint-down(lg) {--height: 35vh;}
     @include media-breakpoint-down(md) {--height: 32.5vh;}
     @include media-breakpoint-down(sm) {--height: 30vh;}
-    
+
     height: var(--height);
+    width: var(--height);
 }
 
 h1.heading {

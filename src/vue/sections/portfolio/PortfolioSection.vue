@@ -2,12 +2,12 @@
     <SectionTemplate :section-data="props.sectionData">
         <!-- Grid -->
         <PortfolioSectionGrid :items="props.sectionData.sectionContent.items"
-                              @open="_onProjectOpened">
-        </PortfolioSectionGrid>
+                              @open="_onProjectOpened"
+        />
     </SectionTemplate>
 
     <!-- Modal -->
-    <PortfolioSectionModal ref="modal"></PortfolioSectionModal>
+    <PortfolioSectionModal ref="modal"/>
 </template>
 
 <script setup>

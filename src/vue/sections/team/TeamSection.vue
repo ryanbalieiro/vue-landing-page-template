@@ -3,9 +3,7 @@
         <!-- Grid View (large screens) -->
         <div class="row team-grid-row gy-2 gy-md-4 px-2">
             <!-- Grid Items -->
-            <TeamSectionItem v-for="item in props.sectionData.sectionContent.items"
-                             :item="item">
-            </TeamSectionItem>
+            <TeamSectionItem v-for="item in props.sectionData.sectionContent.items" :item="item"/>
         </div>
 
         <!-- Swiper View (small screens) -->
@@ -31,7 +29,7 @@
             }">
             <!-- Slide Items -->
             <swiper-slide v-for="item in props.sectionData.sectionContent.items">
-                <TeamSectionItem :item="item" class="swiper-team-item"></TeamSectionItem>
+                <TeamSectionItem :item="item" class="swiper-team-item"/>
             </swiper-slide>
         </swiper>
     </SectionTemplate>

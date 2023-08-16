@@ -1,12 +1,9 @@
 <template>
     <div class="social-links">
         <!-- Social Link -->
-        <a v-for="item in props.items"
-           :class="buttonClass"
-           :href="item.href"
-           :aria-label="item.icon">
+        <a v-for="item in props.items" :class="buttonClass" :href="item.href" :aria-label="item.icon">
             <!-- Social Link Icon -->
-            <i :class="item.icon"></i>
+            <i :class="item.icon" />
         </a>
     </div>
 </template>

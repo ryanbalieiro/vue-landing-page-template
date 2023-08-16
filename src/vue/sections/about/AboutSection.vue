@@ -5,15 +5,15 @@
             <div class="left-col col-12 col-lg-4 col-xl-4">
                 <ImageView :src="props.sectionData.sectionContent.image"
                            :alt="'logo'"
-                           class="img-logo">
-                </ImageView>
+                           class="img-logo"
+                />
             </div>
 
             <!-- Right Column -->
             <div class="right-col col-12 col-lg-8 col-xl-8">
                 <div class="text-wrapper my-auto">
                     <template v-for="paragraph in props.sectionData.sectionContent.paragraphs">
-                        <p class="info-sm" v-html="paragraph"></p>
+                        <p class="info-sm" v-html="paragraph"/>
                     </template>
                 </div>
             </div>
@@ -36,12 +36,6 @@ const props = defineProps(['sectionData'])
     text-align: end;
     padding: 0 2rem 1rem 2rem;
 
-    .img-logo {
-        max-height: 50vh;
-        width: 100%;
-        max-width: 50vw;
-    }
-
     @include media-breakpoint-down(xl) {
         padding: 0 1.5rem 1rem 4rem;
     }
@@ -50,17 +44,22 @@ const props = defineProps(['sectionData'])
         display: block;
         text-align: center;
         padding: 0 2rem 2rem 2rem;
-
-        .img-logo {
-            height: 200px;
-            width: auto;
-        }
     }
 
     @include media-breakpoint-down(sm) {
         padding-top: 0.5rem;
         padding-bottom: 1rem;
     }
+}
+
+.img-logo {
+    --size: 25vw;
+    @include media-breakpoint-down(lg) {--size: 27.5vh;}
+    @include media-breakpoint-down(sm) {--size: 25vh;}
+
+    max-height: var(--size);
+    max-width: var(--size);
+    aspect-ratio: 1/1;
 }
 
 .right-col {

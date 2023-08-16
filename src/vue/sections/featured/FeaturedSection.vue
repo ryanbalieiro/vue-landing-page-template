@@ -6,16 +6,16 @@
                 <div class="image-col">
                     <ImageView :src="project.logo"
                                :alt="'logo'"
-                               class="logo trace-shadow">
-                    </ImageView>
+                               class="logo trace-shadow"
+                    />
                 </div>
 
                 <!-- Texts -->
                 <div class="texts-col mt-4 pt-2 mt-md-0 pt-md-0">
                     <h5 class="title"><i class="fa-solid fa-fire me-2 text-white"></i> {{props.sectionData.sectionContent.title}}</h5>
-                    <h1 class="project-title display-1" v-html="project.title"></h1>
-                    <p class="description info mt-4" v-html="project.description"></p>
-                    <SocialLinks :items="project.links" :color="'dark'" :size="'xl'" class="mt-4"></SocialLinks>
+                    <h1 class="project-title display-1" v-html="project.title"/>
+                    <p class="description info mt-4" v-html="project.description" />
+                    <SocialLinks :items="project.links" :color="'dark'" :size="'xl'" class="mt-4" />
                 </div>
             </div>
         </div>
@@ -88,8 +88,10 @@ const project = computed(() => {
             width: var(--image-dimensions);
             overflow: hidden;
             border-radius: calc(var(--image-dimensions)/4.5);
+
             @include media-breakpoint-down(md) {
                 width: min(var(--image-dimensions), 25vh);
+                height: min(var(--image-dimensions), 25vh);
             }
         }
     }

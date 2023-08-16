@@ -7,8 +7,8 @@
                  :style="_getProgressBarStyle()"
                  :aria-valuenow="_getPercentage()"
                  aria-valuemin="0"
-                 aria-valuemax="100">
-            </div>
+                 aria-valuemax="100"
+            />
         </div>
     </div>
 </template>

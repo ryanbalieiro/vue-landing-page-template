@@ -7,12 +7,8 @@
                 :slidesPerView="3"
                 :spaceBetween="20"
                 :pagination="{clickable: true}"
-                :modules="[Autoplay, Pagination]"
+                :modules="[Pagination]"
                 :grab-cursor="true"
-                :autoplay="{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                }"
                 :prevent-clicks-propagation="true"
                 :breakpoints = "{
                     0: {
@@ -29,7 +25,7 @@
                 <!-- Swiper Slides -->
                 <template v-for="item in props.sectionData.sectionContent.items">
                     <swiper-slide>
-                        <ReviewsSectionCard :item="item"></ReviewsSectionCard>
+                        <ReviewsSectionCard :item="item"/>
                     </swiper-slide>
                 </template>
             </swiper>
@@ -44,7 +40,7 @@ import ReviewsSectionCard from "./ReviewsSectionCard.vue"
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 
 const props = defineProps(['sectionData'])
 </script>

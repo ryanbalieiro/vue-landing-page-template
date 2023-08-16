@@ -6,19 +6,19 @@
                 <div class="col-md-6">
                     <!-- Name Input -->
                     <div class="form-group input-group">
-                        <span class="input-group-text input-group-attach"><i class="fa fa-signature"></i></span>
+                        <span class="input-group-text input-group-attach"><i class="fa fa-signature"/></span>
                         <input class="form-control" id="name" type="text" :placeholder="_getPlaceholder('name')" required/>
                     </div>
 
                     <!-- E-mail Address Input -->
                     <div class="form-group input-group">
-                        <span class="input-group-text input-group-attach"><i class="fa fa-envelope"></i></span>
+                        <span class="input-group-text input-group-attach"><i class="fa fa-envelope"/></span>
                         <input class="form-control" id="email" type="email" :placeholder="_getPlaceholder('email')" required/>
                     </div>
 
                     <!-- Subject Input -->
                     <div class="form-group input-group">
-                        <span class="input-group-text input-group-attach"><i class="fa fa-pen-to-square"></i></span>
+                        <span class="input-group-text input-group-attach"><i class="fa fa-pen-to-square"/></span>
                         <input class="form-control" id="subject" type="text" :placeholder="_getPlaceholder('subject')" required/>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-md-6">
                     <!-- Message TextArea -->
                     <div class="form-group form-group-textarea mb-md-0">
-                        <textarea class="form-control" id="message" :placeholder="_getPlaceholder('message')" required></textarea>
+                        <textarea class="form-control" id="message" :placeholder="_getPlaceholder('message')" required/>
                     </div>
                 </div>
 
@@ -35,8 +35,8 @@
                 <div class="col-12 text-center mt-lg-3">
                     <XLButton :label="_getPlaceholder('send')"
                               :type="'submit'"
-                              :icon="'fa fa-envelope me-2'">
-                    </XLButton>
+                              :icon="'fa fa-envelope me-2'"
+                    />
                 </div>
             </div>
         </form>
@@ -91,7 +91,7 @@ textarea {
     padding: 1.25rem;
     border-width: 2px;
     background-color: lighten($dark, 5%);
-    border-color: lighten($dark, 15%);
+    border-color: lighten($dark, 12%);
     color: $white;
 
     &:focus {

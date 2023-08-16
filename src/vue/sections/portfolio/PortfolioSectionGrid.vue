@@ -8,13 +8,13 @@
                 <div class="gallery-thumb-wrapper" @click="_open(item)">
                     <ImageView :src="item.logo"
                                :alt="item.title"
-                               class="gallery-thumb">
-                    </ImageView>
+                               class="gallery-thumb"
+                    />
 
                     <!-- Logo Highlight (Hover) -->
                     <div class="gallery-thumb-overlay">
                         <div class="gallery-thumb-overlay-content eq-h5">
-                            <i class="fas fa-eye fa-2x"></i>
+                            <i class="fas fa-eye fa-2x"/>
                         </div>
                     </div>
                 </div>

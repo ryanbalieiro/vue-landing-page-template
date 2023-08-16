@@ -5,23 +5,21 @@
 
         <!-- Faq Items -->
         <div class="row h-100">
-            <template v-for="item in props.sectionData.sectionContent.items">
-                <div class="col-12 col-lg-6">
-                    <!-- Faq Item -->
-                    <div class="faq-item d-flex h-100 mb-4 pe-2">
-                        <!-- Question Icon -->
-                        <div class="flex-shrink-0 pe-1 ps-1 pe-lg-0 ps-lg-2">
-                            <i class="fa fa-question-circle text-primary question-icon"></i>
-                        </div>
+            <div v-for="item in props.sectionData.sectionContent.items" class="col-12 col-lg-6">
+                <!-- Faq Item -->
+                <div class="faq-item d-flex h-100 mb-4 pe-2">
+                    <!-- Question Icon -->
+                    <div class="flex-shrink-0 pe-1 ps-1 pe-lg-0 ps-lg-2">
+                        <i class="fa fa-question-circle text-primary question-icon"/>
+                    </div>
 
-                        <!-- Question Content -->
-                        <div class="ms-3">
-                            <h5 class="question-title">{{ item.question }}</h5>
-                            <p class="question-answer text-muted" v-html="item.answer"></p>
-                        </div>
+                    <!-- Question Content -->
+                    <div class="ms-3">
+                        <h5 class="question-title">{{ item.question }}</h5>
+                        <p class="question-answer text-muted" v-html="item.answer"/>
                     </div>
                 </div>
-            </template>
+            </div>
         </div>
 
         <!-- Bottom Divider -->
