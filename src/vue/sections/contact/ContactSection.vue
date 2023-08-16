@@ -32,7 +32,7 @@
                 </div>
 
                 <!-- Bottom Column -->
-                <div class="col-12 text-center mt-3 mt-lg-4">
+                <div class="col-12 text-center mt-lg-3">
                     <XLButton :label="_getPlaceholder('send')"
                               :type="'submit'"
                               :icon="'fa fa-envelope me-2'">
@@ -79,7 +79,7 @@ const _getPlaceholder = (key) => {
 }
 
 .input-group-attach {
-    background-color: darken($dark, 3%);
+    background-color: lighten($dark, 1%);
     border-color: lighten($dark, 15%);
     border-width: 2px;
     border-right: 1px;
@@ -90,7 +90,7 @@ input,
 textarea {
     padding: 1.25rem;
     border-width: 2px;
-    background-color: $dark;
+    background-color: lighten($dark, 5%);
     border-color: lighten($dark, 15%);
     color: $white;
 
@@ -99,12 +99,17 @@ textarea {
         background-color: $dark;
         color:$white;
     }
+
+    @include media-breakpoint-down(md) {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
 }
 
 input {
     --height: auto;
     @include media-breakpoint-down(md) {
-        --height: min(45px, 8vh);
+        --height: min(50px, 8vh);
     }
 
     height: var(--height);

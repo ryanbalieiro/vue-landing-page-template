@@ -1,4 +1,5 @@
 <template>
+    <!-- Preloader -->
     <div class="preloader-full-screen" v-if="_isVisible()" :class="{'preloader-full-screen-show': !_isDisappearing()}">
         <div class="preloader-full-screen-content">
             <img src="/images/logo/agency-logo.png" alt="preloader-logo" class="img-fluid img-logo">
@@ -135,7 +136,6 @@ defineExpose({animate})
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
-
 
 .preloader-full-screen {
     position: fixed;

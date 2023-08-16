@@ -1,32 +1,32 @@
 body {
-  background: $dark!important;
-  overflow-y: scroll;
+    background: $dark!important;
+    overflow-y: scroll;
 }
 
 .container {
-  max-width: 1200px;
+    max-width: 1200px;
 }
 
 .no-scroll {
-  overflow-y: hidden!important;
+    overflow-y: hidden!important;
 }
 
 
 .trace-shadow {
-  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px, rgba(10, 10, 10, 0.15) 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 5px 5px, rgba(10, 10, 10, 0.15) 10px 10px;
 }
 
 ::-moz-selection {
-  color: $dark;
-  background: $primary;
+    color: $dark;
+    background: $primary;
 }
 
 ::selection {
-  color: $dark;
-  background: lighten($primary, 30%);
+    color: $dark;
+    background: lighten($primary, 30%);
 }
 
 ::-webkit-scrollbar {max-width: 6px; max-height: 4px}
 ::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)}
-::-webkit-scrollbar-thumb {background: lighten($dark, 20%);-webkit-box-shadow: rgba(155,155,155)}
-::-webkit-scrollbar-thumb:window-inactive {background: $dark}
+::-webkit-scrollbar-thumb {background: lighten($dark, 30%);-webkit-box-shadow: rgba(155,155,155)}
+::-webkit-scrollbar-thumb:window-inactive {background: lighten($dark, 10%);}

@@ -1,116 +1,116 @@
 $heading-sizes: (
-        h1: (
-                default: 3.2rem,
-                lg: 2.5rem,
-                md: 2.2rem,
-                sm: 2.0rem
-        ),
-        h2: (
-                default: 2.5rem,
-                lg: 2.2rem,
-                md: 2.0rem,
-                sm: 1.8rem
-        ),
-        h3: (
-                default: 2.1rem,
-                lg: 1.8rem,
-                md: 1.7rem,
-                sm: 1.6rem
-        ),
-        h4: (
-                default: 1.8rem,
-                lg: 1.6rem,
-                md: 1.4rem,
-                sm: 1.3rem
-        ),
-        h5: (
-                default: 1.4rem,
-                lg: 1.3rem,
-                md: 1.2rem,
-                sm: 1.0rem,
-        ),
-        h6: (
-                default: 1.1rem,
-                lg: 1.0rem,
-                md: 0.9rem,
-                sm: 0.85rem,
-        )
+    h1: (
+        default: 3.2rem,
+        lg: 2.5rem,
+        md: 2.2rem,
+        sm: 2.0rem
+    ),
+    h2: (
+        default: 2.5rem,
+        lg: 2.2rem,
+        md: 2.0rem,
+        sm: 1.8rem
+    ),
+    h3: (
+        default: 2.1rem,
+        lg: 1.8rem,
+        md: 1.7rem,
+        sm: 1.6rem
+    ),
+    h4: (
+        default: 1.8rem,
+        lg: 1.6rem,
+        md: 1.4rem,
+        sm: 1.3rem
+    ),
+    h5: (
+        default: 1.4rem,
+        lg: 1.3rem,
+        md: 1.2rem,
+        sm: 1.0rem,
+    ),
+    h6: (
+        default: 1.1rem,
+        lg: 1.0rem,
+        md: 0.9rem,
+        sm: 0.85rem,
+    )
 );
 
 $text-styles: (
-        info: (
-                default: 1rem,
-                xl: 1rem,
-                lg: 0.95rem,
-                md: 0.85rem,
-                sm: 0.8rem,
-                lineHeightMultiplier: 1.4
-        ),
-        info-sm: (
-                default: 0.95rem,
-                xl: 0.9rem,
-                lg: 0.85rem,
-                md: 0.8rem,
-                sm: 0.8rem,
-                lineHeightMultiplier: 1.4
-        ),
-        info-xs: (
-                default: 0.9rem,
-                xl: 0.85rem,
-                lg: 0.85rem,
-                md: 0.8rem,
-                sm: 0.8rem,
-                lineHeightMultiplier: 1.4
-        ),
-        info-xxs: (
-                default: 0.8rem,
-                xl: 0.8rem,
-                lg: 0.8rem,
-                md: 0.75rem,
-                sm: 0.75rem,
-                lineHeightMultiplier: 1.6
-        ),
-        display-1: (
-                default: 4rem,
-                lg: 3.3rem,
-                md: 3rem,
-                sm: 2.5rem,
-                lineHeightMultiplier: 1.2
-        )
+    info: (
+        default: 1rem,
+        xl: 1rem,
+        lg: 0.95rem,
+        md: 0.85rem,
+        sm: 0.8rem,
+        lineHeightMultiplier: 1.4
+    ),
+    info-sm: (
+        default: 0.95rem,
+        xl: 0.9rem,
+        lg: 0.85rem,
+        md: 0.8rem,
+        sm: 0.8rem,
+        lineHeightMultiplier: 1.4
+    ),
+    info-xs: (
+        default: 0.9rem,
+        xl: 0.85rem,
+        lg: 0.85rem,
+        md: 0.8rem,
+        sm: 0.8rem,
+        lineHeightMultiplier: 1.4
+    ),
+    info-xxs: (
+        default: 0.8rem,
+        xl: 0.8rem,
+        lg: 0.8rem,
+        md: 0.75rem,
+        sm: 0.75rem,
+        lineHeightMultiplier: 1.6
+    ),
+    display-1: (
+        default: 4rem,
+        lg: 3.3rem,
+        md: 3rem,
+        sm: 2.5rem,
+        lineHeightMultiplier: 1.2
+    )
 );
 
 @each $heading, $sizes in $heading-sizes {
-  #{$heading}, .eq-#{$heading} {
-    font-size: map-get($sizes, default);
+    #{$heading}, .eq-#{$heading} {
+        font-size: map-get($sizes, default);
 
-    @each $breakpoint, $size in $sizes {
-      @if $breakpoint != default {
-        @include media-breakpoint-down($breakpoint) {
-          font-size: $size;
+        @each $breakpoint, $size in $sizes {
+            @if $breakpoint != default {
+                @include media-breakpoint-down($breakpoint) {
+                    font-size: $size;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 @each $class, $styles in $text-styles {
-  .#{$class} {
-    font-size: map-get($styles, default);
+    .#{$class} {
+        font-size: map-get($styles, default);
 
-    @each $breakpoint, $size in $styles {
-      @if $breakpoint != default and $breakpoint != lineHeightMultiplier {
-        @include media-breakpoint-down($breakpoint) {
-          font-size: $size;
+        @each $breakpoint, $size in $styles {
+            @if $breakpoint != default and $breakpoint != lineHeightMultiplier {
+                @include media-breakpoint-down($breakpoint) {
+                    font-size: $size;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 a {
-  text-decoration: none;
-  color: lighten($primary, 10%);
-  &:hover {
-    color: lighten($primary, 15%);
-  }
+    text-decoration: none;
+    color: lighten($primary, 10%);
+    &:hover {
+        color: lighten($primary, 15%);
+    }
 }

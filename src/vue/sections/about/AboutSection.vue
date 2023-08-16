@@ -35,7 +35,7 @@ const props = defineProps(['sectionData'])
     .img {
         max-height: 50vh;
         width: 100%;
-        max-width: 60vw;
+        max-width: 50vw;
     }
 
     @include media-breakpoint-down(xl) {

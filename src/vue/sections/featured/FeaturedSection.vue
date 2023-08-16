@@ -2,15 +2,16 @@
     <SectionTemplate :section-data="props.sectionData">
         <div class="featured-project">
             <div class="featured-row">
+                <!-- Image -->
                 <div class="image-col">
                     <img class="img-fluid logo trace-shadow" :src="project.logo" alt="logo">
                 </div>
 
+                <!-- Texts -->
                 <div class="texts-col mt-4 pt-2 mt-md-0 pt-md-0">
                     <h5 class="title"><i class="fa-solid fa-fire me-2 text-white"></i> {{props.sectionData.sectionContent.title}}</h5>
                     <h1 class="project-title display-1" v-html="project.title"></h1>
                     <p class="description info mt-4" v-html="project.description"></p>
-
                     <SocialLinks :items="project.links" :color="'dark'" :size="'xl'" class="mt-4"></SocialLinks>
                 </div>
             </div>
@@ -79,7 +80,7 @@ const project = computed(() => {
         padding-right: var(--column-spacing);
 
         .logo {
-            border-radius: 45px;
+            border-radius: calc(var(--image-dimensions)/4.5);
             max-height: var(--image-dimensions);
             max-width: min(var(--image-dimensions));
             @include media-breakpoint-down(md) {

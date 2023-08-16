@@ -8,12 +8,10 @@
                     <!-- About Column -->
                     <div class="footer-block-col col-12 col-lg-4">
                         <h5 class="footer-title"><i class="fa fa-pen me-1 d-none d-md-inline"></i> {{ aboutData.title }}</h5>
-
                         <!-- About: Description -->
                         <div class="footer-item-wrapper">
                             <span class="info-xs" v-html="aboutData.description"></span>
                         </div>
-
                         <!-- About: Links -->
                         <div class="footer-item-wrapper">
                             <InlineList :items="aboutData.items"></InlineList>
@@ -23,7 +21,6 @@
                     <!-- Social Column -->
                     <div class="footer-block-col col-12 col-lg-4">
                         <h5 class="footer-title">{{ socialData.title }}</h5>
-
                         <!-- Social: Social Links -->
                         <div class="footer-item-wrapper mt-lg-3">
                             <SocialLinks :items="socialData.items" :size="'lg'" :color="'darkAndWhite'"></SocialLinks>
@@ -33,13 +30,10 @@
                     <!-- Contact Column -->
                     <div class="footer-block-col col-12 col-lg-4">
                         <h5 class="footer-title"><i class="fa fa-fax me-2"></i>{{ contactInfoData.title }}</h5>
-
                         <!-- Contact: Address -->
                         <div class="footer-item-wrapper">
                             <div class="address">
-                                <p v-for="part in contactInfoData.address" class="info-sm m-0">
-                                    {{part}}
-                                </p>
+                                <p v-for="part in contactInfoData.address" class="info-sm m-0">{{part}}</p>
                             </div>
                         </div>
                         <!-- Contact: Options -->
@@ -64,7 +58,7 @@
 <script setup>
 import {computed} from "vue"
 import SocialLinks from "../widgets/SocialLinks.vue"
-import InlineList from "../widgets/InlineList.vue";
+import InlineList from "../widgets/InlineList.vue"
 
 const props = defineProps(['footerData'])
 

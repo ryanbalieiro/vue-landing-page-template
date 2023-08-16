@@ -1,13 +1,14 @@
 <template>
     <div class="gallery-grid row gy-4 mb-4 pb-3 pb-xxl-0 gy-xxl-5 mb-xxl-5">
         <!-- Grid Column -->
-        <div v-for="item in props.items" class="gallery-grid-col col-4 col-xl-3 p-0 p-sm-2 text-center">
+        <div v-for="item in props.items" class="gallery-grid-col col-4 col-sm-4 col-xl-3 p-0 p-sm-2 text-center">
             <!-- Item -->
             <div class="gallery-item">
                 <!-- Logo -->
                 <div class="gallery-thumb-wrapper" @click="_open(item)">
                     <img :src="item.logo" :alt="item.title" class="gallery-thumb">
 
+                    <!-- Logo Highlight (Hover) -->
                     <div class="gallery-thumb-overlay">
                         <div class="gallery-thumb-overlay-content eq-h5">
                             <i class="fas fa-eye fa-2x"></i>
@@ -52,7 +53,7 @@ const _open = (item) => {
         --dimensions: min(160px, 20vw);
     }
     @include media-breakpoint-down(sm) {
-        --dimensions: min(120px, 20vw);
+        --dimensions: min(90px, 20vw);
     }
 
     position: relative;
@@ -98,7 +99,7 @@ const _open = (item) => {
     color: $dark;
 }
 
-@include media-breakpoint-down(sm) {
+@media (max-width: 350px) {
     .gallery-title {
         font-size: 0.85rem;
     }

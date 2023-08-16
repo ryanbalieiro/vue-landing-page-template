@@ -558,8 +558,8 @@
         "Cupertino – CA 01235"
       ],
       "options": [
-        {"icon": "fa fa-phone", "label": "+1 (234) 567-8901", "href": "tel:123456789"},
-        {"icon": "fa fa-envelope", "label": "foxy@agency.com", "href": "mailto:foxy@agency.com"}
+        {"icon": "fa fa-phone", "label": "(555) 555-1234", "href": "tel:123456789"},
+        {"icon": "fa fa-envelope", "label": "contact@foxyagency.com", "href": "mailto:foxy@agency.com"}
       ]
     },
 

@@ -41,9 +41,26 @@ const layout = useLayout()
 const isPreloadingComplete = ref(true)
 
 /**
+ * Checks whether the preload animation should be displayed
+ * @private
+ */
+const _shouldDisplayPreloader = () => {
+    return !props.agencyManager.settings.skipPreload
+}
+
+/**
+ * Checks whether the app content should be displayed.
+ * @private
+ */
+const _shouldDisplayContent = () => {
+    return !layout.isTouchDevice() || isPreloadingComplete.value
+}
+
+/**
  * Show preloader.
  */
 onMounted(() => {
+    // initializes preloader if it's been created.
     if(preloader.value) {
         const root = document.getElementsByTagName( 'html' )[0];
         document.body.className = ' no-scroll'
@@ -53,26 +70,6 @@ onMounted(() => {
         preloader.value.animate()
     }
 })
-
-/**
- * Check whether the preload animation should be displayed
- * @private
- */
-const _shouldDisplayPreloader = () => {
-    return !props.agencyManager.settings.skipPreload
-}
-
-/**
- * @private
- */
-const _shouldDisplayContent = () => {
-    if(!layout.isTouchDevice()) {
-        return true
-    }
-    else {
-        return isPreloadingComplete.value
-    }
-}
 
 /**
  * @private
@@ -93,5 +90,4 @@ const _onPreloaderWillHide = () => {
 </script>
 
 <style scoped>
-
 </style>

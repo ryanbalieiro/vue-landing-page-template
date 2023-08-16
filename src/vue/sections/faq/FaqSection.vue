@@ -1,7 +1,7 @@
 <template>
     <SectionTemplate :section-data="props.sectionData">
         <!-- Upper Divider -->
-        <hr class="mt-0 mb-4 pb-1 pg-lg-0 mb-lg-5">
+        <hr class="mt-0 mb-4 pb-1 pg-lg-0 mb-md-5">
 
         <!-- Faq Items -->
         <div class="row h-100">
@@ -58,5 +58,9 @@ const props = defineProps(['sectionData'])
     @include media-breakpoint-down(md) {
         font-size: 0.8rem!important;
     }
+}
+
+hr {
+    opacity: 0.1;
 }
 </style>

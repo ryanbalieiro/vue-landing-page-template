@@ -98,11 +98,15 @@ const _onNavLinkClicked = (sectionId) => {
 @import "/src/scss/_theming.scss";
 
 .navbar {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 0.5rem;
     border: none;
     background-color: transparent;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    
+    @media (max-width: 1050px) {
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
 
     @include media-breakpoint-down(lg) {
         padding-top: 0.7rem;
@@ -182,8 +186,8 @@ const _onNavLinkClicked = (sectionId) => {
 
     .nav-link-icon {
         min-width: 1.4rem;
-        margin-right: 0.7rem;
-        text-align: right;
+        margin-right: 0.5rem;
+        text-align: center;
         color: $gray-600;
         transition: color 0.4s;
     }
@@ -199,12 +203,12 @@ const _onNavLinkClicked = (sectionId) => {
 
     @include media-breakpoint-down(lg) {
         display: table-cell;
-        min-width: 200px;
+        min-width: 150px;
         font-size: 0.95rem;
         line-height: 1.3rem;
 
         .nav-link-icon {
-            margin-left: 0.5rem;
+            margin-left: 0.3rem;
         }
     }
 }

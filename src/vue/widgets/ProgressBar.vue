@@ -10,10 +10,6 @@
                  aria-valuemax="100">
             </div>
         </div>
-
-        <div class="progress-description">
-            <p class="info-xs description mb-0" v-html="props.description" v-if="props.description"></p>
-        </div>
     </div>
 </template>
 
@@ -32,8 +28,7 @@ const _getPercentage = () => {
 
 const _getProgressBarStyle = () => {
     let percentage = _getPercentage()
-    let opacity = (50 + percentage/2)/100
-    return `width: ${percentage}%; opacity: ${opacity}`
+    return `width: ${percentage}%;`
 }
 </script>
 
@@ -41,13 +36,13 @@ const _getProgressBarStyle = () => {
 @import "/src/scss/_theming.scss";
 
 .progress {
-    --height:8px;
+    --height:4px;
     @include media-breakpoint-down(md) {
-        --height: 4px;
+        --height: 2px;
     }
 
     height: var(--height);
-    border-radius: 5px;
+    border-radius:0;
     background-color: lighten($gray-300, 2%);
 
     .progress-bar {
@@ -59,10 +54,4 @@ const _getProgressBarStyle = () => {
         transition: none;
     }
 }
-
-.progress-description {
-    margin-top:0.2rem;
-    color:$gray-600;
-}
-
 </style>
