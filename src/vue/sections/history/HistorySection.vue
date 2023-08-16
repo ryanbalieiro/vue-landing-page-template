@@ -6,7 +6,7 @@
             <li v-for="(item, index) in props.sectionData.sectionContent.items" class="timeline-item">
                 <!-- Image -->
                 <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" :src="item.thumbnail" :alt="item.title">
+                    <Image :class="'rounded-circle img-fluid'" :src="item.thumbnail" :alt="item.title"></Image>
                 </div>
 
                 <!-- Panel -->
@@ -37,6 +37,7 @@
 
 <script setup>
 import SectionTemplate from "../_templates/SectionTemplate.vue"
+import Image from "../../widgets/Image.vue"
 
 const props = defineProps(['sectionData'])
 </script>

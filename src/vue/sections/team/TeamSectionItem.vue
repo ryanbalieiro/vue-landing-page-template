@@ -11,7 +11,7 @@
 
         <!-- Avatar -->
         <div class="thumbnail-wrapper">
-            <img class="img-avatar img-fluid" :src="item.avatar" :alt="item.name" />
+            <Image :class="'img-avatar img-fluid'" :src="item.avatar" :alt="item.name" />
         </div>
 
         <!-- Texts And Links -->
@@ -27,6 +27,7 @@
 
 <script setup>
 import SocialLinks from "../../widgets/SocialLinks.vue"
+import Image from "../../widgets/Image.vue"
 const props = defineProps(['item'])
 </script>
 

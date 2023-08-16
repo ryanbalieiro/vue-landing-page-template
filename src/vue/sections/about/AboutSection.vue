@@ -3,7 +3,7 @@
         <div class="row mb-4">
             <!-- Left Column -->
             <div class="left-col col-12 col-lg-4 col-xl-4">
-                <img :src="props.sectionData.sectionContent.image" alt="logo" class="img img-fluid my-auto">
+                <Image :src="props.sectionData.sectionContent.image" :alt="'logo'" :class="'img img-fluid my-auto'"></Image>
             </div>
 
             <!-- Right Column -->
@@ -20,6 +20,7 @@
 
 <script setup>
 import SectionTemplate from "../_templates/SectionTemplate.vue"
+import Image from "../../widgets/Image.vue"
 
 const props = defineProps(['sectionData'])
 </script>

@@ -2,6 +2,7 @@
     <!-- Gallery Project Modal -->
     <div class="modal modal-xl fade" :id="modalId" tabindex="-1" :aria-labelledby="`${modalId}-label`" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal Content -->
             <div class="modal-content">
                 <!-- Close Button -->
                 <button class="close-button" data-bs-dismiss="modal" aria-label="Close">
@@ -14,7 +15,10 @@
                     <div class="row text-center text-lg-start p-2 p-md-4">
                         <!-- Image Column -->
                         <div class="col-12 col-lg-4 pe-0 pe-lg-4">
-                            <img class="img-fluid logo my-auto my-lg-0 mb-4" :src="projectImage" :alt="projectTitle">
+                            <Image :class="'img-fluid logo my-auto my-lg-0 mb-4'"
+                                   :src="projectLogoPath"
+                                   :alt="projectTitle">
+                            </Image>
                         </div>
 
                         <!-- Texts Column -->
@@ -52,23 +56,25 @@
 import {onMounted, ref} from "vue"
 import Modal from '/node_modules/bootstrap/js/src/modal'
 import SocialLinks from "../../widgets/SocialLinks.vue"
+import Image from "../../widgets/Image.vue"
 
 const props = defineProps(['staticTexts'])
 const modalId = 'gallery-modal'
 
 let bsModal = null
+
 const projectTitle = ref(null)
 const projectDescription = ref(null)
 const projectTags = ref(null)
-const projectImage = ref(null)
+const projectLogoPath = ref(null)
 const projectLinks = ref(null)
 
 const displayProject = (project) => {
     projectTitle.value = project.title
     projectDescription.value = project.description
     projectTags.value = project.tags
-    projectImage.value = project.logo
     projectLinks.value = project.links
+    projectLogoPath.value = project.logo
 
     if(bsModal) {
         bsModal.show()

@@ -1,11 +1,11 @@
 <template>
     <!-- Preloader -->
     <div class="preloader-full-screen" v-if="_isVisible()" :class="{'preloader-full-screen-show': !_isDisappearing()}">
-        <div class="preloader-full-screen-content">
-            <img src="/images/logo/agency-logo.png" alt="preloader-logo" class="img-fluid img-logo">
+        <div v-show="didLoadLogo" class="preloader-full-screen-content">
+            <img src="/images/logo/agency-logo-small.png" @load="_onImageLoadResponse" @error="_onImageLoadResponse" alt="preloader-logo" class="img-fluid img-logo">
 
             <div class="progress-display" :class="{'progress-display-expanded': _didFinishLogoTransition()}">
-                <h6 class="mt-2">{{loadingPercentage}}%</h6>
+                <p class="mt-2 mb-2 info">{{loadingPercentage}}%</p>
                 <ProgressBar ref="progressBar" :percentage="loadingPercentage"></ProgressBar>
             </div>
         </div>
@@ -17,9 +17,10 @@ import {ref} from "vue"
 import ProgressBar from "../widgets/ProgressBar.vue"
 
 const props = defineProps([''])
-const emit = defineEmits(['shown', 'loaded', 'willHide', 'hidden'])
+const emit = defineEmits(['ready', 'shown', 'loaded', 'willHide', 'hidden'])
 
-const currentStepId = ref(null)
+const didLoadLogo = ref(false)
+const currentStepId = ref(0)
 const loadingPercentage = ref(null)
 
 let elapsedTime = null
@@ -29,10 +30,18 @@ const timeoutInterval = 1/60
 const steps = [
     {id: 0, label: "logoTransition", duration: 0.2},
     {id: 1, label: "textTransition", duration: 0.4},
-    {id: 2, label: "progress", duration: 0.6},
+    {id: 2, label: "progress", minDuration:0.2},
     {id: 3, label: "waiting", duration: 0.2},
     {id: 3, label: "disappearing", duration: 0.3}
 ]
+
+/**
+ * @private
+ */
+const _onImageLoadResponse = () => {
+    didLoadLogo.value = true
+    emit('ready')
+}
 
 /**
  * @oublic
@@ -82,8 +91,18 @@ const _updateAnimationStep = () => {
 const _updateProgress = () => {
     const currentStep = steps[currentStepId.value]
 
-    const duration = currentStep.duration
-    loadingPercentage.value = Math.round(100*elapsedTime/duration)
+    let loadedImages = 0
+    let totalImages = 0
+    document.querySelectorAll('.foxy-image').forEach(function(image) {
+        if(image.getAttribute('loadStatus') !== '0')
+            loadedImages++
+        totalImages++
+    });
+
+    let imagesPercentage = 100*loadedImages/totalImages
+    let durationPercentage = 100*elapsedTime/currentStep.minDuration
+
+    loadingPercentage.value = Math.round(Math.min(imagesPercentage, durationPercentage))
     if(loadingPercentage.value >= 100) {
         _nextStep()
     }
@@ -163,7 +182,7 @@ defineExpose({animate})
     animation: appear 0.2s ease-out forwards;
 
     .img-logo {
-        height: min(80px, 20vh);
+        height: 60px;
         animation: popIn 0.3s ease-out forwards;
     }
 

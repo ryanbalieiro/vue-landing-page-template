@@ -9,7 +9,7 @@
         <div class="container">
             <div class="content-wrapper">
                 <!-- Logo -->
-                <img :src="props.headerData.logo" alt="logo" class="img-fluid logo">
+                <Image :src="props.headerData.logo" :alt="'logo'" :class="'img-fluid logo'"></Image>
 
                 <!-- Texts -->
                 <h1 class="heading">{{ props.headerData.title }}</h1>
@@ -23,6 +23,7 @@
 </template>
 
 <script setup>
+import Image from "../widgets/Image.vue"
 import XLButton from "../widgets/XLButton.vue"
 import {useLayout} from "../../composables/layout.js"
 

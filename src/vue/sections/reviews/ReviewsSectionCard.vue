@@ -3,7 +3,7 @@
     <div class="card h-100">
         <!-- Header -->
         <div class="card-header">
-            <img class="img img-fluid" :src="item.avatar" :alt="item.organization">
+            <Image :class="'img img-fluid'" :src="item.avatar" :alt="item.organization"></Image>
             <h5 class="organization-title">{{ item.organization }}</h5>
         </div>
 
@@ -23,6 +23,8 @@
 </template>
 
 <script setup>
+import Image from "../../widgets/Image.vue"
+
 const props = defineProps(['item'])
 </script>
 

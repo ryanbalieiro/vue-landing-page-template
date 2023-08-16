@@ -2,6 +2,7 @@
     <!-- Preloader -->
     <Preloader v-if="_shouldDisplayPreloader()"
                ref="preloader"
+               @ready="_onPreloaderReady"
                @loaded="_onPreloaderLoadingComplete"
                @will-hide="_onPreloaderWillHide">
     </Preloader>
@@ -33,7 +34,7 @@ import NavBar from "./vue/navigation/NavBar.vue"
 import Header from "./vue/partials/Header.vue"
 import Footer from "./vue/partials/Footer.vue"
 import {useLayout} from "./composables/layout.js"
-import {onMounted, ref} from "vue"
+import {ref} from "vue"
 
 const props = defineProps(['agencyManager'])
 const preloader = ref(null)
@@ -59,17 +60,14 @@ const _shouldDisplayContent = () => {
 /**
  * Show preloader.
  */
-onMounted(() => {
-    // initializes preloader if it's been created.
-    if(preloader.value) {
-        const root = document.getElementsByTagName( 'html' )[0];
-        document.body.className = ' no-scroll'
-        root.className += ' no-scroll'
+const _onPreloaderReady = () => {
+    const root = document.getElementsByTagName( 'html' )[0];
+    document.body.className = ' no-scroll'
+    root.className += ' no-scroll'
 
-        isPreloadingComplete.value = false
-        preloader.value.animate()
-    }
-})
+    isPreloadingComplete.value = false
+    preloader.value.animate()
+}
 
 /**
  * @private
