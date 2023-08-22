@@ -72,7 +72,7 @@ const _onNavLinkClicked = (linkId) => {
 @import "/src/scss/_theming.scss";
 
 .page-content-wrapper {
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
 
 .item {
