@@ -143,15 +143,19 @@ watch(() => props.selectedCategoryId, () => {
         margin: calc(var(--logo-size)/10) 0 0;
         padding: 0;
         font-family: $headings-font-family;
-        font-size: calc(var(--logo-size)/5.75);
+        font-size: calc(var(--logo-size)/6.2);
         background-color: transparent;
         color: $dark;
+
+        @include media-breakpoint-down(lg) {
+            font-size: calc(var(--logo-size)/5.7);
+        }
     }
 
     .portfolio-category {
         margin: 0;
         padding: 0;
-        font-size: calc(var(--logo-size)/9.5);
+        font-size: calc(var(--logo-size)/9.8);
 
         @include media-breakpoint-down(sm) {
             font-size: calc(var(--logo-size)/7.5);

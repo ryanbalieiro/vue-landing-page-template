@@ -3,7 +3,7 @@
     <div class="preloader-full-screen" v-if="!_isComplete()" :class="_getClassList()">
         <div v-show="_didReachStep('ready')" class="preloader-full-screen-content">
             <!-- Logo -->
-            <ImageView :src="'/images/logo/agency-logo-small.png'"
+            <ImageView :src="'images/logo/agency-logo-small.png'"
                        :alt="'Resume Logo'"
                        :ignore-on-image-count="true"
                        ref="logo"
