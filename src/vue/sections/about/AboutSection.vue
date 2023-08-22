@@ -57,7 +57,7 @@ const props = defineProps({
     min-width: 380px;
 
     @include media-breakpoint-down(xxl) {
-        min-width: min(33vw, 320px);
+        min-width: min(33vw, 300px);
         margin-right: 3.5rem;
     }
 

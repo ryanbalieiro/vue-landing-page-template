@@ -1,6 +1,6 @@
 <template>
     <!-- Portfolio Grid -->
-    <div class="portfolio-grid row mb-5">
+    <div class="portfolio-grid row mb-4 mb-xl-5">
         <div v-for="item in props.items"
              v-show="item.visible"
              :class="{'portfolio-grid-col-appear': item.visible && !isAnimating}"
