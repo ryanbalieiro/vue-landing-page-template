@@ -1,14 +1,51 @@
 body {
     background: $dark!important;
-    overflow-y: scroll;
 }
 
-.container {
-    max-width: 1200px;
+.container-xxl {
+    --padding:0 0rem;
+    @include media-breakpoint-down(xxl) {--padding:0 4rem}
+    @include media-breakpoint-down(xl) {--padding:0 2rem}
+    @include media-breakpoint-down(lg) {--padding:0 2.0rem}
+    @include media-breakpoint-down(md) {--padding:0 2.25rem}
+    @include media-breakpoint-down(sm) {--padding:0 1.75rem}
+    @media (max-width: 380px) {--padding:0 1.35rem}
+
+    padding: var(--padding);
 }
 
-.no-scroll {
+.body-scroll {
+    overflow-y: scroll!important;
+}
+
+.body-no-scroll {
     overflow-y: hidden!important;
+}
+
+.promo-bg {
+    position: absolute;
+    height: calc(100% + 4rem);
+    width: 100%;
+    z-index: -1;
+
+    background-image: url('../assets/header-bg.jpeg');
+    background-position: center;
+    background-size: cover;
+
+
+    .promo-bg-overlay {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 30, 0.73)), color-stop(70%, rgba(30, 30, 30, 0.86)), color-stop(80%, rgba(30, 30, 30, 0.99)), to(rgba(30, 30, 30, 1)));
+        background-image: linear-gradient(180deg, rgba(30, 30, 30, 0.73) 0%, rgba(30, 30, 30, 0.86) 30%, rgba(30, 30, 30, 0.99) 60%, rgba(30, 30, 30, 1) 100%);
+
+        &-faded {
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 30, 0.83)), color-stop(70%, rgba(30, 30, 30, 0.93)), color-stop(80%, rgba(30, 30, 30, 1)), to(rgba(30, 30, 30, 1)));
+            background-image: linear-gradient(180deg, rgba(30, 30, 30, 0.83) 0%, rgba(30, 30, 30, 0.93) 30%, rgba(30, 30, 30, 0.99) 60%, rgba(30, 30, 30, 1) 100%);
+        }
+    }
 }
 
 .trace-shadow {

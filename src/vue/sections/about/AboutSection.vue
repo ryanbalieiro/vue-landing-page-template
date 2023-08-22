@@ -1,20 +1,20 @@
 <template>
     <SectionTemplate :section-data="props.sectionData">
-        <div class="row mb-4">
-            <!-- Left Column -->
-            <div class="left-col col-12 col-lg-4 col-xl-4">
-                <ImageView :src="props.sectionData.sectionContent.image"
-                           :alt="'logo'"
-                           class="img-logo"
-                />
+        <!-- About Item -->
+        <div v-for="item in props.sectionData['items']" class="about-item">
+            <!-- Image Column -->
+            <div class="col-image">
+                <ImageView :src="item['imageUrl']"
+                           :alt="'about-logo'"
+                           class="img"/>
             </div>
 
-            <!-- Right Column -->
-            <div class="right-col col-12 col-lg-8 col-xl-8">
-                <div class="text-wrapper my-auto">
-                    <template v-for="paragraph in props.sectionData.sectionContent.paragraphs">
-                        <p class="info-sm" v-html="paragraph"/>
-                    </template>
+            <!-- Texts Column -->
+            <div class="col-texts">
+                <div class="paragraphs-wrapper">
+                    <p v-for="paragraph in item['description']"
+                       class="text-info-4"
+                       v-html="paragraph"/>
                 </div>
             </div>
         </div>
@@ -25,58 +25,59 @@
 import SectionTemplate from "../_templates/SectionTemplate.vue"
 import ImageView from "../../widgets/ImageView.vue"
 
-const props = defineProps(['sectionData'])
+/**
+ * @property {Object} sectionData
+ */
+const props = defineProps({
+    sectionData: Object
+})
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-.left-col {
+.about-item {
     display: flex;
-    text-align: end;
-    padding: 0 2rem 1rem 2rem;
+    flex-direction: row;
+    width: 100%;
 
-    @include media-breakpoint-down(xl) {
-        padding: 0 1.5rem 1rem 4rem;
+    @include media-breakpoint-down(lg) {
+        flex-direction: column;
+    }
+}
+
+.col-image, .col-texts {
+    align-self: center;
+}
+
+.col-image {
+    aspect-ratio: 1/1;
+    display: flex;
+    margin-right: 4rem;
+    min-width: 380px;
+
+    @include media-breakpoint-down(xxl) {
+        min-width: min(33vw, 320px);
+        margin-right: 3.5rem;
     }
 
     @include media-breakpoint-down(lg) {
-        display: block;
-        text-align: center;
-        padding: 0 2rem 2rem 2rem;
-    }
-
-    @include media-breakpoint-down(sm) {
-        padding-top: 0.5rem;
-        padding-bottom: 1rem;
+        margin-right: 0;
+        margin-bottom: 2rem;
+        min-width: 0;
+        max-width: 40vw;
+        max-height: 200px;
     }
 }
 
-.img-logo {
-    --size: 25vw;
-    @include media-breakpoint-down(lg) {--size: 27.5vh;}
-    @include media-breakpoint-down(sm) {--size: 25vh;}
-
-    max-height: var(--size);
-    max-width: var(--size);
-    aspect-ratio: 1/1;
+.img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
 }
 
-.right-col {
-    display: flex;
+.col-texts {
     text-align: justify;
-    padding: 0 2rem 1rem 2rem;
-
-    @include media-breakpoint-down(xl) {
-        padding: 0 4rem 1rem 1.5rem;
-    }
-
-    @include media-breakpoint-down(md) {
-        padding: 1rem;
-    }
-
-    @include media-breakpoint-down(sm) {
-        padding-bottom: 0.5rem;
-    }
 }
 </style>

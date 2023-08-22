@@ -7,25 +7,35 @@
                  :style="_getProgressBarStyle()"
                  :aria-valuenow="_getPercentage()"
                  aria-valuemin="0"
-                 aria-valuemax="100"
-            />
+                 aria-valuemax="100"/>
         </div>
     </div>
 </template>
 
 <script setup>
-const props = defineProps(['percentage', 'description'])
+/**
+ * @property {Number} percentage
+ * @property {String} description
+ * @property {String} [color]
+ */
+const props = defineProps({
+    percentage:Number,
+    description:String,
+    color: String
+})
 
+/**
+ * @return {number}
+ * @private
+ */
 const _getPercentage = () => {
-    let percentage = Math.abs(props.percentage)
-    if(percentage < 0)
-        percentage = 0
-    else if(percentage > 100)
-        percentage = 100
-
-    return percentage
+    return Math.min(Math.max(props.percentage, 0), 100)
 }
 
+/**
+ * @return {String}
+ * @private
+ */
 const _getProgressBarStyle = () => {
     let percentage = _getPercentage()
     return `width: ${percentage}%;`
@@ -42,11 +52,11 @@ const _getProgressBarStyle = () => {
     }
 
     height: var(--height);
-    border-radius:0;
-    background-color: lighten($gray-300, 2%);
+    border-radius: 0;
+    background-color: lighten($light-3, 2%);
 
     .progress-bar {
-        background-color: lighten($primary, 5%);
+        background-color: $primary;
         -webkit-transition: none;
         -moz-transition: none;
         -ms-transition: none;
@@ -54,4 +64,10 @@ const _getProgressBarStyle = () => {
         transition: none;
     }
 }
+
+.progress-description {
+    margin-top:0.2rem;
+    color:$light-6;
+}
+
 </style>

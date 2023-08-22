@@ -2,20 +2,32 @@
     <!-- Inline List -->
     <ul class="inline-list mt-0 mt-lg-3">
         <!-- List Header (for small screens) -->
-        <li class="inline-list-item list-header">━ <i class="fa fa-circle-nodes"></i> ━</li>
+        <li class="inline-list-item list-header">
+            ━ <i class="fa fa-circle-nodes"/> ━
+        </li>
 
         <!-- List Items -->
         <li v-for="item in props.items" class="inline-list-item">
-            <a :href="item.href" class="info-xs item-link">
-                <i v-if="item.icon" :class="item.icon" class="item-icon me-1"></i>
+            <a v-if="item['href']" :href="item['href']" class="text-info-2 item-link">
+                <i v-if="item.faIcon" :class="item.faIcon" class="item-icon me-1"/>
                 {{item.label}}
             </a>
+
+            <router-link v-else-if="item['routerHref']" :to="item['routerHref']" class="text-info-2 item-link">
+                <i v-if="item.faIcon" :class="item.faIcon" class="item-icon me-1"/>
+                {{item.label}}
+            </router-link>
         </li>
     </ul>
 </template>
 
 <script setup>
-const props = defineProps(['items'])
+/**
+ * @property {Array} items
+ */
+const props = defineProps({
+    items: Array
+})
 </script>
 
 <style lang="scss" scoped>
@@ -36,7 +48,7 @@ const props = defineProps(['items'])
 
     &:not(:last-child)::after {
         content: "·";
-        color: $gray-500;
+        color: $light-5;
         margin-left: 0.6rem;
     }
 
@@ -52,7 +64,7 @@ const props = defineProps(['items'])
 .list-header {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
-    color: $gray-500;
+    color: $light-5;
     font-size: 0.5rem;
     @include media-breakpoint-up(sm) {
         display: none;
@@ -61,7 +73,7 @@ const props = defineProps(['items'])
 
 .item-icon {
     min-width: 25px;
-    color: $gray-500;
+    color: $light-5;
     @include media-breakpoint-down(md) {
         min-width: 0;
     }
@@ -69,12 +81,12 @@ const props = defineProps(['items'])
 
 .item-link {
     text-decoration: none;
-    color: $gray-600;
+    color: $light-6;
 }
 
 .inline-list-item:hover {
     .item-icon {
-        color: $gray-200;
+        color: $light-2;
     }
 
     .item-link {

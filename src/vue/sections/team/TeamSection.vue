@@ -1,9 +1,9 @@
 <template>
     <SectionTemplate :section-data="props.sectionData">
         <!-- Grid View (large screens) -->
-        <div class="row team-grid-row gy-2 gy-md-4 px-2">
+        <div class="row team-grid-row gy-5 px-2">
             <!-- Grid Items -->
-            <TeamSectionItem v-for="item in props.sectionData.sectionContent.items" :item="item"/>
+            <TeamSectionItem v-for="item in props.sectionData['items']" :item="item" class="mb-2"/>
         </div>
 
         <!-- Swiper View (small screens) -->
@@ -23,12 +23,13 @@
                 0: {
                   slidesPerView: 1,
                 },
-                768: {
+                568: {
                   slidesPerView: 2,
                 }
             }">
+
             <!-- Slide Items -->
-            <swiper-slide v-for="item in props.sectionData.sectionContent.items">
+            <swiper-slide v-for="item in props.sectionData['items']">
                 <TeamSectionItem :item="item" class="swiper-team-item"/>
             </swiper-slide>
         </swiper>
@@ -42,9 +43,14 @@ import TeamSectionItem from "./TeamSectionItem.vue"
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 
-const props = defineProps(['sectionData'])
+/**
+ * @property {Object} sectionData
+ */
+const props = defineProps({
+    sectionData: Object
+})
 </script>
 
 <style lang="scss" scoped>
@@ -61,13 +67,9 @@ const props = defineProps(['sectionData'])
 .swiper {
     height: 100%;
     .swiper-slide {
-        margin-bottom: 30px;
+        margin-bottom: 55px;
         height: auto !important;
         text-align: center;
-
-        @include media-breakpoint-down(md) {
-            margin-bottom: 0px;
-        }
     }
 
     .swiper-team-item {

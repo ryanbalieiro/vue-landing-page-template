@@ -7,6 +7,9 @@ $min-contrast-ratio: 2.5 !default;
 /** Bootstrap Colors **/
 $primary: #ff5900;
 $dark: #212529;
+$success: #038600;
+$light: #fcfcfc;
+$white: white;
 
 /** Typography **/
 $font-family-base: 'Lato', sans-serif;
@@ -18,5 +21,28 @@ $background-color: #fefefe;
 $balloon-color: lighten($primary, 46%);
 
 /** Navigation **/
-$nav-height:290px;
 $nav-background-color: $dark;
+
+/** Texts **/
+$headings-color: $dark;
+$text-normal: black;
+$text-muted: #757575;
+
+/** Light Shades **/
+$light-1: #f8f9fa;
+$light-2: #e9ecef;
+$light-3: #dee2e6;
+$light-4: #ced4da;
+$light-5: #adb5bd;
+$light-6: #6c757d;
+$light-7: #495057;
+
+$light-shades-palette: (
+    $light-1,
+    $light-2,
+    $light-3,
+    $light-4,
+    $light-5,
+    $light-6,
+    $light-7,
+);

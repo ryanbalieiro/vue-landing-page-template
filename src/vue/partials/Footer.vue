@@ -2,43 +2,36 @@
     <footer class="agency-footer">
         <!-- Top Block -->
         <div class="footer-block">
-            <div class="container ps-3 pe-3">
-                <!-- Grid -->
+            <div class="container-xxl ps-3 pe-3">
                 <div class="footer-block-row row">
-                    <!-- About Column -->
-                    <div class="footer-block-col col-12 col-lg-4">
-                        <h5 class="footer-title"><i class="fa fa-pen me-1 d-none d-md-inline"/> {{ aboutData.title }}</h5>
-                        <!-- About: Description -->
-                        <div class="footer-item-wrapper">
-                            <span class="info-xs" v-html="aboutData.description"></span>
-                        </div>
-                        <!-- About: Links -->
-                        <div class="footer-item-wrapper">
-                            <InlineList :items="aboutData.items" />
-                        </div>
-                    </div>
+                    <!-- Columns -->
+                    <div v-for="column in columnsData" class="footer-block-col col-12 col-lg-4">
+                        <!-- Column Title -->
+                        <h5 class="footer-title">
+                            <i v-if="column['faIcon']" :class="column['faIcon']"/>
+                            {{column['title']}}
+                        </h5>
 
-                    <!-- Social Column -->
-                    <div class="footer-block-col col-12 col-lg-4">
-                        <h5 class="footer-title">{{ socialData.title }}</h5>
-                        <!-- Social: Social Links -->
-                        <div class="footer-item-wrapper mt-lg-3">
-                            <SocialLinks :items="socialData.items" :size="'lg'" :color="'darkAndWhite'" />
-                        </div>
-                    </div>
-
-                    <!-- Contact Column -->
-                    <div class="footer-block-col col-12 col-lg-4">
-                        <h5 class="footer-title"><i class="fa fa-fax me-2"/>{{ contactInfoData.title }}</h5>
-                        <!-- Contact: Address -->
-                        <div class="footer-item-wrapper">
-                            <div class="address">
-                                <p v-for="part in contactInfoData.address" class="info-sm m-0">{{part}}</p>
+                        <!-- (If...) Column Description (Array) -->
+                        <div v-if="Array.isArray(column['description'])" class="footer-item-wrapper">
+                            <div class="footer-subtitle">
+                                <p v-for="subtitle in column['description']" class="text-info-3 m-0">
+                                    {{subtitle}}
+                                </p>
                             </div>
                         </div>
-                        <!-- Contact: Options -->
-                        <div class="footer-item-wrapper">
-                            <InlineList :items="contactInfoData.options" />
+                        <!-- (Else If...) Column Description (String) -->
+                        <div v-else-if="column['description']" class="footer-item-wrapper">
+                            <span class="text-info-2" v-html="column['description']"/>
+                        </div>
+
+                        <!-- (If...) Buttons -->
+                        <div v-if="column['displayItemsAsButtons']" class="footer-item-wrapper mt-3">
+                            <SocialLinks :items="column['items']" :size="'lg'" :color="'darkAndWhite'"/>
+                        </div>
+                        <!-- (Else...) Link List -->
+                        <div v-else class="footer-item-wrapper">
+                            <InlineList :items="column['items']"/>
                         </div>
                     </div>
                 </div>
@@ -47,9 +40,9 @@
 
         <!-- Bottom Block -->
         <div class="footer-block footer-block-dark">
-            <div class="container">
+            <div class="container-xxl">
                 <!-- Copyright -->
-                <p class="copyright info-xxs p-0 m-0" v-html="copyright"></p>
+                <p class="copyright text-info-1 p-0 m-0" v-html="copyright"></p>
             </div>
         </div>
     </footer>
@@ -60,42 +53,50 @@ import {computed} from "vue"
 import SocialLinks from "../widgets/SocialLinks.vue"
 import InlineList from "../widgets/InlineList.vue"
 
-const props = defineProps(['footerData'])
-
-const contactInfoData = computed(() => {
-    return props.footerData ? props.footerData.info : null
+/**
+ * @property {Object} footerData
+ */
+const props = defineProps({
+    footerData: Object
 })
 
-const socialData = computed(() => {
-    return props.footerData ? props.footerData.links : null
+/**
+ * @type {ComputedRef<Array>}
+ */
+const columnsData = computed(() => {
+    let columns = []
+    if(!props.footerData)
+        return columns
+
+    columns.push(props.footerData['left'], props.footerData['middle'], props.footerData['right'])
+    return columns
 })
 
-const aboutData = computed(() => {
-    return props.footerData ? props.footerData.otherLinks : null
-})
-
+/**
+ * @type {ComputedRef<String>}
+ */
 const copyright = computed(() => {
-    return props.footerData.copyright
+    return props.footerData['copyright']
 })
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-$dark-background-color: darken($dark, 1%);
-$standard-background-color: $dark;
+$footer-bg-color: $dark;
+$footer-bg-highlight-color: darken($dark, 1%);
 
 .agency-footer {
-    background-color: $dark-background-color;
+    background-color: $footer-bg-color;
 }
 
 .footer-block {
     min-height: 40px;
-    background-color: $standard-background-color;
+    background-color: $footer-bg-color;
     padding: 1rem 0;
     text-align: center;
     &-dark {
-        background-color: $dark-background-color;
+        background-color: $footer-bg-highlight-color;
     }
 }
 
@@ -140,11 +141,11 @@ $standard-background-color: $dark;
 }
 
 .footer-title {
-    color: $gray-100;
+    color: $light-1;
     text-transform: uppercase;
 }
 
 p, span {
-    color: $gray-500;
+    color: $light-5;
 }
 </style>

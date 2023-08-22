@@ -11,6 +11,7 @@ import TeamSection from "../vue/sections/team/TeamSection.vue"
 
 /**
  * @const
+ * @type {Object}
  */
 const SECTION_TEMPLATE_COMPONENTS = {
     DefaultSection,
@@ -50,7 +51,8 @@ export function useLayout() {
         if(SECTION_TEMPLATE_COMPONENTS[componentName])
             return SECTION_TEMPLATE_COMPONENTS[componentName]
 
-        throw new Error("Couldn't find component with name: " + componentName + ". All section components must be registered on layout.js.");
+        console.warn("Couldn't find component with name: " + componentName + ". All section components must be registered on layout.js. Using DefaultComponent for the given section.")
+        return DefaultSection
     }
 
     /**
@@ -59,15 +61,6 @@ export function useLayout() {
      */
     const isBreakPoint = (size) => {
         return window.innerWidth >= BOOTSTRAP_BREAKPOINTS[size]
-    }
-
-    /**
-     * @return {boolean}
-     */
-    const isTouchDevice = () => {
-        return (('ontouchstart' in window) ||
-            (navigator.maxTouchPoints > 0) ||
-            (navigator.msMaxTouchPoints > 0));
     }
 
     /**
@@ -86,15 +79,65 @@ export function useLayout() {
     }
 
     /**
+     * @return {{loaded: number, total: number}}
+     */
+    const getImageCount = () => {
+        const imageElements = document.querySelectorAll('.image-view-img')
+
+        let totalImages = 0
+        const loadedImages = Array.from(imageElements).reduce((count, image) => {
+            if(!image.classList.contains('image-view-ignore-on-count')) {
+                totalImages++
+                if (image.getAttribute('loadStatus') !== '0')
+                    return count + 1
+            }
+
+            return count
+        }, 0)
+
+        return {loaded: loadedImages, total: totalImages }
+    }
+
+    /**
+     * @return {boolean}
+     */
+    const isTouchDevice = () => {
+        return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+    }
+
+    /**
      * @param {String} elementId
      */
     const scrollToElement = (elementId) => {
-        const offsetTop = document.querySelector('#' + elementId).offsetTop
+        const el = document.querySelector('#' + elementId)
+        if(!el) {
+            console.warn("Trying to scroll to an invalid element with id: " + elementId)
+            return
+        }
+
+        const offsetTop = el.offsetTop
         const navbarHeight = document.querySelector('#navbar').offsetHeight
         scroll({
             top: offsetTop - Math.min(navbarHeight, isBreakPoint('sm') ? 70 : 60),
             behavior: "smooth"
         })
+    }
+
+    /**
+     * @param {Boolean} enabled
+     */
+    const setPageScrollingEnabled = (enabled) => {
+        const root = document.getElementsByTagName( 'html' )[0]
+        if(!enabled) {
+            document.body.className = 'body-no-scroll'
+            root.className += ' body-no-scroll'
+        }
+        else {
+            document.body.className = 'body-scroll'
+            root.className = ''
+        }
     }
 
     /**
@@ -119,6 +162,8 @@ export function useLayout() {
         getBreakPoint,
         getSectionComponentByName,
         isElementOutsideBounds,
-        scrollToElement
+        getImageCount,
+        scrollToElement,
+        setPageScrollingEnabled
     }
 }

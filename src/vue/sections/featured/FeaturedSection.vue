@@ -1,22 +1,20 @@
 <template>
     <SectionTemplate :section-data="props.sectionData">
-        <div class="featured-project">
-            <div class="featured-row">
-                <!-- Image -->
-                <div class="image-col">
-                    <ImageView :src="project.logo"
-                               :alt="'logo'"
-                               class="logo trace-shadow"
-                    />
-                </div>
+        <!-- Featured Item -->
+        <div v-for="item in props.sectionData['items']" class="featured-item">
+            <!-- Image Column -->
+            <div class="col-image">
+                <ImageView :src="item['imageUrl']"
+                           :alt="'about-logo'"
+                           class="img trace-shadow"/>
+            </div>
 
-                <!-- Texts -->
-                <div class="texts-col mt-4 pt-2 mt-md-0 pt-md-0">
-                    <h5 class="title"><i class="fa-solid fa-fire me-2 text-white"></i> {{props.sectionData.sectionContent.title}}</h5>
-                    <h1 class="project-title display-1" v-html="project.title"/>
-                    <p class="description info mt-4" v-html="project.description" />
-                    <SocialLinks :items="project.links" :color="'dark'" :size="'xl'" class="mt-4" />
-                </div>
+            <!-- Texts Column -->
+            <div class="col-texts">
+                <h4 class="title"><i class="fa-solid fa-fire me-2"/> Latest Release</h4>
+                <h1 class="project-title text-white text-uppercase" v-html="item['title']"/>
+                <p class="description text-info-5 mt-4 mb-4" v-html="item['description']"/>
+                <SocialLinks :items="item['links']" :color="'black'" :size="'xl'" class="mt-xl-5"/>
             </div>
         </div>
     </SectionTemplate>
@@ -24,92 +22,79 @@
 
 <script setup>
 import SectionTemplate from "../_templates/SectionTemplate.vue"
-import {computed} from "vue"
 import SocialLinks from "../../widgets/SocialLinks.vue"
 import ImageView from "../../widgets/ImageView.vue"
 
-const props = defineProps(['sectionData'])
-
-const project = computed(() => {
-    return props.sectionData.sectionContent.project
+/**
+ * @property {Object} sectionData
+ */
+const props = defineProps({
+    sectionData: Object
 })
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-.featured-project {
+.featured-item {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: max(50vh, 400px);
+    flex-direction: row;
+    width: 100%;
+    padding:4rem 2rem;
+
+    @include media-breakpoint-down(lg) {
+        flex-direction: column;
+        padding: 3rem 2rem;
+        align-items: center;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 1rem;
+    }
 }
 
-.featured-row {
-    --flex-direction:row;
-    --text-align:left;
-
-    --image-dimensions: max(14vw, 320px);
-    --vertical-padding: 2rem;
-    --column-spacing: 6rem;
+.col-image {
+    aspect-ratio: 1/1;
+    display: flex;
+    margin-right: 6rem;
+    min-width: 320px;
+    height:320px;
 
     @include media-breakpoint-down(xl) {
-        --image-dimensions: 280px;
-        --vertical-padding: 2.5rem;
-        --column-spacing: 4rem;
+        min-width: 300px;
+        height: 300px;
+        margin-right: 4rem;
     }
+
     @include media-breakpoint-down(lg) {
-        --image-dimensions: 240px;
-        --vertical-padding: 1.5rem;
-        --column-spacing: 4rem;
+        min-width: 0;
+        width: min(230px, 35vw);
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 2rem;
     }
-    @include media-breakpoint-down(md) {
-        --flex-direction: column;
-        --text-align:center;
+}
 
-        --image-dimensions: 200px;
-        --vertical-padding: 0;
-        --column-spacing: 0;
-    }
-    @include media-breakpoint-down(sm) {
-        --image-dimensions: 160px;
-    }
+.img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 20%;
+}
 
-    display: flex;
-    flex-direction: var(--flex-direction);
-    text-align: var(--text-align);
-
-    .image-col {
-        padding-left: var(--vertical-padding);
-        padding-right: var(--column-spacing);
-
-        .logo {
-            height: var(--image-dimensions);
-            width: var(--image-dimensions);
-            overflow: hidden;
-            border-radius: calc(var(--image-dimensions)/4.5);
-
-            @include media-breakpoint-down(md) {
-                width: min(var(--image-dimensions), 25vh);
-                height: min(var(--image-dimensions), 25vh);
-            }
-        }
-    }
-
-    .texts-col {
-        padding-right: var(--vertical-padding);
+.col-texts {
+    text-align: justify;
+    @include media-breakpoint-down(lg) {
+        text-align: center;
     }
 }
 
 .title {
-    color: $gray-500;
-}
-
-.project-title {
-    color: $white;
+    color: $light-5;
 }
 
 .description {
-    color: $gray-400;
+    color: $light-5;
 }
 </style>

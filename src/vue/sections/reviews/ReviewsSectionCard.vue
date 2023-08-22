@@ -3,23 +3,23 @@
     <div class="card h-100">
         <!-- Header -->
         <div class="card-header">
-            <ImageView  :src="item.avatar"
-                        :alt="item.organization"
-                        class="img-thumbnail" />
+            <ImageView  :src="item['imageUrl']"
+                        :alt="item['title']"
+                        class="img-thumbnail"/>
 
-            <h5 class="organization-title">{{ item.organization }}</h5>
+            <h4 class="organization-title">{{ item['title'] }}</h4>
         </div>
 
         <!-- Body -->
         <div class="card-body">
-            <p class="info">“{{ item.message }}”</p>
+            <p class="text-info-4">“{{ item['quote'] }}”</p>
         </div>
 
         <!-- Footer -->
         <div class="card-footer">
             <!-- Member -->
             <p class="organization-member">
-                <i class="fa fa-comment me-1"/> {{ item.staffMember }}
+                <i class="fa fa-comment me-1"/> {{ item['description'] }}
             </p>
         </div>
     </div>
@@ -28,45 +28,57 @@
 <script setup>
 import ImageView from "../../widgets/ImageView.vue"
 
-const props = defineProps(['item'])
+/**
+ * @property {Object} item
+ */
+const props = defineProps({
+    item: Object
+})
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
 .card {
-    min-height: calc(100% - 25px);
-    border: 2px $gray-100 solid;
-    border-radius: 0;
-    background-color: white;
+    --min-height: calc(100% - 25px);
+    @include media-breakpoint-down(md) {--min-height: 40vh;}
+    @include media-breakpoint-down(md) {--min-height: 30vh;}
 
-    @include media-breakpoint-down(md) {
-        text-align: center;
-        min-height: 40vh;
-    }
+    border: 2px $light-1 solid;
+    border-radius: 0;
+    background-color: $white;
+    min-height: var(--min-height);
 }
 
 .card-header {
+    --icon-size:60px;
+    @include media-breakpoint-down(sm) {--icon-size: 50px;}
+
     border: none;
     padding: 1rem;
     background-color: transparent;
 
     .img-thumbnail {
         display: inline-block;
-        height: 60px;
-        width: 60px;
+        height: var(--icon-size);
+        width: var(--icon-size);
         border:none;
     }
 
     .organization-title {
-        display: inline;
-        margin-left: 1rem;
+        display: inline-block;
+        position: relative;
+        top: -20px;
+        left: 10px;
     }
 }
 
 .card-footer {
+    --padding-top:1rem;
+    @include media-breakpoint-down(sm) {--padding-top:0;}
+
     border: none;
-    padding-top:1rem;
+    padding-top:var(--padding-top);
     background-color: transparent;
 
     .organization-member {

@@ -1,19 +1,19 @@
 <template>
     <SectionTemplate :section-data="props.sectionData">
-        <!-- Grid View (large screens) -->
-        <div class="row text-center gy-3 gy-md-5 pt-lg-2">
-            <div v-for="item in props.sectionData.sectionContent.items" class="col-12 col-sm-6 col-lg-4">
+        <!-- Services Grid -->
+        <div class="row text-center gy-4 gy-lg-5">
+            <div v-for="item in props.sectionData['items']" class="col-12 col-sm-6 col-lg-4">
                 <!-- Service Item -->
-                <div class="service-item">
+                <div class="service-item mb-lg-4">
                     <!-- Icon -->
                     <div class="service-icon-wrapper">
-                        <CircleIcon :fa-icon="item.icon"/>
+                        <CircleIcon :fa-icon="item['faIcon']"/>
                     </div>
 
                     <!-- Content -->
                     <div class="service-content-wrapper">
-                        <h5>{{item.title}}</h5>
-                        <p class="text-muted info">{{item.description}}</p>
+                        <h5>{{item['title']}}</h5>
+                        <p class="text-muted text-info-4 mb-0">{{item['description']}}</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,12 @@
 import SectionTemplate from "../_templates/SectionTemplate.vue"
 import CircleIcon from "../../widgets/CircleIcon.vue"
 
-const props = defineProps(['sectionData'])
+/**
+ * @property {Object} sectionData
+ */
+const props = defineProps({
+    sectionData: Object
+})
 </script>
 
 <style lang="scss" scoped>
@@ -43,6 +48,7 @@ const props = defineProps(['sectionData'])
     @include media-breakpoint-down(lg) {
         flex-direction: row;
         text-align: left;
+        padding: 0 0.5rem;
 
         .service-content-wrapper {
             margin-top: 0;

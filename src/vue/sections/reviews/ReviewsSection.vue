@@ -11,19 +11,19 @@
                 :grab-cursor="true"
                 :prevent-clicks-propagation="true"
                 :breakpoints = "{
-                    0: {
-                      slidesPerView: 1,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                    },
-                    1400: {
-                      slidesPerView: 3,
-                    }
-                }">
+                        0: {
+                          slidesPerView: 1,
+                        },
+                        768: {
+                          slidesPerView: 2,
+                        },
+                        1400: {
+                          slidesPerView: 3,
+                        }
+                    }">
 
                 <!-- Swiper Slides -->
-                <template v-for="item in props.sectionData.sectionContent.items">
+                <template v-for="item in props.sectionData['items']">
                     <swiper-slide>
                         <ReviewsSectionCard :item="item"/>
                     </swiper-slide>
@@ -42,7 +42,12 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Pagination } from 'swiper/modules'
 
-const props = defineProps(['sectionData'])
+/**
+ * @property {Object} sectionData
+ */
+const props = defineProps({
+    sectionData: Object
+})
 </script>
 
 <style lang="scss" scoped>
@@ -51,7 +56,7 @@ const props = defineProps(['sectionData'])
 .swiper {
     height: 100%;
     .swiper-slide {
-        margin-bottom: 65px;
+        margin-bottom: 60px;
         height: auto !important;
     }
 }

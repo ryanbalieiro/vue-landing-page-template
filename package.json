@@ -13,7 +13,8 @@
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3",
     "swiper": "^10.0.4",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",

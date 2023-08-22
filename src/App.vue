@@ -1,89 +1,122 @@
 <template>
     <!-- Preloader -->
-    <Preloader v-if="_shouldDisplayPreloader()"
-               ref="preloader"
-               @ready="_onPreloaderReady"
-               @loaded="_onPreloaderLoadingComplete"
-               @will-hide="_onPreloaderWillHide">
-    </Preloader>
+    <FullscreenLoader ref="preloader"
+                      v-if="isPreloaderEnabled"
+                      :progress-percentage="totalLoadProgress"
+                      :show-progress-bar="true"
+                      @shown="_onPreloaderShown"
+                      @completed="_onPreloaderCompleted"
+                      @will-hide="_onPreloaderWillHide"/>
 
-    <!-- App Content -->
-    <div v-show="_shouldDisplayContent()" class="agency">
-        <!-- Navigation -->
-        <NavBar :navbar-data="props.agencyManager.navbarData"
-                :sections="props.agencyManager.sections">
-        </NavBar>
-
-        <!-- Header -->
-        <Header :header-data="props.agencyManager.headerData"></Header>
-
-        <!-- Website Sections -->
-        <component v-for="section in props.agencyManager.sections"
-                   :is="layout.getSectionComponentByName(section.component)"
-                   :section-data="section">
-        </component>
-
-        <!-- Footer -->
-        <Footer :footer-data="props.agencyManager.footerData"></Footer>
+    <!-- Router View -->
+    <div v-show="!layout.isTouchDevice() || totalLoadProgress >= 100">
+        <router-view />
     </div>
 </template>
 
 <script setup>
-import Preloader from "./vue/loaders/Preloader.vue"
-import NavBar from "./vue/navigation/NavBar.vue"
-import Header from "./vue/partials/Header.vue"
-import Footer from "./vue/partials/Footer.vue"
+import {computed, onMounted, ref, watch} from "vue"
 import {useLayout} from "./composables/layout.js"
-import {ref} from "vue"
+import FullscreenLoader from "./vue/loaders/FullscreenLoader.vue"
+import {useRoute} from "vue-router"
 
-const props = defineProps(['agencyManager'])
-const preloader = ref(null)
+/**
+ * @property {AgencyManager} agencyManager
+ */
+const props = defineProps({
+    agencyManager: Object
+})
+
 const layout = useLayout()
-const isPreloadingComplete = ref(true)
+const route = useRoute()
+
+const preloader = ref(null)
+const totalLoadProgress = ref(0)
+let intervalId = null
+let elapsedTime = 0
 
 /**
- * Checks whether the preload animation should be displayed
- * @private
+ * @callback
  */
-const _shouldDisplayPreloader = () => {
-    return !props.agencyManager.settings.skipPreload
-}
-
-/**
- * Checks whether the app content should be displayed.
- * @private
- */
-const _shouldDisplayContent = () => {
-    return !layout.isTouchDevice() || isPreloadingComplete.value
-}
-
-/**
- * Show preloader.
- */
-const _onPreloaderReady = () => {
-    const root = document.getElementsByTagName( 'html' )[0];
-    document.body.className = ' no-scroll'
-    root.className += ' no-scroll'
-
-    isPreloadingComplete.value = false
-    preloader.value.animate()
-}
+onMounted(async () => {
+    _startPreloader()
+})
 
 /**
  * @private
  */
-const _onPreloaderLoadingComplete = () => {
-    isPreloadingComplete.value = true
+watch(() => route.name, () => {
+    _startPreloader()
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'})
+})
+
+/**
+ * @type {ComputedRef<Boolean>}
+ */
+const isPreloaderEnabled = computed(() => {
+    return props.agencyManager.settings['preloaderEnabled']
+})
+
+/**
+ * @private
+ */
+const _startPreloader = () => {
+    clearInterval(intervalId)
+    totalLoadProgress.value = 0
+    elapsedTime = 0
+
+    layout.setPageScrollingEnabled(false)
+    if(isPreloaderEnabled.value) {
+        preloader.value.start()
+    }
+    else {
+        _onPreloaderShown()
+    }
 }
 
 /**
- * Preloader will start tweening out of the screen - enable scrolling.
+ * @return {Promise<void>}
+ * @private
+ */
+const _onPreloaderShown = async () => {
+    intervalId = setInterval(() => {
+        _checkLoadProgress()
+    }, 1000/30)
+
+    if(!isPreloaderEnabled.value) {
+        totalLoadProgress.value = 100
+        _onPreloaderCompleted()
+        _onPreloaderWillHide()
+    }
+}
+
+/**
+ * @private
+ */
+const _checkLoadProgress = () => {
+    const imageCount = layout.getImageCount()
+    elapsedTime += 1/30
+
+    if(!imageCount.total) {
+        totalLoadProgress.value = (elapsedTime > 0.1) ? 100 : 0
+        return
+    }
+
+    totalLoadProgress.value = Math.round(100 * imageCount.loaded/imageCount.total)
+}
+
+/**
+ * @private
+ */
+const _onPreloaderCompleted = () => {
+    clearInterval(intervalId)
+}
+
+/**
  * @private
  */
 const _onPreloaderWillHide = () => {
-    const root = document.getElementsByTagName( 'html' )[0];
-    document.body.className = ''
-    root.className = ''
+    layout.setPageScrollingEnabled(true)
 }
 </script>
 

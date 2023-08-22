@@ -7,13 +7,16 @@ export class AgencyManager {
      * @constructs
      */
     constructor() {
-        this._agencyJson = null
-
         this._settings = null
+
         this._navbarData = null
         this._headerData = null
         this._footerData = null
+
         this._sections = null
+
+        this._privacyPolicyData = null
+        this._legalData = null
     }
 
     /**
@@ -21,15 +24,22 @@ export class AgencyManager {
      * @return {Promise<void>}
      */
     async init() {
-        const response = await fetch('data/agency.json')
-        this._agencyJson = await response.json()
+        const agencyResponse = await fetch('data/agency.json')
+        const jAgency = await agencyResponse.json()
 
-        this._settings = this._agencyJson['settings']
-        this._navbarData = this._agencyJson['navbar']
-        this._headerData = this._agencyJson['header']
-        this._footerData = this._agencyJson['footer']
+        this._settings = jAgency['settings']
+        this._navbarData = jAgency['navbar']
+        this._headerData = jAgency['header']
+        this._footerData = jAgency['footer']
 
-        this._sections = this._agencyJson['sections']
+        const sectionsResponse = await fetch('data/sections.json')
+        const jSections = await sectionsResponse.json()
+        this._sections = jSections['sections']
+
+        const secondaryPagesResponse = await fetch('data/secondary-pages.json')
+        const jSecondaryPages = await secondaryPagesResponse.json()
+        this._privacyPolicyData = jSecondaryPages['policy']
+        this._legalData = jSecondaryPages['legal']
     }
 
     /**
@@ -65,5 +75,19 @@ export class AgencyManager {
      */
     get sections() {
         return this._sections
+    }
+
+    /**
+     * @returns {Object}
+     */
+    get privacyPolicyData() {
+        return this._privacyPolicyData
+    }
+
+    /**
+     * @returns {Object}
+     */
+    get legalData() {
+        return this._legalData
     }
 }
