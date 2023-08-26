@@ -1,15 +1,16 @@
 <template>
     <div class="social-links">
         <!-- Social Link -->
-        <a v-for="item in props.items" :class="buttonClass" :href="item.href" :aria-label="item.faIcon">
+        <a v-for="item in props.items" :class="buttonClass" :href="item['href']" target="_blank" :aria-label="item['faIcon']">
             <!-- Social Link Icon -->
-            <i :class="item.faIcon" />
+            <i :class="item['faIcon']" />
         </a>
     </div>
 </template>
 
 <script setup>
 import {computed} from "vue"
+import {useConstants} from "../../composables/constants.js"
 
 /**
  * @property {Array} items
@@ -22,32 +23,15 @@ const props = defineProps({
     color: String,
 })
 
-/**
- * @const
- */
-const SIZES = {
-    xl: 'btn-social-xl',
-    lg: 'btn-social-lg',
-    md: 'btn-social-md',
-};
-
-/**
- * @const
- */
-const COLORS = {
-    darkAndWhite: 'btn-social-dark-and-white',
-    dark: 'btn-social-dark',
-    black: 'btn-social-black',
-    lightDark: 'btn-social-light-dark',
-};
+const constants = useConstants()
 
 /**
  * @type {ComputedRef<String>}
  */
 const buttonClass = computed(() => {
     let classList = "btn btn-social"
-    const sizeClass = SIZES[props.size] || '';
-    const colorClass = COLORS[props.color] || '';
+    const sizeClass = props.size || '';
+    const colorClass = props.color || '';
 
     classList += ` ${sizeClass} ${colorClass}`;
     return classList
@@ -57,7 +41,7 @@ const buttonClass = computed(() => {
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-@mixin create-btn-social-size($std-font-size, $md-font-size) {
+@mixin create-btn-social-size($std-font-size, $md-down-font-size) {
     $font-size: $std-font-size;
 
     font-size: $font-size;
@@ -65,9 +49,9 @@ const buttonClass = computed(() => {
     height: calc($font-size * 2.4);
 
     @include media-breakpoint-down(md) {
-        font-size: $md-font-size;
-        width: calc($md-font-size * 2.4);
-        height: calc($md-font-size * 2.4);
+        font-size: $md-down-font-size;
+        width: calc($md-down-font-size * 2.4);
+        height: calc($md-down-font-size * 2.4);
     }
 }
 

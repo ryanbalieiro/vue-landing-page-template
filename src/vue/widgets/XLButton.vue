@@ -56,22 +56,14 @@ const _onButtonClicked = () => {
 @import "/src/scss/_theming.scss";
 
 .btn-xl {
-    --padding: 1.125rem 2.3rem;
-    --font-size: 1.125rem;
-    @include media-breakpoint-down(xxl) {
-        --padding: 1rem 2rem;
-        --font-size: 1rem;
-    }
-    @include media-breakpoint-down(lg) {
-        --padding: 1rem 1.2rem;
-        --font-size: 0.9rem;
-    }
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (padding: 1.125rem 2.3rem, font-size: 1.125rem),
+        xxl:  (padding: 1rem 2rem, font-size: 1rem),
+        lg:   (padding: 1rem 1.5rem, font-size: 0.9rem)
+    ));
 
-    padding: var(--padding);
     border-radius: 4rem;
-
-    font-size: var(--font-size);
-    font-weight: bold;
+    font-weight: 400;
     font-family: $headings-font-family;
     text-transform: uppercase;
 }

@@ -1,13 +1,5 @@
-$base-heading-sizes: (
-    h1: 3rem,
-    h2: 2.5rem,
-    h3: 2rem,
-    h4: 1.5rem,
-    h5: 1.3rem,
-    h6: 1.1rem,
-);
-
-$heading-breakpoint-multipliers: (
+$headings-breakpoint-multipliers: (
+    xxxl: 1,
     xxl: 0.9,
     xl: 0.85,
     lg: 0.8,
@@ -15,27 +7,8 @@ $heading-breakpoint-multipliers: (
     sm: 0.7
 );
 
-@each $text, $size in $base-heading-sizes {
-    #{$text}, .eq-#{$text} {
-        font-size: $size;
-
-        @each $breakpoint, $multiplier in $heading-breakpoint-multipliers {
-            @include media-breakpoint-down($breakpoint) {
-                font-size: calc($size * $multiplier)
-            }
-        }
-    }
-}
-
-$base-text-sizes: (
-    text-info-1: 0.8rem,
-    text-info-2: 0.9rem,
-    text-info-3: 0.95rem,
-    text-info-4: 1rem,
-    text-info-5: 1.05rem,
-);
-
 $texts-breakpoint-multipliers: (
+    xxxl: 1,
     xxl: 0.95,
     xl: 0.9,
     lg: 0.875,
@@ -43,15 +16,47 @@ $texts-breakpoint-multipliers: (
     sm: 0.8
 );
 
-@each $text, $size in $base-text-sizes {
-    .#{$text} {
-        font-size: $size;
+/** Headings **/
+$headings-base-sizes: (
+    h1: (font-size: 3rem),
+    h2: (font-size: 2.5rem),
+    h3: (font-size: 2rem),
+    h4: (font-size: 1.5rem),
+    h5: (font-size: 1.3rem),
+    h6: (font-size: 1.1rem)
+);
 
-        @each $breakpoint, $multiplier in $texts-breakpoint-multipliers {
-            @include media-breakpoint-down($breakpoint) {
-                font-size: calc($size*$multiplier)
-            }
-        }
+@each $heading, $size in $headings-base-sizes {
+    #{$heading}, .eq-#{$heading} {
+        @include generate-dynamic-styles-with-multipliers($size, $headings-breakpoint-multipliers);
+    }
+}
+
+/** Custom Headings **/
+$custom-headings-base-sizes: (
+    lead-2: (font-size: 1.4rem),
+    lead: (font-size: 1.2rem),
+    display-1: (font-size: 3.25rem),
+);
+
+@each $heading, $size in $custom-headings-base-sizes {
+    .#{$heading} {
+        @include generate-dynamic-styles-with-multipliers($size, $headings-breakpoint-multipliers);
+    }
+}
+
+/** Texts **/
+$texts-base-sizes: (
+    text-1: (font-size: 0.85rem),
+    text-2: (font-size: 0.9rem),
+    text-3: (font-size: 0.95rem),
+    text-4: (font-size: 1.0rem),
+    text-5: (font-size: 1.05rem),
+);
+
+@each $text, $size in $texts-base-sizes {
+    .#{$text} {
+        @include generate-dynamic-styles-with-multipliers($size, $texts-breakpoint-multipliers);
     }
 }
 

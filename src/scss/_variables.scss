@@ -4,6 +4,11 @@ $fa-font-path:"@fortawesome/fontawesome-free/webfonts";
 /** Overriding Bootstrap's contrast ratio. **/
 $min-contrast-ratio: 2.5 !default;
 
+/** Typography **/
+$font-family-base: 'Lato', sans-serif;
+$headings-font-family: 'Patua One', sans-serif;
+$custom-subheadings-font-family: 'Ysabeau', sans-serif;
+
 /** Bootstrap Colors **/
 $primary: #ff5900;
 $dark: #212529;
@@ -11,21 +16,16 @@ $success: #038600;
 $light: #fcfcfc;
 $white: white;
 
-/** Typography **/
-$font-family-base: 'Lato', sans-serif;
-$headings-font-family: 'Patua One', sans-serif;
-$custom-subheadings-font-family: 'Ysabeau', sans-serif;
-
 /** General **/
 $background-color: #fefefe;
-$balloon-color: lighten($primary, 46%);
-
-/** Navigation **/
 $nav-background-color: $dark;
+$footer-bg-color: $dark;
+$footer-bg-highlight-color: darken($dark, 1%);
 
 /** Texts **/
 $headings-color: $dark;
 $text-normal: black;
+$text-normal-contrast: white;
 $text-muted: #757575;
 
 /** Light Shades **/

@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-4. To temporarily deactivate the preload animation during theme adjustments, navigate to `public/data/agency.json` and modify the following field:
+4. To temporarily deactivate the preload animation during theme adjustments, navigate to `public/data/general.json` and modify the following field:
 
 ```
  "preloaderEnabled": false
@@ -57,9 +57,9 @@ npm run build
 ### 1. Content Customization
 The content of the application, encompassing text and images, is conveniently located within the `public/` directory. Inside the `public/` folder, you'll find:
 
-- `/data/agency.json` ➔ A JSON file that contains the core information about the application.
+- `/data/general.json` ➔ A JSON file that contains the core information about the application.
 - `/data/sections.json` ➔ A JSON file that holds the content for each individual section.
-- `/data/secondary-pages.json` ➔ A JSON file that holds the content for secondary pages, such as the Privacy Policy and the legal sections.
+- `/data/pages.json` ➔ A JSON file that holds the content for secondary pages, such as the Privacy Policy and the legal sections.
 - `/images/(...)` ➔ Icons and photos used in the application.
 
 ### 2. Quickly customizing the colors
@@ -127,10 +127,20 @@ Enabling the functionality of the contact form requires you developing your own 
 
 ```js
 const _sendMessage = (values) => {
-    // implement the send message logic here...
+    const feedbackView = layout.getFeedbackView()
+    feedbackView.showActivitySpinner("Sending Message...")
+    submitAttempts++
+
+    /** The message sending logic goes here... **/
     // setTimeout(() => {
-    //     _onMessageSent()
+    //     if(submitAttempts % 2 !== 0) {
+    //         _onMessageSent()
+    //     }
+    //     else {
+    //         _onMessageError()
+    //     }
     // }, 1000)
+    /** ************************************** **/
 }
 ```
 

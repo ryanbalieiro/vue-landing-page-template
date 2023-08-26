@@ -11,7 +11,7 @@
  * @property {String} faIcon
  */
 const props = defineProps({
-    faIcon: String,
+    faIcon: String
 })
 </script>
 
@@ -19,12 +19,13 @@ const props = defineProps({
 @import "/src/scss/_theming.scss";
 
 .icon-stack {
-    --font-size:3rem;
-    @include media-breakpoint-down(xxl) {--font-size: 2.5rem}
-    @include media-breakpoint-down(xl) {--font-size: 2.25rem}
-    @include media-breakpoint-down(lg) {--font-size: 2rem}
-    @include media-breakpoint-down(md) {--font-size: 1rem}
-
-    font-size: var(--font-size);
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (font-size: 3rem),
+        xxl:  (font-size: 2.5rem),
+        xl:   (font-size: 2.25rem),
+        lg:   (font-size: 2rem),
+        md:   (font-size: 1.5rem),
+        sm:   (font-size: 1rem),
+    ));
 }
 </style>

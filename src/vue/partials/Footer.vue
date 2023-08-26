@@ -2,7 +2,9 @@
     <footer class="agency-footer">
         <!-- Top Block -->
         <div class="footer-block">
-            <div class="container-xxl ps-3 pe-3">
+            <!-- Container -->
+            <div class="container-xxl">
+                <!-- Footer Info Row -->
                 <div class="footer-block-row row">
                     <!-- Columns -->
                     <div v-for="column in columnsData" class="footer-block-col col-12 col-lg-4">
@@ -15,22 +17,22 @@
                         <!-- (If...) Column Description (Array) -->
                         <div v-if="Array.isArray(column['description'])" class="footer-item-wrapper">
                             <div class="footer-subtitle">
-                                <p v-for="subtitle in column['description']" class="text-info-3 m-0">
+                                <p v-for="subtitle in column['description']" class="text-3 m-0">
                                     {{subtitle}}
                                 </p>
                             </div>
                         </div>
                         <!-- (Else If...) Column Description (String) -->
                         <div v-else-if="column['description']" class="footer-item-wrapper">
-                            <span class="text-info-2" v-html="column['description']"/>
+                            <span class="text-2" v-html="column['description']"/>
                         </div>
 
                         <!-- (If...) Buttons -->
                         <div v-if="column['displayItemsAsButtons']" class="footer-item-wrapper mt-3">
-                            <SocialLinks :items="column['items']" :size="'lg'" :color="'darkAndWhite'"/>
+                            <SocialLinks :items="column['items']" :size="constants.SocialLinksSize.LG" :color="constants.SocialLinksColor.DARK_AND_WHITE"/>
                         </div>
                         <!-- (Else...) Link List -->
-                        <div v-else class="footer-item-wrapper">
+                        <div v-else class="footer-item-wrapper mt-2 mt-lg-0">
                             <InlineList :items="column['items']"/>
                         </div>
                     </div>
@@ -42,7 +44,7 @@
         <div class="footer-block footer-block-dark">
             <div class="container-xxl">
                 <!-- Copyright -->
-                <p class="copyright text-info-1 p-0 m-0" v-html="copyright"></p>
+                <p class="copyright text-1 p-0 m-0" v-html="copyright"></p>
             </div>
         </div>
     </footer>
@@ -52,6 +54,7 @@
 import {computed} from "vue"
 import SocialLinks from "../widgets/SocialLinks.vue"
 import InlineList from "../widgets/InlineList.vue"
+import {useConstants} from "../../composables/constants.js"
 
 /**
  * @property {Object} footerData
@@ -59,6 +62,8 @@ import InlineList from "../widgets/InlineList.vue"
 const props = defineProps({
     footerData: Object
 })
+
+const constants = useConstants()
 
 /**
  * @type {ComputedRef<Array>}
@@ -82,9 +87,6 @@ const copyright = computed(() => {
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
-
-$footer-bg-color: $dark;
-$footer-bg-highlight-color: darken($dark, 1%);
 
 .agency-footer {
     background-color: $footer-bg-color;
@@ -123,21 +125,19 @@ $footer-bg-highlight-color: darken($dark, 1%);
     }
 }
 
+
 .footer-item-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding-top: 0.5rem;
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (min-height: 55px, padding-top:0.5rem),
+        lg: (min-height: 0, padding-top:0.3rem),
+    ));
+
     margin: 0 auto;
-
-    min-height: 65px;
     max-width: 380px;
-
-    @include media-breakpoint-down(lg) {
-        min-height: 0;
-        padding-top: 0.3rem;
-    }
 }
 
 .footer-title {

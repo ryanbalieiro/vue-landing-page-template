@@ -1,8 +1,8 @@
 <template>
     <header class="agency-header">
         <!-- Background -->
-        <div class="promo-bg">
-            <div class="promo-bg-overlay">
+        <div class="bg-promo-image">
+            <div class="bg-promo-image-overlay">
             </div>
         </div>
 
@@ -39,8 +39,11 @@ const props = defineProps({
     headerData: Object
 })
 
+/**
+ * @private
+ */
 const _onButtonClick = () => {
-    useLayout().scrollToElement(props.headerData['button']['targetSection'])
+    useLayout().smoothScrollToElement(props.headerData['button']['targetSection'], true)
 }
 </script>
 

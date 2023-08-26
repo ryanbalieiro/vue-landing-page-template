@@ -1,12 +1,12 @@
 <template>
     <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top" :class="{'navbar-shrink': !shouldExpand || !props.shouldSpyScroll}">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top" :class="navbarClassList">
         <!-- Container -->
         <div class="container-xxl">
             <!-- Brand -->
             <a class="navbar-brand" href="#">
-                <img :src="props.navbarData['logo']" alt="agency-logo" class="img img-fluid img-logo">
-                <span class="brand-text" v-html="props.navbarData['brand']"/>
+                <img :src="props.navbarData['logo']" alt="agency-logo" class="img img-fluid navbar-brand-img">
+                <span class="navbar-brand-text" v-html="props.navbarData['brand']"/>
             </a>
 
             <!-- Collapse Button (Small Screens) -->
@@ -23,7 +23,7 @@
                                 :class="{'active': _isLinkActive(link['id'] || link['name'])}"
                                 @click="_onNavLinkClicked(link['id'] || link['name'])">
                             <!-- Nav Link Label -->
-                            <span class="nav-link-text text-info-5">
+                            <span class="nav-link-text text-4">
                                 <i :class="link['navbar'] ? link['navbar'].faIcon : link['faIcon']" class="nav-link-icon d-lg-none"/>
                                 {{ link['navbar'] ? link['navbar'].label : link['label'] }}
                             </span>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import {onMounted, onUnmounted, ref} from "vue"
+import {computed, onMounted, onUnmounted, ref} from "vue"
 import {useLayout} from "../../composables/layout.js"
 import {useRoute} from "vue-router"
 import Collapse from '/node_modules/bootstrap/js/src/collapse'
@@ -86,6 +86,16 @@ onUnmounted(() => {
     window.removeEventListener('scroll', _spyScroll)
 })
 
+
+const navbarClassList = computed(() => {
+    if(props.shouldSpyScroll) {
+        return `${!shouldExpand.value ? 'navbar-shrink' : ''}`
+    }
+    else {
+        return `navbar-static navbar-shrink`
+    }
+})
+
 /**
  * @param {String} linkId
  * @return {boolean}
@@ -129,7 +139,7 @@ const _spyScroll = () => {
 const _onNavLinkClicked = (linkId) => {
     const clickEvent = new Event("click", { bubbles: true, cancelable: true })
     const toggleButton = document.getElementById("toggler")
-    if(!layout.isBreakPoint("lg")) {
+    if(!layout.isBootstrapBreakpoint("lg")) {
         toggleButton.dispatchEvent(clickEvent)
     }
 
@@ -140,38 +150,49 @@ const _onNavLinkClicked = (linkId) => {
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
-.navbar {
-    --padding:1.5rem 0;
-    @include media-breakpoint-down(lg) {--padding: 0.7rem 0;}
-    @include media-breakpoint-down(sm) {--padding: 0.1rem 0;}
 
-    padding: var(--padding);
+.navbar {
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (background-color: transparent, padding: 1.5rem 0),
+        lg:   (background-color: $nav-background-color, padding: 0.7rem 0),
+        sm:   (padding: 0.35rem 0)
+    ));
+
     border: none;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+}
 
-    background-color: transparent;
-    @include media-breakpoint-down(lg) {background-color: $nav-background-color;}
+.navbar-static {
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (padding: 0.5rem 0),
+        sm:   (padding: 0.35rem 0)
+    ));
+    background-color: $nav-background-color;
 }
 
 .navbar-brand {
-    --img-height: 3.3rem;
-    --font-size: 1.5rem;
-    @include media-breakpoint-down(lg) {
-        --img-height: 3rem;
-        --font-size: 1.25rem;
-    }
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (font-size: 1.5rem),
+        lg:   (font-size: 1.25rem)
+    ));
 
     text-transform: uppercase;
     font-family: $headings-font-family;
     font-weight: $headings-font-weight;
-    font-size: var(--font-size);
     transition: font-size 0.3s ease-in-out;
+}
 
-    .img-logo {
-        height: var(--img-height);
-        margin-right: 0.5rem;
-        transition: height 0.3s ease-in-out;
-    }
+.navbar-brand-img {
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (height: 3.4rem),
+        lg:   (height: 3rem)
+    ));
+
+    position: relative;
+    top: -0.15rem;
+
+    margin-right: 0.5rem;
+    transition: height 0.3s ease-in-out;
 }
 
 .navbar-shrink {
@@ -183,7 +204,7 @@ const _onNavLinkClicked = (linkId) => {
         .navbar-brand {
             font-size: 1.4em;
 
-            .img-logo {
+            .navbar-brand-img {
                 height: 3rem;
             }
         }
@@ -212,8 +233,8 @@ const _onNavLinkClicked = (linkId) => {
     cursor: pointer;
     padding: 0 0 0 1.2rem!important;
 
-    font-family: $custom-subheadings-font-family;
-    color: $white;
+    font-family: $font-family-base;
+    color: $light-3;
     text-transform: uppercase;
 
     &.active,
@@ -239,7 +260,7 @@ const _onNavLinkClicked = (linkId) => {
     }
 
     @include media-breakpoint-down(md) {
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.55rem;
     }
 }
 
@@ -251,6 +272,4 @@ const _onNavLinkClicked = (linkId) => {
 
     transition: color 0.4s;
 }
-
-
 </style>

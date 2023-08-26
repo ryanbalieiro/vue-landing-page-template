@@ -8,14 +8,14 @@
 
         <!-- List Items -->
         <li v-for="item in props.items" class="inline-list-item">
-            <a v-if="item['href']" :href="item['href']" class="text-info-2 item-link">
-                <i v-if="item.faIcon" :class="item.faIcon" class="item-icon me-1"/>
-                {{item.label}}
+            <a v-if="item['href']" :href="item['href']" class="text-2 item-link">
+                <i v-if="item['faIcon']" :class="item['faIcon']" class="item-icon me-1"/>
+                {{item['label']}}
             </a>
 
-            <router-link v-else-if="item['routerHref']" :to="item['routerHref']" class="text-info-2 item-link">
-                <i v-if="item.faIcon" :class="item.faIcon" class="item-icon me-1"/>
-                {{item.label}}
+            <router-link v-else-if="item['routerHref']" :to="item['routerHref']" class="text-2 item-link">
+                <i v-if="item['faIcon']" :class="item['faIcon']" class="item-icon me-1"/>
+                {{item['label']}}
             </router-link>
         </li>
     </ul>

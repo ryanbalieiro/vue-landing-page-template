@@ -1,0 +1,107 @@
+{
+    "policy": {
+        "id": "policy",
+        "class": "agency-section",
+        "headline": {
+            "title": "<span class='text-primary'>Privacy</span> Policy",
+            "subtitle": "Understanding our practices"
+        },
+
+        "items": [
+            {
+                "title": null,
+                "faIcon": null,
+                "description": [
+                    "This Privacy Policy has been crafted to explain how the information you provide while on Foxy Template is collected, stored, used, and managed.",
+                    "When you access Foxy Template, you are consenting to the collection and use of your personal information as described in this Privacy Policy. Please note that this Policy may be updated periodically, and it's advised for you to check this page frequently for any modifications."
+                ]
+            },
+
+            {
+                "title": "Collected Information",
+                "faIcon": "fa-solid fa-database",
+                "description": [
+                    "The information that you voluntarily provide may be collected and stored when Foxy Template is accessed. This may include image files saved on your device storage, usage information such as preferences, purchase history, and/or session duration.",
+                    "Furthermore, if your information is shared online, for example, by participating in leaderboards, any activity performed with other users will be considered public.",
+                    "Finally, additional information may be collected each time the service is logged into, such as internet protocol addresses, device type, device language, platform type, number of taps, pages viewed, the order in which they were accessed, the time spent on particular pages, and the date and time of this activity. This information is used to better customize the application to your interests and improve the overall app performance.",
+                    "Assurance is given that any data accessed and collected will not be disclosed, rented, leased, loaned, sold, or voluntarily distributed to unaffiliated third parties. It will solely be utilized for analytical purposes and to enhance your usage experience."
+                ]
+            },
+
+            {
+                "title": "Cookies",
+                "faIcon": "fa-solid fa-cookie-bite",
+                "description": [
+                    "A cookie is a small data file that is stored on your device's hard disk. It allows the application to quickly identify your device and retrieve your user information and preferences, such as your username or the list of items you've purchased.",
+                    "All the information contained in a cookie may be linked to your personal information, and this data can be used to save your preferences, provide recommendations based on your interests, and improve the application's overall usability. If you wish to do so, you can disable cookies at any time."
+                ]
+            },
+
+            {
+                "title": "Security",
+                "faIcon": "fa-solid fa-lock",
+                "description": [
+                    "The security of your personal information is taken seriously, and reasonable technical and organizational measures have been implemented to protect it from accidental loss, unauthorized access, alteration, or disclosure.",
+                    "However, it cannot be guaranteed that unauthorized third parties will never be able to breach these measures or use your personal information for improper purposes. It is important to note that email and messaging systems are not considered secure, so it's advised not to share personal information through these mediums.",
+                    "Rest assured that the security measures are constantly reviewed and updated to ensure the best possible protection for your personal information."
+                ]
+            },
+
+            {
+                "title": " Links",
+                "faIcon": "fa-solid fa-link",
+                "description": [
+                    "The application may feature links to other websites. Please note that just because the application links to a website, presents a banner ad, or displays other types of advertisements, it does not imply that it endorses or authorizes that third-party service. Nor is it a representation of any sort of affiliation with that third party.",
+                    "It should be made clear that the privacy policies of other websites that may be accessed from Foxy Template are not our responsibility. Therefore, it is highly recommended that the privacy policies of such websites or apps be read carefully before exiting the application."
+                ]
+            }
+        ]
+    },
+
+    "legal": {
+        "id": "legal",
+        "class": "agency-section",
+        "headline": {
+            "title": "Template <span class='text-primary'>License</span>",
+            "subtitle": "Terms and Attributions"
+        },
+
+        "items": [
+            {
+                "title": "",
+                "faIcon": "",
+                "description": [
+                    "Foxy Template is an open source project that is licensed under the<a href='https://opensource.org/licenses/MIT'> MIT license</a>. This allows you to do pretty much anything you want as long as you include the copyright in “all copies or substantial portions of the Software.” Attribution is not required (though very much appreciated)."
+                ]
+            },
+
+            {
+                "title": "Usage",
+                "faIcon": "fa-solid fa-toolbox",
+                "description": [
+                    "You are granted a range of opportunities to leverage Foxy Template to its fullest potential. Firstly, the framework extends its utility to both commercial and personal/private projects, offering flexibility for various contexts. Whether you're developing a business application or working on a personal project, Foxy Template can be integrated seamlessly.",
+                    "Moreover, the freedom to modify and adapt the work allows you to tailor it to your specific requirements, ensuring a harmonious fit with your project's objectives. This adaptability extends to distribution as well, empowering you to share your customized version with others. The provision for sub-licensing further augments the framework's versatility, enabling you to incorporate it into projects governed by more restrictive licenses, expanding its potential applications."
+                ]
+            },
+
+            {
+                "title": "MIT License",
+                "faIcon": "fa-solid fa-copy",
+                "description": [
+                    "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:",
+                    "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.",
+                    "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+                ]
+            },
+            
+            {
+                "title": "Disclaimer Note",
+                "faIcon": "fa-solid fa-note-sticky",
+                "description": [
+                    "The work is made available to you in its current state, without any warranties, guarantees, or assurances of its performance or suitability for any specific purpose. This means that the work is provided \"as is,\" and you are advised to use it with a comprehensive understanding of its inherent characteristics and limitations. The absence of warranties implies that the author does not take on the responsibility of ensuring the work's error-free functioning, stability, or fitness for particular applications.",
+                    "It is important to emphasize that the principle of providing the work \"as is\" is not an attempt to undermine its value or quality. Rather, it underscores the reality that software and creative works can vary in terms of performance, compatibility, and outcomes due to the diverse environments and contexts in which they are used. While the author has undoubtedly put effort into crafting a functional and reliable tool, the inherent complexities of technology and the diversity of user scenarios can influence the work's behavior in unpredictable ways."
+                ]
+            }
+        ]
+    }
+}

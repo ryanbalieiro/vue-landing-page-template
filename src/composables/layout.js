@@ -1,76 +1,35 @@
-import DefaultSection from "../vue/sections/_templates/SectionTemplate.vue"
-import AboutSection from "../vue/sections/about/AboutSection.vue"
-import ContactSection from "../vue/sections/contact/ContactSection.vue"
-import FaqSection from "../vue/sections/faq/FaqSection.vue"
-import FeaturedSection from "../vue/sections/featured/FeaturedSection.vue"
-import HistorySection from "../vue/sections/history/HistorySection.vue"
-import PortfolioSection from "../vue/sections/portfolio/PortfolioSection.vue"
-import ReviewsSection from "../vue/sections/reviews/ReviewsSection.vue"
-import ServicesSection from "../vue/sections/services/ServicesSection.vue"
-import TeamSection from "../vue/sections/team/TeamSection.vue"
+/**
+ * Created by Ryan Balieiro on 08.26.2023
+ * This composable will implement helper methods that manipulate DOM elements.
+ */
+import {useConstants} from "./constants.js"
+
+const constants = useConstants()
 
 /**
- * @const
- * @type {Object}
+ * @type {Ref<any>|null}
+ * @private
  */
-const SECTION_TEMPLATE_COMPONENTS = {
-    DefaultSection,
-    AboutSection,
-    ContactSection,
-    FaqSection,
-    FeaturedSection,
-    HistorySection,
-    PortfolioSection,
-    ReviewsSection,
-    ServicesSection,
-    TeamSection
-}
-
-/**
- * @const
- * @type {{xl: number, md: number, sm: number, xs: number, lg: number}}
- */
-const BOOTSTRAP_BREAKPOINTS = {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-    xxl: 1400,
-}
+let _feedbackView = null
 
 export function useLayout() {
     /**
-     * @param {String} componentName
-     * @return {*|{}}
-     */
-    const getSectionComponentByName = (componentName) => {
-        if(!componentName)
-            return DefaultSection
-
-        if(SECTION_TEMPLATE_COMPONENTS[componentName])
-            return SECTION_TEMPLATE_COMPONENTS[componentName]
-
-        console.warn("Couldn't find component with name: " + componentName + ". All section components must be registered on layout.js. Using DefaultComponent for the given section.")
-        return DefaultSection
-    }
-
-    /**
-     * @param {String} size
+     * @param {String} breakpoint
      * @return {boolean}
      */
-    const isBreakPoint = (size) => {
-        return window.innerWidth >= BOOTSTRAP_BREAKPOINTS[size]
+    const isBootstrapBreakpoint = (breakpoint) => {
+        return window.innerWidth >= constants.BOOTSTRAP_BREAKPOINTS[breakpoint]
     }
 
     /**
      * @return {string}
      */
-    const getBreakPoint = () => {
-        const windowWidth = window.innerWidth;
+    const getBootstrapBreakpoint = () => {
+        const windowWidth = window.innerWidth
         let windowBreakpoint = ''
-        for (const breakpoint in BOOTSTRAP_BREAKPOINTS) {
-            if (windowWidth >= BOOTSTRAP_BREAKPOINTS[breakpoint]) {
+
+        for (const breakpoint in constants.BOOTSTRAP_BREAKPOINTS) {
+            if (windowWidth >= constants.BOOTSTRAP_BREAKPOINTS[breakpoint]) {
                 windowBreakpoint = breakpoint
             }
         }
@@ -79,50 +38,21 @@ export function useLayout() {
     }
 
     /**
-     * @return {{loaded: number, total: number}}
+     * @param {Ref<any>|null} feedbackView
      */
-    const getImageCount = () => {
-        const imageElements = document.querySelectorAll('.image-view-img')
-
-        let totalImages = 0
-        const loadedImages = Array.from(imageElements).reduce((count, image) => {
-            if(!image.classList.contains('image-view-ignore-on-count')) {
-                totalImages++
-                if (image.getAttribute('loadStatus') !== '0')
-                    return count + 1
-            }
-
-            return count
-        }, 0)
-
-        return {loaded: loadedImages, total: totalImages }
+    const setFeedbackView = (feedbackView) => {
+        _feedbackView = feedbackView
     }
 
     /**
-     * @return {boolean}
+     * @return {*}
      */
-    const isTouchDevice = () => {
-        return (('ontouchstart' in window) ||
-            (navigator.maxTouchPoints > 0) ||
-            (navigator.msMaxTouchPoints > 0));
-    }
-
-    /**
-     * @param {String} elementId
-     */
-    const scrollToElement = (elementId) => {
-        const el = document.querySelector('#' + elementId)
-        if(!el) {
-            console.warn("Trying to scroll to an invalid element with id: " + elementId)
-            return
+    const getFeedbackView = () => {
+        if(_feedbackView) {
+            return _feedbackView.value
         }
 
-        const offsetTop = el.offsetTop
-        const navbarHeight = document.querySelector('#navbar').offsetHeight
-        scroll({
-            top: offsetTop - Math.min(navbarHeight, isBreakPoint('sm') ? 70 : 60),
-            behavior: "smooth"
-        })
+        return null
     }
 
     /**
@@ -131,11 +61,11 @@ export function useLayout() {
     const setPageScrollingEnabled = (enabled) => {
         const root = document.getElementsByTagName( 'html' )[0]
         if(!enabled) {
-            document.body.className = 'body-no-scroll'
-            root.className += ' body-no-scroll'
+            document.body.className = constants.HTML_CLASSES.bodyNoScroll
+            root.className += ' ' + constants.HTML_CLASSES.bodyNoScroll
         }
         else {
-            document.body.className = 'body-scroll'
+            document.body.className = constants.HTML_CLASSES.bodyScroll
             root.className = ''
         }
     }
@@ -145,25 +75,93 @@ export function useLayout() {
      * @return {boolean}
      */
     const isElementOutsideBounds = (element) => {
-        const rect = element.getBoundingClientRect();
+        const rect = element.getBoundingClientRect()
 
         return (
             rect.bottom < 0 ||
             rect.right < 0 ||
             rect.left > window.innerWidth ||
             rect.top > window.innerHeight
-        );
+        )
     }
 
+    /**
+     * @return {{loaded: number, total: number}}
+     */
+    const getImageCount = () => {
+        const imageElements = document.querySelectorAll('.' + constants.HTML_CLASSES.imageViewImage)
+        let totalImages = 0
+
+        const loadedImages = Array.from(imageElements).reduce((count, image) => {
+            if(!image.classList.contains(constants.HTML_CLASSES.imageViewImageIgnoredOnCount)) {
+                totalImages++
+                if (image.getAttribute('loadStatus') !== constants.LoadStatus.LOADING)
+                    return count + 1
+            }
+            return count
+        }, 0)
+
+        return {loaded: loadedImages, total: totalImages }
+    }
+
+    /**
+     * @param {String} elementId
+     * @param {Boolean} withTimeout
+     */
+    const smoothScrollToElement = (elementId, withTimeout) => {
+        const el = document.querySelector('#' + elementId)
+        if(!el) {
+            console.warn("Trying to scroll to an invalid element with id: " + elementId)
+            return
+        }
+
+        const closure = () => {
+            const offsetTop = el.offsetTop
+            const navbarHeight = document.querySelector('#navbar').offsetHeight
+            scroll({
+                top: offsetTop - Math.min(navbarHeight, isBootstrapBreakpoint('sm') ? 70 : 60),
+                behavior: "smooth"
+            })
+        }
+
+        if(withTimeout) {
+            setTimeout(closure, 100)
+        }
+        else {
+            closure()
+        }
+    }
+
+    /**
+     * @param {Number} scrollY
+     * @param {Boolean} withTimeout
+     */
+    const instantScrollTo = (scrollY, withTimeout) => {
+        const closure = () => {
+            window.scrollTo({
+                top: scrollY ?? 0,
+                left: 0,
+                behavior: 'instant'
+            })
+        }
+
+        if(withTimeout) {
+            setTimeout(closure, 10)
+        }
+        else {
+            closure()
+        }
+    }
 
     return {
-        isBreakPoint,
-        isTouchDevice,
-        getBreakPoint,
-        getSectionComponentByName,
-        isElementOutsideBounds,
+        isBootstrapBreakpoint,
+        getBootstrapBreakpoint,
+        setFeedbackView,
+        getFeedbackView,
         getImageCount,
-        scrollToElement,
-        setPageScrollingEnabled
+        isElementOutsideBounds,
+        setPageScrollingEnabled,
+        smoothScrollToElement,
+        instantScrollTo
     }
 }

@@ -2,14 +2,14 @@
     <!-- Secondary Page -->
     <div class="agency-secondary-page">
         <!-- Navigation -->
-        <NavBar :navbar-data="props.navbarData"
+        <NavBar :navbar-data="data.getNavbarData()"
                 :links="navLinks"
                 :should-spy-scroll="false"
                 @link-clicked="_onNavLinkClicked"/>
 
         <!-- Content Wrapper -->
         <div class="page-content-wrapper">
-            <SectionTemplate :section-data="props.contentData">
+            <SectionTemplate :section-data="props.contentData" :breadcrumbs="breadcrumbs">
                 <div v-for="item in props.contentData['items']">
                     <!-- Item -->
                     <div class="item">
@@ -20,7 +20,7 @@
 
                         <!-- Description -->
                         <div class="item-description">
-                            <p class="text-info-4" v-for="paragraph in item['description']" v-html="paragraph"/>
+                            <p class="text-3" v-for="paragraph in item['description']" v-html="paragraph"/>
                         </div>
                     </div>
                 </div>
@@ -28,28 +28,27 @@
         </div>
 
         <!-- Footer -->
-        <Footer :footer-data="props.footerData"/>
+        <Footer :footer-data="data.getFooterData()"/>
     </div>
 </template>
 
 <script setup>
+import {computed} from "vue"
+import {useData} from "../../composables/data.js"
+import {useRoute, useRouter} from "vue-router"
 import NavBar from "../navigation/NavBar.vue"
 import Footer from "../partials/Footer.vue"
-import {computed} from "vue"
-import {useRouter} from "vue-router"
-import SectionTemplate from "../sections/_templates/SectionTemplate.vue"
+import SectionTemplate from "../sections/templates/SectionTemplate.vue"
 
 /**
- * @property {Object} navbarData
  * @property {Object} contentData
- * @property {Object} footerData
  */
 const props = defineProps({
-    navbarData: Object,
-    contentData: Object,
-    footerData: Object
+    contentData: Object
 })
 
+const data = useData()
+const route = useRoute()
 const router = useRouter()
 
 /**
@@ -57,6 +56,18 @@ const router = useRouter()
  */
 const navLinks = computed(() => {
     return router.options.routes.filter(route => route.hasOwnProperty('label'));
+})
+
+/**
+ * @type {ComputedRef<[{path: string, name: RouteRecordName}]>}
+ */
+const breadcrumbs = computed(() => {
+    const currentRoute = router.options.routes.filter(r => r.name === route.name)[0]
+
+    return [{
+        label: currentRoute['label'],
+        path: route['path']
+    }]
 })
 
 /**
@@ -72,11 +83,11 @@ const _onNavLinkClicked = (linkId) => {
 @import "/src/scss/_theming.scss";
 
 .page-content-wrapper {
-    padding-top: 4rem;
+    padding-top: 3.25rem;
 }
 
 .item {
-    margin-bottom: 2.4rem;
+    margin-bottom: 2.0rem;
 }
 
 .item-title {
@@ -85,5 +96,7 @@ const _onNavLinkClicked = (linkId) => {
 
 .item-description p {
     color: $light-7;
+    text-align: justify;
+    margin-bottom: 1rem;
 }
 </style>
