@@ -45,11 +45,7 @@ const style = computed(() => {
 @import "/src/scss/_theming.scss";
 
 .progress {
-    @include generate-dynamic-styles-with-hash((
-        xxxl:     (height: 4px),
-        md:       (height: 2px)
-    ));
-
+    height: 6px;
     border-radius: 0;
     background-color: lighten($light-3, 2%);
 }

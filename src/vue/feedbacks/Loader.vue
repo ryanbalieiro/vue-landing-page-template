@@ -7,12 +7,16 @@
                         :alt="'Preloader Logo'"
                         :ignore-on-image-count="true"
                         ref="logo"
-                        class="img-fluid img-logo"/>
+                        class="img-fluid img-logo"
+                        :class="{'no-transition': timesPlayed > 2}"/>
 
             <!-- Progress Display -->
-            <div class="progress-display" :class="{'progress-display-expanded': _didReachStep('progressTweenIn')}">
+            <div class="progress-display" :class="{
+                'progress-display-expanded': _didReachStep('progressTweenIn'),
+                'no-transition': timesPlayed > 2
+            }">
                 <!-- Percentage -->
-                <p class="mt-1 mb-2 text-3 text-white">{{ totalPercentage }}%</p>
+                <p class="mt-0 mb-2 text-3 text-white">{{ totalPercentage }}%</p>
 
                 <!-- Progress Bar -->
                 <ProgressBar ref="progressBar"
@@ -44,7 +48,7 @@ const ANIMATION_STEPS = [
     {id: 2, label: "progressTweenIn", duration:0.3},
     {id: 3, label: "loading", minDuration:0.3},
     {id: 4, label: "waiting", duration:0.3},
-    {id: 5, label: "disappearing", duration:0.5},
+    {id: 5, label: "disappearing", duration:1.2},
 ]
 
 /** Parameters **/
@@ -55,10 +59,10 @@ const taskProgressPercentage = ref(0)
 const logo = ref(null)
 const totalPercentage = ref(0)
 const currentStepId = ref(-1)
+const timesPlayed = ref(0)
 
 let elapsedTime = 0
 let intervalId = null
-let timesPlayed = 0
 
 /**
  * @private
@@ -84,11 +88,11 @@ const _stop = () => {
 const run = (_imageUrl) => {
     _stop()
     imageUrl.value = _imageUrl
-    timesPlayed++
+    timesPlayed.value++
 
-    if(timesPlayed >= 3) {
-        ANIMATION_STEPS[1].duration = 0.01
-        ANIMATION_STEPS[2].duration = 0.01
+    if(timesPlayed.value > 2) {
+        ANIMATION_STEPS[1].duration = 0
+        ANIMATION_STEPS[2].duration = 0
     }
 
     currentStepId.value = 0
@@ -204,16 +208,17 @@ defineExpose({
     z-index: 9999;
     background-color: $nav-background-color;
     width: 100vw;
-    height: 100vh;
-    top:-100vh;
+    height: 125vh;
+    top: -125vh;
 
     &-show {
-        top:0;
+        top: -12.5vh;
+        opacity: 1;
     }
 }
 
 .loader-full-screen-transition {
-    transition: 0.5s top ease-out;
+    transition: 1.2s top cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .loader-full-screen-content {
@@ -239,6 +244,11 @@ defineExpose({
             margin-top: 0;
         }
     }
+}
+
+.no-transition {
+    transition: none!important;
+    animation: none!important;
 }
 
 @keyframes popIn {
