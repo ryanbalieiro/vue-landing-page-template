@@ -16,10 +16,11 @@
                 'no-transition': timesPlayed > 2
             }">
                 <!-- Percentage -->
-                <p class="mt-0 mb-2 text-3 text-white">{{ totalPercentage }}%</p>
+                <p class="mt-0 mb-1 text-2 text-white">{{ totalPercentage }}%</p>
 
                 <!-- Progress Bar -->
                 <ProgressBar ref="progressBar"
+                             class="progress-bar"
                              :percentage="totalPercentage"/>
             </div>
         </div>
@@ -227,7 +228,7 @@ defineExpose({
     animation: appear 0.2s ease-out forwards;
 
     .img-logo {
-        max-height: 70px;
+        max-height: 60px;
         aspect-ratio: 1/1;
         z-index: 99;
         animation: popIn 0.3s ease-out forwards;
@@ -243,6 +244,11 @@ defineExpose({
             opacity: 1;
             margin-top: 0;
         }
+    }
+
+    .progress-bar {
+        max-width: 55px;
+        margin: 0 auto;
     }
 }
 

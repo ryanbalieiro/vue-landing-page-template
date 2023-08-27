@@ -45,7 +45,7 @@ const style = computed(() => {
 @import "/src/scss/_theming.scss";
 
 .progress {
-    height: 6px;
+    height: 4px;
     border-radius: 0;
     background-color: lighten($light-3, 2%);
 }

@@ -10,7 +10,7 @@
         <!-- Container -->
         <div class="container-xxl">
             <!-- Breadcrumbs -->
-            <Breadcrumbs v-if="breadcrumbs" :routes="breadcrumbs" class="mb-3"/>
+            <Breadcrumbs v-if="breadcrumbs" :routes="breadcrumbs" class="mb-3 d-none d-lg-block"/>
 
             <!-- Section Header -->
             <div v-if="sectionHeadlineData && sectionHeadlineData['title']" class="section-heading">

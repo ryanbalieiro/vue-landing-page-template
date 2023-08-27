@@ -83,7 +83,11 @@ const _onNavLinkClicked = (linkId) => {
 @import "/src/scss/_theming.scss";
 
 .page-content-wrapper {
-    padding-top: 3.25rem;
+    @include generate-dynamic-styles-with-hash((
+        xxxl: (padding-top:2.5rem),
+        xxl: (padding-top:3.0rem),
+        lg: (padding-top:4.5rem),
+    ));
 }
 
 .item {
