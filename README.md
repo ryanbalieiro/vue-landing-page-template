@@ -52,6 +52,14 @@ export default defineConfig({
 npm run build
 ```
 
+7. If your deployment is targeted at GitHub Pages, ensure to run the following command post the build process:
+
+```
+npm run deploy
+```
+
+This command will make a copy of `index.html` named `404.html` inside the dist folder, serving as a workaround to the problem discussed in detail at https://stackoverflow.com/questions/48521177/404-when-reloading-a-vue-website-published-to-github-pages.
+
 ## Quick Customization
 
 ### 1. Content Customization

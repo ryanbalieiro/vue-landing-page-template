@@ -238,6 +238,7 @@ defineExpose({
         opacity: 0;
         margin-top: -30px;
         overflow: hidden;
+        z-index: 50;
         transition: 0.3s all ease-out;
 
         &-expanded {
