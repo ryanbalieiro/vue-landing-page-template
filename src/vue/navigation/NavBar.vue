@@ -184,15 +184,15 @@ const _onNavLinkClicked = (linkId) => {
 
 .navbar-brand-img {
     @include generate-dynamic-styles-with-hash((
-        xxxl: (height: 3.4rem),
-        lg:   (height: 3rem)
+        xxxl: (height: 3.4rem, width: 3.4rem),
+        lg:   (height: 3rem, width: 3rem)
     ));
 
     position: relative;
     top: -0.15rem;
 
     margin-right: 0.5rem;
-    transition: height 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
 .navbar-shrink {
@@ -206,6 +206,7 @@ const _onNavLinkClicked = (linkId) => {
 
             .navbar-brand-img {
                 height: 3rem;
+                width: 3rem;
             }
         }
     }

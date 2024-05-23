@@ -1,6 +1,6 @@
 <template>
     <!-- Secondary Page -->
-    <div class="agency-secondary-page">
+    <div class="agency-info-page">
         <!-- Navigation -->
         <NavBar :navbar-data="data.getNavbarData()"
                 :links="navLinks"

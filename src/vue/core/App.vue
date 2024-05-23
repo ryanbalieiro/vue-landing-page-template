@@ -16,11 +16,12 @@ import {computed, onMounted, ref, watch} from "vue"
 import {useData} from "../../composables/data.js"
 import {useLayout} from "../../composables/layout.js"
 import {useUtils} from "../../composables/utils.js"
-import {useRoute} from "vue-router"
+import {useRoute, useRouter} from "vue-router"
 
 const data = useData()
 const layout = useLayout()
 const route = useRoute()
+const router = useRouter()
 const utils = useUtils()
 
 const feedbackView = ref(null)
@@ -29,17 +30,15 @@ let intervalId = null
 
 onMounted(() => {
     layout.setFeedbackView(feedbackView)
-    _startPreloading()
+    _onRouteChanged()
 })
 
 /**
  * @private
  */
 watch(() => route.name, () => {
-    _startPreloading()
-    layout.instantScrollTo(0, true)
+    _onRouteChanged()
 })
-
 
 /**
  * @type {ComputedRef<Boolean>}
@@ -48,18 +47,44 @@ const _isPreloaderEnabled = computed(() => {
     return data.getSettings()['preloaderEnabled']
 })
 
+const _onRouteChanged = () => {
+    layout.instantScrollTo(0, true)
+    window.preloadInfo = window.preloadInfo || {loadedRoutes:[]}
+    _startPreloading()
+}
+
 /**
  * @return {Promise<void>}
  * @private
  */
 const _startPreloading = async () => {
     clearInterval(intervalId)
-    if(_isPreloaderEnabled.value) {
+
+    const preloaderEnabled = _isPreloaderEnabled.value
+
+    if(preloaderEnabled) {
+        _mountPreloader()
+    }
+    else {
+        _onPreloadCompleted()
+        layout.setPageScrollingEnabled(true)
+    }
+}
+
+const _mountPreloader = () => {
+    const isFirstRoute = window.preloadInfo.loadedRoutes.length === 0
+    const shouldPreloadCurrentRoute = !Boolean(route.meta['skipPreload'])
+
+    if(isFirstRoute || shouldPreloadCurrentRoute) {
         feedbackView.value.setLoaderListeners(_onPreloaderShown, _onPreloadCompleted)
         feedbackView.value.setLoader("images/logo/agency-logo-small.png")
     }
     else {
-        await _onPreloaderShown()
+        feedbackView.value.showActivitySpinner('Loading...')
+        setTimeout(() => {
+            _onPreloadCompleted()
+            layout.setPageScrollingEnabled(true)
+        }, 200)
     }
 }
 
@@ -70,11 +95,6 @@ const _onPreloaderShown = async () => {
     intervalId = setInterval(() => {
         _checkLoadProgress()
     }, 1000/30)
-
-    if(!_isPreloaderEnabled.value) {
-        _onPreloadCompleted()
-        layout.setPageScrollingEnabled(true)
-    }
 }
 
 /**
@@ -104,6 +124,11 @@ const _checkLoadProgress = () => {
  * @private
  */
 const _onPreloadCompleted = () => {
+    if (!window.preloadInfo.loadedRoutes.includes(route.name)) {
+        window.preloadInfo.loadedRoutes.push(route.name)
+    }
+
+    feedbackView.value.hideActivitySpinner()
     appDidLoad.value = true
     clearInterval(intervalId)
 }

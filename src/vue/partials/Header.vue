@@ -12,6 +12,7 @@
                 <!-- Logo -->
                 <ImageView :src="props.headerData['imageUrl']"
                            :alt="'logo'"
+                           :spinner-enabled="true"
                            class="img-logo"/>
 
                 <!-- Texts -->

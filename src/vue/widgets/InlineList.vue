@@ -13,7 +13,7 @@
                 {{item['label']}}
             </a>
 
-            <router-link v-else-if="item['routerHref']" :to="item['routerHref']" class="text-2 item-link">
+            <router-link v-else-if="item['routerHref']" :to="item['routerHref']" class="text-2 item-link" :class="{'item-link-active': _isRouterLinkActive(item)}">
                 <i v-if="item['faIcon']" :class="item['faIcon']" class="item-icon me-1"/>
                 {{item['label']}}
             </router-link>
@@ -22,12 +22,21 @@
 </template>
 
 <script setup>
+
+import {useRoute} from "vue-router"
+
+const route = useRoute()
+
 /**
  * @property {Array} items
  */
 const props = defineProps({
     items: Array
 })
+
+const _isRouterLinkActive = (item) => {
+    return route.path === '/' + item.routerHref
+}
 </script>
 
 <style lang="scss" scoped>
@@ -82,6 +91,10 @@ const props = defineProps({
 .item-link {
     text-decoration: none;
     color: $light-6;
+}
+
+.item-link-active, .item-link-active:hover {
+    color: lighten($primary, 20%);
 }
 
 .inline-list-item:hover {
