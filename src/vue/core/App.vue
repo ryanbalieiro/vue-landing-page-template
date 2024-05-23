@@ -80,7 +80,7 @@ const _mountPreloader = () => {
         feedbackView.value.setLoader("images/logo/agency-logo-small.png")
     }
     else {
-        feedbackView.value.showActivitySpinner('Loading...')
+        feedbackView.value.showActivitySpinner(data.getString('loading'))
         setTimeout(() => {
             _onPreloadCompleted()
             layout.setPageScrollingEnabled(true)

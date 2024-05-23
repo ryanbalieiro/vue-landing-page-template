@@ -58,6 +58,18 @@
             "displayItemsAsButtons": false
         },
 
-        "copyright": "Copyright ©2023 <a href='ryanbalieiro.com'>Ryan Balieiro</a> – Distributed Under the MIT License"
+        "copyright": "Copyright ©@{year} <a href='ryanbalieiro.com'>Ryan Balieiro</a> – Distributed Under the MIT License"
+    },
+
+    "strings": {
+        "about": "About",
+        "latest_release": "Latest Release",
+        "loading": "Loading...",
+        "message_sent": "The message has been sent. Thanks for reaching out!",
+        "message_sent_error": "There was an error sending the message. Try again later.",
+        "project_available_here": "<strong>@{title}</strong> is available on the following platforms or services:",
+        "sending_message": "Sending Message...",
+        "tags": "Tags:",
+        "where_to_find": "Where To Find"
     }
 }

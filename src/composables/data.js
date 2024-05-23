@@ -47,6 +47,7 @@ export function useData() {
         _jsonData.navbar = jGeneral['navbar']
         _jsonData.header = jGeneral['header']
         _jsonData.footer = jGeneral['footer']
+        _jsonData.strings = jGeneral['strings']
         _progressData.loadedFiles++
 
         const sectionsResponse = await fetch(baseUrl + '/data/sections.json')
@@ -86,7 +87,25 @@ export function useData() {
      * @return {Object}
      */
     const getFooterData = () => {
+        _jsonData.footer.copyright = _jsonData.footer.copyright.replace('@{year}', new Date().getFullYear())
         return _jsonData.footer
+    }
+
+    /**
+     * @param {String} key
+     * @param {{key:String, replacement:String}[]} [replacements=null]
+     * @return {String}
+     */
+    const getString = (key, replacements) => {
+        let string = _jsonData.strings[key] || 'strings.' + key
+
+        if(replacements) {
+            replacements.forEach(({key, replacement}) => {
+                string = string.replaceAll('@{'+key+'}', replacement)
+            })
+        }
+
+        return string
     }
 
     /**
@@ -131,6 +150,7 @@ export function useData() {
         getNavbarData,
         getHeaderData,
         getFooterData,
+        getString,
         getSectionsData,
         getLegalData,
         getPolicyData,

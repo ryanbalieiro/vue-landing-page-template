@@ -55,6 +55,7 @@ import SectionTemplate from "./templates/SectionTemplate.vue"
 import XLButton from "../widgets/XLButton.vue"
 import Alert from "../widgets/Alert.vue"
 import {useLayout} from "../../composables/layout.js"
+import {useData} from "../../composables/data.js"
 
 /**
  * @property {Object} sectionData
@@ -63,6 +64,7 @@ const props = defineProps({
     sectionData: Object
 })
 
+const data = useData()
 const layout = useLayout()
 
 /**
@@ -143,7 +145,7 @@ const _onSubmit = (e) => {
  */
 const _sendMessage = () => {
     const feedbackView = layout.getFeedbackView()
-    feedbackView.showActivitySpinner("Sending Message...")
+    feedbackView.showActivitySpinner(data.getString('sending_message'))
     submitAttempts++
 
     /** The message sending logic goes here... **/
@@ -187,9 +189,9 @@ const _onMessageError = () => {
 const alertStatus = computed(() => {
     switch (submitStatus.value) {
         case SubmitStatus.SENT:
-            return {type: 'success', message: "The message has been sent. Thanks for reaching out!"}
+            return {type: 'success', message: data.getString('message_sent')}
         case SubmitStatus.ERROR:
-            return {type: 'danger', message: "There was an error sending the message. Try again later."}
+            return {type: 'danger', message: data.getString('message_sent_error')}
         default:
             return null
     }

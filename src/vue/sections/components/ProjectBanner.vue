@@ -10,7 +10,7 @@
 
         <!-- Texts - Featured -->
         <div v-if="props.type === constants.ProjectBannerType.FEATURED" class="col-texts col-texts-featured">
-            <h4 class="title mb-2 text-light-5"><i class="fa-solid fa-fire me-2"/> Latest Release</h4>
+            <h4 class="title mb-2 text-light-5"><i class="fa-solid fa-fire me-2"/> {{ data.getString('latest_release') }}</h4>
             <h1 class="project-title display-1 text-white text-uppercase" v-html="props.project['title']"/>
             <p class="description text-5 text-light-5 mt-4 mb-4" v-html="props.project['description']"/>
             <SocialLinks :items="props.project['links']" :color="constants.SocialLinksColor.BLACK" :size="constants.SocialLinksSize.XL" class="mt-xl-5"/>
@@ -21,21 +21,23 @@
             <h1 class="mb-2" v-html="props.project['title']"/>
 
             <!-- Tags -->
-            <span class="me-1 text-3"><i class="fa fa-tag me-1"/>Tags: </span>
+            <span class="me-2 text-3"><i class="fa fa-tag me-1"/>{{ data.getString('tags') }}</span>
             <div class="d-inline-block">
                 <span v-for="tag in props.project['tags']" class="badge bg-primary me-1 text-1">{{ tag }}</span>
             </div>
 
             <!-- About Subsection -->
             <div class="subsection mt-4">
-                <h5 class="d-none d-lg-inline-block"><i class="fa fa-file me-1"/> About</h5>
+                <h5 class="d-none d-lg-inline-block"><i class="fa fa-file me-1"/> {{ data.getString('about') }}</h5>
                 <p class="text-2" v-html="props.project['description']"/>
             </div>
 
             <!-- Links Subsection -->
             <div class="subsection mt-4">
-                <h5><i class="fa fa-external-link me-1"/> Where To Find</h5>
-                <p class="text-2"><strong>{{ props.project['title'] }}</strong> is available on the following platforms or services:</p>
+                <h5><i class="fa fa-external-link me-1"/> {{ data.getString('where_to_find') }}</h5>
+                <p class="text-2" v-html="data.getString('project_available_here', [
+                    {key: 'title', replacement:props.project['title']}
+                ])"/>
                 <SocialLinks :items="props.project['links']" :size="constants.SocialLinksSize.LG" :color="constants.SocialLinksColor.DARK"/>
             </div>
         </div>
@@ -47,6 +49,7 @@ import ImageView from "../../widgets/ImageView.vue"
 import {computed} from "vue"
 import {useConstants} from "../../../composables/constants.js"
 import SocialLinks from "../../widgets/SocialLinks.vue"
+import {useData} from "../../../composables/data.js"
 
 const props = defineProps({
     project:Object,
@@ -54,6 +57,7 @@ const props = defineProps({
 })
 
 const constants = useConstants()
+const data = useData()
 
 /**
  * @type {ComputedRef<String>}
