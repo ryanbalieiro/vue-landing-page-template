@@ -36,10 +36,10 @@
             "title": "Connect With Us",
             "description": null,
             "items": [
-                {"faIcon": "fa-brands fa-twitter", "href": "https://twitter.com"},
-                {"faIcon": "fa-brands fa-facebook", "href": "https://facebook.com"},
-                {"faIcon": "fa-brands fa-linkedin", "href": "https://linkedin.com"},
-                {"faIcon": "fa-brands fa-spotify", "href": "https://spotify.com"}
+                {"faIcon": "fa-brands fa-twitter", "href": "https://twitter.com", "tooltip": "Twitter"},
+                {"faIcon": "fa-brands fa-tiktok", "href": "https://tiktok.com", "tooltip": "TikTok"},
+                {"faIcon": "fa-brands fa-linkedin", "href": "https://linkedin.com", "tooltip": "Linkedin"},
+                {"faIcon": "fa-brands fa-spotify", "href": "https://spotify.com", "tooltip": "Spotify"}
             ],
             "displayItemsAsButtons": true
         },
