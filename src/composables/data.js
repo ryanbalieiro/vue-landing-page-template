@@ -38,7 +38,7 @@ export function useData() {
      * @return {Promise<void>}
      */
     const fetchData = async () => {
-        const baseUrl = import.meta.env.BASE_URL
+        const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '')
 
         const generalResponse = await fetch(baseUrl + '/data/general.json')
         const jGeneral = await generalResponse.json()

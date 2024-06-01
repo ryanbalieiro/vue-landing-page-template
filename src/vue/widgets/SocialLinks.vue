@@ -2,6 +2,11 @@
     <div class="social-links">
         <!-- Social Link -->
         <a v-for="item in props.items" :class="buttonClass" :href="item['href']" target="_blank" :aria-label="item['faIcon']">
+            <!-- ToolTip -->
+            <div class="social-link-tooltip text-1" v-if="item['tooltip']">
+                {{item['tooltip']}}
+            </div>
+
             <!-- Social Link Icon -->
             <i :class="item['faIcon']" />
         </a>
@@ -124,5 +129,36 @@ const buttonClass = computed(() => {
             $white, lighten($dark, 5%), lighten($dark, 20%),
             $white, lighten($primary, 5%), lighten($primary, 20%),
     )
+}
+
+.social-link-tooltip {
+    position: absolute;
+    margin-top: -6rem;
+    text-transform: capitalize;
+    background-color: darken($primary, 10%);
+    font-weight: bold;
+    color:$text-normal-contrast;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    display: none;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: darken($primary, 10%) transparent transparent transparent;
+    }
+}
+
+.btn-social:hover {
+    .social-link-tooltip {
+        @include media-breakpoint-up(md) {
+            display: block!important;
+        }
+    }
 }
 </style>
