@@ -2,11 +2,14 @@
     <!-- Feedbacks -->
     <FeedbackView ref="feedbackView"/>
 
+    <!-- Preloader -->
+    <Loader ref="loader"
+            @shown="_onPreloaderShown"
+            @animated="_onPreloaderAnimated"
+            @hiding="_onPreloaderHiding"/>
+
     <!-- App Content -->
-    <div v-if="data.getLoadProgress() >= 100"
-         v-show="!utils.isTouchDevice() || appDidLoad">
-        <router-view />
-    </div>
+    <router-view v-show="didLoadFirstRoute"/>
 </template>
 
 <script setup>
@@ -17,6 +20,7 @@ import {useData} from "../../composables/data.js"
 import {useLayout} from "../../composables/layout.js"
 import {useUtils} from "../../composables/utils.js"
 import {useRoute, useRouter} from "vue-router"
+import Loader from "/src/vue/feedbacks/Loader.vue"
 
 const data = useData()
 const layout = useLayout()
@@ -25,113 +29,47 @@ const router = useRouter()
 const utils = useUtils()
 
 const feedbackView = ref(null)
-const appDidLoad = ref(false)
-let intervalId = null
+const loader = ref(null)
+const didLoadFirstRoute = ref(false)
+let preloaderCb = null
 
 onMounted(() => {
     layout.setFeedbackView(feedbackView)
-    _onRouteChanged()
 })
 
-/**
- * @private
- */
-watch(() => route.name, () => {
-    _onRouteChanged()
+router.beforeEach((to, from, next) => {
+    preloaderCb = () => {
+        didLoadFirstRoute.value = true
+        next()
+    }
+
+    if(preloaderEnabled.value) {
+        loader.value.run()
+    }
+    else {
+        layout.instantScrollTo(0, true)
+        preloaderCb()
+    }
 })
 
-/**
- * @type {ComputedRef<Boolean>}
- */
-const _isPreloaderEnabled = computed(() => {
+const _onPreloaderShown = () => {
+    setTimeout(() => {
+        layout.setPageScrollingEnabled(false)
+    }, 200)
+}
+
+const _onPreloaderAnimated = () => {
+    preloaderCb()
+}
+
+const _onPreloaderHiding = () => {
+    layout.setPageScrollingEnabled(true)
+}
+
+const preloaderEnabled = computed(() => {
     return data.getSettings()['preloaderEnabled']
 })
 
-const _onRouteChanged = () => {
-    layout.instantScrollTo(0, true)
-    window.preloadInfo = window.preloadInfo || {loadedRoutes:[]}
-    _startPreloading()
-}
-
-/**
- * @return {Promise<void>}
- * @private
- */
-const _startPreloading = async () => {
-    clearInterval(intervalId)
-
-    const preloaderEnabled = _isPreloaderEnabled.value
-
-    if(preloaderEnabled) {
-        _mountPreloader()
-    }
-    else {
-        _onPreloadCompleted()
-        layout.setPageScrollingEnabled(true)
-    }
-}
-
-const _mountPreloader = () => {
-    const isFirstRoute = window.preloadInfo.loadedRoutes.length === 0
-    const shouldPreloadCurrentRoute = !Boolean(route.meta['skipPreload'])
-
-    if(isFirstRoute || shouldPreloadCurrentRoute) {
-        feedbackView.value.setLoaderListeners(_onPreloaderShown, _onPreloadCompleted)
-        feedbackView.value.setLoader("images/logo/agency-logo-small.png")
-    }
-    else {
-        feedbackView.value.showActivitySpinner(data.getString('loading'))
-        setTimeout(() => {
-            _onPreloadCompleted()
-            layout.setPageScrollingEnabled(true)
-        }, 200)
-    }
-}
-
-/**
- * @private
- */
-const _onPreloaderShown = async () => {
-    intervalId = setInterval(() => {
-        _checkLoadProgress()
-    }, 1000/30)
-}
-
-/**
- * @private
- */
-const _checkLoadProgress = () => {
-    if(!_isPreloaderEnabled.value) {
-        return
-    }
-
-    const jsonLoadProgress = data.getLoadProgress()
-    const imageCount = layout.getImageCount()
-
-    let imageLoadProgress = 0
-    if(imageCount.total > 0) {
-        imageLoadProgress = Math.round(100 * imageCount.loaded / imageCount.total)
-    }
-    else if(jsonLoadProgress === 100) {
-        imageLoadProgress = 100
-    }
-
-    const loadProgress = (jsonLoadProgress + imageLoadProgress * 4) / 5
-    feedbackView.value.updateLoaderProgress(loadProgress)
-}
-
-/**
- * @private
- */
-const _onPreloadCompleted = () => {
-    if (!window.preloadInfo.loadedRoutes.includes(route.name)) {
-        window.preloadInfo.loadedRoutes.push(route.name)
-    }
-
-    feedbackView.value.hideActivitySpinner()
-    appDidLoad.value = true
-    clearInterval(intervalId)
-}
 </script>
 
 <style lang="scss" scoped>

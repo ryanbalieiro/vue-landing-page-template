@@ -17,10 +17,7 @@ export function createAppRouter() {
             name: "home",
             component: HomePage,
             label: "Home",
-            faIcon: "fa-solid fa-home",
-            meta: {
-                skipPreload: false
-            }
+            faIcon: "fa-solid fa-home"
         },
 
         {
@@ -31,9 +28,6 @@ export function createAppRouter() {
             faIcon: "fa-solid fa-hammer",
             props: {
                 contentData: data.getPolicyData()
-            },
-            meta: {
-                skipPreload: true
             }
         },
 
@@ -45,9 +39,6 @@ export function createAppRouter() {
             faIcon: "fa-solid fa-copy",
             props: {
                 contentData: data.getLegalData()
-            },
-            meta: {
-                skipPreload: true
             }
         },
 

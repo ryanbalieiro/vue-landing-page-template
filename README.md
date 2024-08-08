@@ -1,8 +1,8 @@
 # [Agency Foxy Template](https://ryanbalieiro.github.io/foxy-template/) by Ryan Balieiro
 
-This agency portfolio theme was created using Vue 3.0 and Bootstrap 5, all condensed into a sleek one-page layout. The theme boasts a variety of content sections, such as a portfolio gallery, testimonials, a showcase of services, contact information, and more. 
+This agency portfolio theme is built with Vue 3.0 and Bootstrap 5, all wrapped up in a stylish one-page layout. It features a range of content sections, including a portfolio gallery, testimonials, services showcase, contact info, and more.
 
-It's designed to be fully customizable, allowing you to integrate or adapt it into your business with ease.
+It's fully customizable, so you can easily personalize it to match your business needs.
 
 ## Preview
 ![alt tag1](screenshots/preview.png)
@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-4. To temporarily deactivate the preload animation during theme adjustments, navigate to `public/data/general.json` and modify the following field:
+4. To temporarily deactivate the preload animation during theme adjustments, go to `public/data/general.json` and modify the following field:
 
 ```
  "preloaderEnabled": false
@@ -63,7 +63,7 @@ This command will make a copy of `index.html` named `404.html` inside the dist f
 ## Quick Customization
 
 ### 1. Content Customization
-The content of the application, encompassing text and images, is conveniently located within the `public/` directory. Inside the `public/` folder, you'll find:
+The content of the application, encompassing text and images, is located within the `public/` directory. Inside the directory, you'll find:
 
 - `/data/general.json` ➔ A JSON file that contains the core information about the application.
 - `/data/sections.json` ➔ A JSON file that holds the content for each individual section.
@@ -72,7 +72,7 @@ The content of the application, encompassing text and images, is conveniently lo
 
 ### 2. Quickly customizing the colors
 
-Customizing the theme colors is a straightforward process. Simply access `src/scss/_variables.scss` and make adjustments to the color variables. For example, you can alter the primary color from orange to blue just by changing this line:
+You can quickly customize the theme colors to fit your style. Simply access `src/scss/_variables.scss` and make adjustments to the color variables. For example, you can alter the primary color from orange to blue just by changing this line:
 
 ```scss
 $primary: #07c5ee; /** making the primary color blue! **/

@@ -267,6 +267,20 @@ input {
         height: min(8vh, 50px);
         font-size: 0.8rem;
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active{
+        -webkit-box-shadow: 0 0 0 2px $input-attach-background-color inset !important;
+        -webkit-text-fill-color: $light !important;
+        color: $light!important;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:-webkit-autofill:focus {
+        border-color: $primary;
+    }
 }
 
 textarea {
@@ -289,5 +303,28 @@ textarea {
 
     font-size: var(--font-size);
     color: $input-placeholder-text-color;
+}
+
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: $input-placeholder-text-color!important;
+    opacity: 1;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: $input-placeholder-text-color!important;
+    opacity: 1;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $input-placeholder-text-color!important;
+}
+*::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $input-placeholder-text-color!important;
+}
+*::placeholder {
+    /* modern browser */
+    color: $input-placeholder-text-color!important;
 }
 </style>
