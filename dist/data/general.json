@@ -4,13 +4,13 @@
     },
 
     "navbar": {
-        "brand": "<span class='text-primary'>Foxy</span> Agency",
+        "brand": "<span class='text-primary'>Foxy</span> Template",
         "logo": "images/logo/agency-logo-small.png"
     },
 
     "header": {
-        "title": "Foxy Agency Template",
-        "subtitle": "Made by Ryan Balieiro with Vue3 and Bootstrap 5.0",
+        "title": "<span class='text-primary'>Foxy</span> Landing Page",
+        "subtitle": "An agency template by <strong>Ryan Balieiro</strong> – made with <strong>Vue3</strong> and <strong>Bootstrap 5.0</strong>",
         "imageUrl": "images/logo/agency-logo.png",
         "button": {
             "label": "Find Out More",
@@ -27,7 +27,7 @@
             "items": [
                 {"label": "Privacy Policy", "routerHref": "policy"},
                 {"label": "License", "routerHref": "license"},
-                {"label": "Github Repo", "href": "https://github.com/ryanbalieiro/foxy-template"}
+                {"label": "Github Repo", "href": "https://github.com/ryanbalieiro/vue-landing-page-template"}
             ],
             "displayItemsAsButtons": false
         },

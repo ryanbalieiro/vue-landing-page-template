@@ -12,8 +12,8 @@
                 "title": null,
                 "faIcon": null,
                 "description": [
-                    "This Privacy Policy has been crafted to explain how the information you provide while on Foxy Template is collected, stored, used, and managed.",
-                    "When you access Foxy Template, you are consenting to the collection and use of your personal information as described in this Privacy Policy. Please note that this Policy may be updated periodically, and it's advised for you to check this page frequently for any modifications."
+                    "This Privacy Policy has been crafted to explain how the information you provide while on Foxy is collected, stored, used, and managed.",
+                    "When you access Foxy, you are consenting to the collection and use of your personal information as described in this Privacy Policy. Please note that this Policy may be updated periodically, and it's advised for you to check this page frequently for any modifications."
                 ]
             },
 
@@ -21,7 +21,7 @@
                 "title": "Collected Information",
                 "faIcon": "fa-solid fa-database",
                 "description": [
-                    "The information that you voluntarily provide may be collected and stored when Foxy Template is accessed. This may include image files saved on your device storage, usage information such as preferences, purchase history, and/or session duration.",
+                    "The information that you voluntarily provide may be collected and stored when Foxy is accessed. This may include image files saved on your device storage, usage information such as preferences, purchase history, and/or session duration.",
                     "Furthermore, if your information is shared online, for example, by participating in leaderboards, any activity performed with other users will be considered public.",
                     "Finally, additional information may be collected each time the service is logged into, such as internet protocol addresses, device type, device language, platform type, number of taps, pages viewed, the order in which they were accessed, the time spent on particular pages, and the date and time of this activity. This information is used to better customize the application to your interests and improve the overall app performance.",
                     "Assurance is given that any data accessed and collected will not be disclosed, rented, leased, loaned, sold, or voluntarily distributed to unaffiliated third parties. It will solely be utilized for analytical purposes and to enhance your usage experience."
@@ -52,7 +52,7 @@
                 "faIcon": "fa-solid fa-link",
                 "description": [
                     "The application may feature links to other websites. Please note that just because the application links to a website, presents a banner ad, or displays other types of advertisements, it does not imply that it endorses or authorizes that third-party service. Nor is it a representation of any sort of affiliation with that third party.",
-                    "It should be made clear that the privacy policies of other websites that may be accessed from Foxy Template are not our responsibility. Therefore, it is highly recommended that the privacy policies of such websites or apps be read carefully before exiting the application."
+                    "It should be made clear that the privacy policies of other websites that may be accessed from Foxy are not our responsibility. Therefore, it is highly recommended that the privacy policies of such websites or apps be read carefully before exiting the application."
                 ]
             }
         ]
@@ -71,7 +71,7 @@
                 "title": "",
                 "faIcon": "",
                 "description": [
-                    "Foxy Template is an open source project that is licensed under the<a href='https://opensource.org/licenses/MIT'> MIT license</a>. This allows you to do pretty much anything you want as long as you include the copyright in “all copies or substantial portions of the Software.” Attribution is not required (though very much appreciated)."
+                    "Foxy is an open source Vue template that is licensed under the<a href='https://opensource.org/licenses/MIT'> MIT license</a>. This allows you to do pretty much anything you want as long as you include the copyright in “all copies or substantial portions of the Software.” Attribution is not required (though very much appreciated)."
                 ]
             },
 
@@ -79,7 +79,7 @@
                 "title": "Usage",
                 "faIcon": "fa-solid fa-toolbox",
                 "description": [
-                    "You are granted a range of opportunities to leverage Foxy Template to its fullest potential. Firstly, the framework extends its utility to both commercial and personal/private projects, offering flexibility for various contexts. Whether you're developing a business application or working on a personal project, Foxy Template can be integrated seamlessly.",
+                    "You are granted a range of opportunities to leverage Foxy to its fullest potential. Firstly, the framework extends its utility to both commercial and personal/private projects, offering flexibility for various contexts. Whether you're developing a business application or working on a personal project, Foxy can be integrated seamlessly.",
                     "Moreover, the freedom to modify and adapt the work allows you to tailor it to your specific requirements, ensuring a harmonious fit with your project's objectives. This adaptability extends to distribution as well, empowering you to share your customized version with others. The provision for sub-licensing further augments the framework's versatility, enabling you to incorporate it into projects governed by more restrictive licenses, expanding its potential applications."
                 ]
             },

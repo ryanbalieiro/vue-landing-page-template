@@ -3,6 +3,6 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/foxy-template/',
+  base: '/vue-landing-page-template/',
   plugins: [vue()],
 })

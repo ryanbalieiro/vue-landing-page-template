@@ -1,20 +1,22 @@
 <template>
-    <!-- Navigation -->
-    <NavBar :navbar-data="data.getNavbarData()"
-            :links="data.getSectionsData()"
-            :should-spy-scroll="true"
-            @link-clicked="_onNavLinkClicked"/>
+    <div class="homepage">
+        <!-- Navigation -->
+        <NavBar :navbar-data="data.getNavbarData()"
+                :links="data.getSectionsData()"
+                :should-spy-scroll="true"
+                @link-clicked="_onNavLinkClicked"/>
 
-    <!-- Header -->
-    <Header :header-data="data.getHeaderData()"/>
+        <!-- Header -->
+        <Header :header-data="data.getHeaderData()"/>
 
-    <!-- Website Sections -->
-    <component v-for="section in data.getSectionsData()"
-               :is="_getSectionComponentByName(section['component'])"
-               :section-data="section"/>
+        <!-- Website Sections -->
+        <component v-for="section in data.getSectionsData()"
+                   :is="_getSectionComponentByName(section['component'])"
+                   :section-data="section"/>
 
-    <!-- Footer -->
-    <Footer :footer-data="data.getFooterData()"/>
+        <!-- Footer -->
+        <Footer :footer-data="data.getFooterData()"/>
+    </div>
 </template>
 
 <script setup>

@@ -1,16 +1,25 @@
-# [Agency Foxy Template](https://ryanbalieiro.github.io/foxy-template/) by Ryan Balieiro
+# [<img src="readme-assets/logo.png"> Foxy - Vue Landing Page Template](https://ryanbalieiro.github.io/vue-landing-page-template/)
 
-This agency portfolio theme is built with Vue 3.0 and Bootstrap 5, all wrapped up in a stylish one-page layout. It features a range of content sections, including a portfolio gallery, testimonials, services showcase, contact info, and more.
+**Foxy** is an agency landing page theme built with Vue 3.0 and Bootstrap 5.0. It features a range of content sections, including a portfolio gallery, testimonials, services showcase, contact info, and more.
 
-It's fully customizable, so you can easily personalize it to match your business needs.
-
+The theme brings together cozy shades of orange with clean, minimalistic dark and white tones for a fresh, modern feel. The fox-inspired theme adds a charming touch, creating a UI that's both inviting and visually engaging.
 ## Preview
-![alt tag1](screenshots/preview.png)
 
-**[View Live Preview](https://ryanbalieiro.github.io/foxy-template/)**
+Check out a live version of the template **[here](https://ryanbalieiro.github.io/vue-landing-page-template/).**
+
+![alt tag1](readme-assets/preview.png)
+
+### 1. Desktop Screenshots
+The theme is optimized to adapt to any desktop screen, from 4:3 ratios to wider resolutions.
+
+![alt tag1](readme-assets/desktop-screenshot.png)
+
+### 2. Mobile Screenshots
+It's also designed for mobile devices, maintaining the sleek one-page layout with a  toggle navigation.
+
+![alt tag1](readme-assets/mobile-screenshot.png)
 
 ## Status
-
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/StartBootstrap/startbootstrap-agency/master/LICENSE)
 [![npm version](https://img.shields.io/npm/v/startbootstrap-agency.svg)](https://www.npmjs.com/package/startbootstrap-agency)
 
@@ -18,7 +27,7 @@ It's fully customizable, so you can easily personalize it to match your business
 
 1. Clone the repo:
 ```
-git clone https://github.com/ryanbalieiro/foxy-template
+git clone https://github.com/ryanbalieiro/vue-landing-page-template
 ```
 
 2. Go to the project's root folder and use npm to install all required components:
@@ -52,13 +61,13 @@ export default defineConfig({
 npm run build
 ```
 
-7. If your deployment is targeted at GitHub Pages, ensure to run the following command post the build process:
+7. If your deployment is targeted at GitHub Pages, ensure to run the following build command instead:
 
 ```
-npm run deploy
+npm run ghdeploy
 ```
 
-This command will make a copy of `index.html` named `404.html` inside the dist folder, serving as a workaround to the problem discussed in detail at https://stackoverflow.com/questions/48521177/404-when-reloading-a-vue-website-published-to-github-pages.
+This command will build the project and make a copy of `index.html` named `404.html` inside the dist folder, serving as a workaround to the problem discussed in detail at https://stackoverflow.com/questions/48521177/404-when-reloading-a-vue-website-published-to-github-pages.
 
 ## Quick Customization
 

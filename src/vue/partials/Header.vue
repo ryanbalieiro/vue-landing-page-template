@@ -16,8 +16,8 @@
                            class="img-logo"/>
 
                 <!-- Texts -->
-                <h1 class="heading">{{ props.headerData['title'] }}</h1>
-                <h4 class="subheading">{{ props.headerData['subtitle'] }}</h4>
+                <h1 class="heading" v-html="props.headerData['title']"/>
+                <h4 class="subheading" v-html="props.headerData['subtitle']"/>
 
                 <!-- Button -->
                 <XLButton :icon="props.headerData['button'].icon"

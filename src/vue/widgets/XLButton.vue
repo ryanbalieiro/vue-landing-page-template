@@ -1,10 +1,11 @@
 <template>
     <!-- If there's an href prop, create it as a link -->
-    <a v-if="props.href"
+    <a v-if="_getHrefForLink()"
        :id="props.id"
        :class="props.customClass"
-       :href="props.href"
+       :href="_getHrefForLink()"
        class="btn btn-primary btn-xl mt-4"
+       target="_blank"
        @click="_onButtonClicked()">
 
         <!-- Button Label -->
@@ -25,6 +26,8 @@
 </template>
 
 <script setup>
+import {useLayout} from "/src/composables/layout.js"
+
 /**
  * @property {String} label
  * @property {String} icon
@@ -42,12 +45,24 @@ const props = defineProps({
     customClass: Object,
 })
 
+const layout = useLayout()
+
+const _getHrefForLink = () => {
+    if(props.href && props.href.charAt(0) !== '#') {
+        return props.href
+    }
+}
+
 const emit = defineEmits(['click'])
 
 /**
  * @private
  */
 const _onButtonClicked = () => {
+    if(props.href && props.href.charAt(0) === '#') {
+        layout.smoothScrollToElement(props.href.replace('#', ''), true)
+    }
+
     emit('click')
 }
 </script>
